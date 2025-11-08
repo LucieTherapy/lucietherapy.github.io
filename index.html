@@ -1,233 +1,204 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dr. Alex Morgan — Clinical Psychologist in Brighton</title>
-  <meta name="description" content="Clinical psychologist offering CBT, ACT and supervision in Brighton, UK. Compassionate, evidence-based therapy and supervision in a calm, confidential setting.">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lucie Ramet — Therapy in Brighton</title>
+    <meta name="description" content="Warm, evidence-informed therapy in Brighton and online. CBT, ACT and supervision with Lucie Ramet." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="site-wrap">
+      <header class="site-header">
+        <div class="container header-inner">
+          <a class="brand" href="/">
+            <div class="logo" aria-hidden="true">LR</div>
+            <div class="brand-text">
+              <h1 class="site-title">Lucie Ramet</h1>
+              <p class="site-sub">Therapy • Brighton & online</p>
+            </div>
+          </a>
 
-  <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#f7fafc; /* light neutral */
-      --card:#ffffff;
-      --muted:#5f6c7b;
-      --accent:#0d9488; /* teal */
-      --accent-light:#14b8a6; /* lighter teal */
-      --radius:14px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:var(--bg);
-      color:#1e293b;
-      -webkit-font-smoothing:antialiased;
-      line-height:1.6;
-      padding:32px;
-    }
-
-    .container{max-width:1100px;margin:0 auto}
-
-    header{
-      display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;
-    }
-    .brand{display:flex;gap:16px;align-items:center}
-    .logo{
-      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent-light),var(--accent));
-      display:flex;align-items:center;justify-content:center;font-weight:700;color:#ffffff;box-shadow:0 4px 12px rgba(13,148,136,0.3);
-    }
-    .brand h1{font-size:20px;margin:0;font-weight:700;color:#0f172a}
-    .brand p{margin:0;font-size:13px;color:var(--muted)}
-
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600;transition:color .2s}
-    nav a:hover{color:var(--accent)}
-    nav a.cta{background:linear-gradient(90deg,var(--accent),var(--accent-light));padding:8px 14px;border-radius:10px;color:white;text-decoration:none}
-
-    main{display:grid;grid-template-columns:1fr 360px;gap:28px}
-
-    .hero{
-      background:linear-gradient(180deg,#ffffff, #f8fafc);
-      border-radius:var(--radius);padding:28px;box-shadow:0 3px 20px rgba(0,0,0,0.05);
-    }
-    .hero h2{margin:0 0 8px 0;font-size:28px;color:#0f172a}
-    .hero p.lead{color:#334155;margin:0 0 18px;font-size:16px}
-
-    .card{background:var(--card);border-radius:12px;padding:22px;margin-bottom:18px;box-shadow:0 3px 20px rgba(0,0,0,0.05)}
-    .muted{color:var(--muted);font-size:14px}
-
-    .about{display:flex;gap:20px;align-items:center}
-    .about .portrait{width:120px;height:120px;border-radius:14px;background:linear-gradient(135deg,#e0f2f1,#b2f5ea);display:flex;align-items:center;justify-content:center;font-size:36px;color:var(--accent)}
-    .about p{margin:0}
-
-    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
-    .service{padding:14px;border-radius:12px;background:#f9fafb;min-height:160px;display:flex;flex-direction:column;gap:10px;transition:box-shadow .2s,transform .2s}
-    .service:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,0.07)}
-    .service h3{margin:0;color:#0f172a}
-    .service p{margin:0;color:#475569;font-size:14px}
-
-    aside{position:relative}
-    .booking{position:sticky;top:28px}
-    .book-cta{display:block;background:linear-gradient(90deg,var(--accent),var(--accent-light));color:white;padding:12px;border-radius:12px;text-align:center;font-weight:700;text-decoration:none;transition:opacity .2s}
-    .book-cta:hover{opacity:.9}
-
-    form{display:grid;gap:10px}
-    label{font-size:13px;color:var(--muted)}
-    input[type="text"],input[type="email"],input[type="tel"],input[type="date"],input[type="time"],textarea,select{
-      width:100%;padding:10px;border-radius:10px;border:1px solid #cbd5e1;background:#ffffff;color:#1e293b;font-size:14px
-    }
-    textarea{min-height:120px;resize:vertical}
-    button[type="submit"]{background:linear-gradient(90deg,var(--accent),var(--accent-light));padding:12px;border-radius:12px;border:0;font-weight:700;color:white;cursor:pointer;transition:opacity .2s}
-    button[type="submit"]:hover{opacity:.9}
-
-    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
-
-    @media (max-width:980px){
-      main{grid-template-columns:1fr;}
-      .services-grid{grid-template-columns:1fr}
-      .about{flex-direction:row}
-      aside{order:3}
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-
-    <header>
-      <div class="brand">
-        <div class="logo">AM</div>
-        <div>
-          <h1>Dr Alex Morgan</h1>
-          <p>Clinical Psychologist — Brighton, UK</p>
+          <nav class="site-nav" aria-label="Primary">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a class="btn btn-cta" href="#contact">Book</a>
+          </nav>
         </div>
+      </header>
+
+      <main>
+        <section class="hero" id="home" aria-labelledby="hero-heading">
+          <div class="container hero-inner">
+            <div class="hero-content">
+              <h2 id="hero-heading">Calm, confidential therapy to help you move forward</h2>
+              <p class="lead">I offer compassionate, evidence-informed therapy in Brighton and online. Together we’ll build tools that fit your life—helping with anxiety, low mood, stress and life transitions.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#contact">Request a free 15‑minute call</a>
+                <a class="btn btn-outline" href="#services">Learn about therapy</a>
+              </div>
+              <p class="muted small">Sessions available in-person and remote; I work with adults, individuals and professionals seeking supervision.</p>
+            </div>
+
+            <div class="hero-media" aria-hidden="true">
+              <div class="portrait">
+                <img src="media/profile.jpg" alt="Portrait of Lucie Ramet" onerror="this.style.opacity=0">
+              </div>
+            </div>
+          </div>
+        </section>
+
+  <section class="section-band section-band--alt" id="services" aria-labelledby="services-heading">
+    <div class="container cards">
+          <h2 id="services-heading">Therapy & support</h2>
+          <p class="muted">Tailored, time-limited or open-ended therapy depending on your needs.</p>
+
+          <div class="grid grid-3">
+            <article class="card">
+              <h3>CBT — Cognitive Behavioural Therapy</h3>
+              <p class="muted">Practical, skills-focused approach to understand and change patterns that cause distress.</p>
+            </article>
+
+            <article class="card">
+              <h3>ACT — Acceptance & Commitment Therapy</h3>
+              <p class="muted">Mindfulness and values-based work to help you live a meaningful life alongside difficult thoughts and feelings.</p>
+            </article>
+
+            <article class="card">
+              <h3>Supervision & consultancy</h3>
+              <p class="muted">Reflective, supportive supervision for practitioners and trainees, focusing on growth and clinical confidence.</p>
+            </article>
+          </div>
       </div>
+    </div>
+  </section>
 
-      <nav>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#appointment" class="cta">Book Appointment</a>
-      </nav>
-    </header>
+  <section class="section-band" id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container testimonials">
+          <h2 id="testimonials-heading">What people say</h2>
+          <div class="grid grid-2">
+            <blockquote class="quote card">
+              <div class="rating" aria-hidden="true">★★★★★</div>
+              <p class="quote-text">"Warm, professional and practical—I felt heard and supported from the first session."</p>
+              <cite>— J., Brighton</cite>
+            </blockquote>
 
-    <main>
-      <section>
-        <article class="hero card" id="about">
-          <div class="about">
-            <div class="portrait">🙂</div>
+            <blockquote class="quote card">
+              <div class="rating" aria-hidden="true">★★★★★</div>
+              <p class="quote-text">"Lucie helped me make sense of difficult feelings and build tools I still use today."</p>
+              <cite>— K., Online client</cite>
+            </blockquote>
+          </div>
+    </div>
+  </section>
+
+        <section class="section-band section-band--alt" id="where" aria-labelledby="where-heading">
+          <div class="container">
+            <h2 id="where-heading">Where to find me</h2>
+            <div class="grid grid-2 locations">
+              <div class="card location in-person">
+                <h3>In‑person</h3>
+                <p class="muted">I receive clients in person on Wednesdays and Fridays at:</p>
+                <address>49 Church Road, Hove, BN3 2BE</address>
+                <div class="map-wrap">
+                  <iframe src="https://www.google.com/maps?q=49+Church+Road,+Hove,+BN3+2BE&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="false"></iframe>
+                </div>
+              </div>
+
+              <div class="card location online">
+                <h3>Online</h3>
+                <p class="muted">I continue to work with the practice I was with in Singapore when I was an expat. I take online clients on mornings.</p>
+                <a href="https://theotherclinic.sg/" target="_blank" rel="noopener noreferrer">
+                  <img src="https://i0.wp.com/theotherclinic.sg/wp-content/uploads/2025/03/house-with-border.jpg?resize=768%2C614&ssl=1" alt="The Other Clinic, Singapore" class="external-img">
+                </a>
+                <p class="muted small" style="margin-top:8px">Visit <a href="https://theotherclinic.sg/" target="_blank" rel="noopener noreferrer">theotherclinic.sg</a> for more information.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-band" id="contact" aria-labelledby="contact-heading">
+          <div class="container">
+            <div class="grid grid-2 contact-grid">
             <div>
-              <h2>Welcome, I’m Dr Alex Morgan</h2>
-              <p class="lead">I’m a HCPC-registered clinical psychologist based in Brighton, offering evidence-based, compassionate therapy to help you find clarity, confidence and balance. My practice is grounded in warmth, respect and collaboration.</p>
-              <p class="muted">I have over 10 years of experience in both NHS and private settings. My approach integrates Cognitive Behavioural Therapy (CBT), Acceptance & Commitment Therapy (ACT), and mindfulness-based interventions, always tailored to your individual goals.</p>
+              <h2 id="contact-heading">Request an appointment</h2>
+              <p class="muted">Complete the form or email <a href="mailto:hello@brightonpsychology.co.uk">hello@brightonpsychology.co.uk</a>. I aim to respond within 2–3 working days.</p>
+
+              <form class="contact-form" onsubmit="handleSubmit(event)">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" required>
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required>
+
+                <label for="service">Service</label>
+                <select id="service" name="service">
+                  <option>CBT</option>
+                  <option>ACT</option>
+                  <option>Supervision</option>
+                </select>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="A sentence about what brings you here (optional)"></textarea>
+
+                <div class="form-row">
+                  <label class="checkbox"><input id="consent" name="consent" type="checkbox" required> I consent to use of my data to arrange appointments.</label>
+                </div>
+
+                <div class="form-row">
+                  <button class="btn btn-primary" type="submit">Send request</button>
+                </div>
+              </form>
             </div>
-          </div>
-        </article>
 
-        <section class="card" id="services">
-          <h2 style="margin-top:0;color:#0f172a">Services</h2>
-          <p class="muted">Therapy sessions are available in-person in central Brighton or remotely via secure video. Together, we’ll find an approach that feels right for you.</p>
-
-          <div class="services-grid">
-            <div class="service">
-              <h3>Cognitive Behavioural Therapy (CBT)</h3>
-              <p>CBT is a practical, structured therapy that helps you understand and change unhelpful thoughts and behaviours. It is effective for anxiety, depression and other mood-related difficulties.</p>
-            </div>
-
-            <div class="service">
-              <h3>Acceptance & Commitment Therapy (ACT)</h3>
-              <p>ACT focuses on living meaningfully while learning to relate differently to difficult emotions and thoughts. It integrates mindfulness and values-based action to help you move forward.</p>
-            </div>
-
-            <div class="service">
-              <h3>Supervision</h3>
-              <p>I provide supportive and reflective supervision for psychologists and trainees. My supervision style emphasises safety, professional growth, and integration of theory with practice.</p>
+            <aside class="sidebar">
+              <div class="card contact-card">
+                <h3>Quick info</h3>
+                <p class="muted">Free 15‑minute phone consultation available. In-person in Brighton or secure online sessions.</p>
+                <p class="muted"><strong>Email</strong>: <a href="mailto:hello@brightonpsychology.co.uk">hello@brightonpsychology.co.uk</a></p>
+                <p class="muted"><strong>Phone</strong>: +44 7400 000000</p>
+              </div>
+            </aside>
             </div>
           </div>
         </section>
 
-        <section class="card" id="appointment">
-          <h2 style="margin-top:0;color:#0f172a">Appointment</h2>
-          <p class="muted">To request an appointment, please fill out the form below. You’ll receive a response within 2–3 working days. For urgent mental health concerns, please contact NHS 111 or 999 in an emergency.</p>
+    <!-- Floating quick info (desktop) -->
+    <aside class="quick-info-floating" aria-label="Quick contact info">
+      <div class="card contact-card">
+        <h3>Quick info</h3>
+        <p class="muted">Free 15‑minute phone consultation available. In-person in Brighton or secure online sessions.</p>
+        <p class="muted"><strong>Email</strong>: <a href="mailto:hello@brightonpsychology.co.uk">hello@brightonpsychology.co.uk</a></p>
+        <p class="muted"><strong>Phone</strong>: +44 7400 000000</p>
+        <p style="margin-top:10px"><a class="btn btn-primary" href="#contact">Request a slot</a></p>
+      </div>
+    </aside>
+      </main>
 
-          <form onsubmit="handleSubmit(event)">
-            <label for="name">Full name</label>
-            <input id="name" name="name" type="text" placeholder="e.g. Jane Smith" required>
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@domain.com" required>
-
-            <label for="phone">Phone (optional)</label>
-            <input id="phone" name="phone" type="tel" placeholder="+44 7400 000000">
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-              <div>
-                <label for="date">Preferred date</label>
-                <input id="date" name="date" type="date">
-              </div>
-              <div>
-                <label for="time">Preferred time</label>
-                <input id="time" name="time" type="time">
-              </div>
-            </div>
-
-            <label for="service">Service of interest</label>
-            <select id="service" name="service" required>
-              <option value="CBT">CBT</option>
-              <option value="ACT">ACT</option>
-              <option value="Supervision">Supervision</option>
-              <option value="Assessment">Initial Assessment</option>
-            </select>
-
-            <label for="message">Brief message (optional)</label>
-            <textarea id="message" name="message" placeholder="Reason for referral or anything you'd like to share"></textarea>
-
-            <div style="display:flex;gap:10px;align-items:center;">
-              <input id="consent" name="consent" type="checkbox" required>
-              <label for="consent" class="muted">I consent to my data being used for arranging appointments in line with the privacy notice.</label>
-            </div>
-
-            <button type="submit">Request appointment</button>
-            <p class="muted" style="font-size:13px;margin-top:8px">Fees and full privacy policy will be shared upon booking.</p>
-          </form>
-        </section>
-      </section>
-
-      <aside>
-        <div class="booking card">
-          <h3 style="margin-top:0;color:#0f172a">Quick booking</h3>
-          <p class="muted">Book a free 15-minute phone consultation to discuss whether therapy could be helpful for you.</p>
-          <a class="book-cta" href="#appointment">Request a slot</a>
-          <hr style="border:none;height:1px;background:#e2e8f0;margin:14px 0">
-          <div>
-            <p class="muted" style="margin:0 0 8px">Contact</p>
-            <p style="margin:0;font-weight:600">Email: <a href="mailto:hello@brightonpsychology.co.uk" style="color:var(--accent)">hello@brightonpsychology.co.uk</a></p>
-            <p style="margin:6px 0 0;color:var(--muted)">Phone: +44 7400 000000</p>
-          </div>
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <p>&copy; <span id="year"></span> Lucie Ramet — Therapy practice, Brighton, UK.</p>
+          <p class="muted small">For urgent support, contact NHS 111 or emergency services.</p>
         </div>
-      </aside>
-    </main>
+      </footer>
+    </div>
 
-    <footer>
-      <p>&copy; <span id="year"></span> Dr Alex Morgan — HCPC Registered Clinical Psychologist, Brighton UK.</p>
-    </footer>
-  </div>
-
-  <script>
-    function handleSubmit(e){
-      e.preventDefault();
-      const btn = document.querySelector('button[type=submit]');
-      btn.disabled = true; btn.textContent = 'Sending...';
-      setTimeout(()=>{
-        btn.textContent = 'Request appointment'; btn.disabled = false;
-        alert('Thank you — your message has been received. I’ll get back to you shortly.');
-        document.querySelector('form').reset();
-      },1000);
-    }
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
+    <script>
+      function handleSubmit(e){
+        e.preventDefault();
+        const btn = document.querySelector('.contact-form button[type=submit]');
+        btn.disabled = true; btn.textContent = 'Sending...';
+        setTimeout(()=>{
+          btn.textContent = 'Send request'; btn.disabled = false;
+          alert('Thanks — your request has been sent. I will reply within a few working days.');
+          document.querySelector('.contact-form').reset();
+        },900);
+      }
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
