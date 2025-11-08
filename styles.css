@@ -117,6 +117,37 @@ textarea{min-height:120px}
 	.brand-text .site-title{font-size:16px}
 }
 
+/* Ensure consistent content width across all sections on the homepage
+	 - Force all sections to use the central `.container` width
+	 - Prevent large media (maps, images) from visually extending past the content column
+	 - Keep cards and article content aligned to the same rhythm */
+main > section{box-sizing:border-box}
+main > section .container{max-width:var(--max-width);margin-left:auto;margin-right:auto;padding-left:32px;padding-right:32px}
+.card, .about-card .card, .testimonials .card, .locations .card, .contact-card{max-width:100%;box-sizing:border-box}
+.external-img, .map-wrap iframe, .portrait img{max-width:100%;height:auto}
+
+/* Make sure the hero image doesn't push the layout wider than the container */
+.hero-inner{align-items:center;max-width:100%}
+
+@media (min-width:1200px){
+	/* slightly reduce content width at very large screens to keep reading measure comfortable */
+	:root{--max-width:1100px}
+}
+
+/* About card reading improvements: max-width, lead styling and responsive spacing
+	 Keeps the homepage visually balanced on small screens while improving readability on wide screens. */
+.about-card .card{max-width:68ch;margin-left:auto;margin-right:auto}
+.about-card .card p{line-height:1.66;margin-bottom:1rem;color:var(--muted);font-size:15.6px}
+.about-card .card .lead{font-size:1.04rem;color:var(--ink);font-weight:600;margin-bottom:0.8rem}
+
+@media (max-width:980px){
+	.about-card .card{padding:16px}
+	.about-card .card p{margin-bottom:0.6rem;font-size:15px}
+	/* Reduce hero vertical weight slightly on small screens so the intro and image balance */
+	.hero{padding:28px 0}
+	.hero-inner{gap:18px}
+}
+
 /* Utility helpers */
 .muted.small{opacity:0.9}
 
