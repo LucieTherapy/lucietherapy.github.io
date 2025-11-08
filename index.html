@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="
+    styles.css">
   </head>
   <body>
     <div class="site-wrap">
@@ -18,15 +19,53 @@
             <div class="logo" aria-hidden="true">LR</div>
             <div class="brand-text">
               <h1 class="site-title">Lucie Ramet</h1>
-              <p class="site-sub">Therapy • Brighton & online</p>
+              <p class="site-sub"><span data-lang="en">Therapy • Brighton & online</span><span data-lang="fr">Thérapie • Brighton & en ligne</span></p>
             </div>
           </a>
 
           <nav class="site-nav" aria-label="Primary">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#testimonials">Testimonials</a>
-            <a class="btn btn-cta" href="#contact">Book</a>
+            <a href="#about"><span data-lang="en">About</span><span data-lang="fr">À propos</span></a>
+            <a href="#services"><span data-lang="en">Services</span><span data-lang="fr">Services</span></a>
+            <a href="#contact"><span data-lang="en">Contact</span><span data-lang="fr">Contact</span></a>
+            <a class="btn btn-cta" href="#contact"><span data-lang="en">Book</span><span data-lang="fr">Réserver</span></a>
+
+            <div class="lang-toggle" role="tablist" aria-label="Language">
+              <button id="lang-en" aria-pressed="true" aria-label="English">
+                <span class="flag" aria-hidden="true">
+                  <svg viewBox="0 0 60 30" width="18" height="12" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                    <rect width="60" height="30" fill="#012169"/>
+                    <g fill="#fff">
+                      <rect x="25" width="10" height="30"/>
+                      <rect y="10" width="60" height="10"/>
+                    </g>
+                    <g fill="#C8102E">
+                      <rect x="27" width="6" height="30"/>
+                      <rect y="12" width="60" height="6"/>
+                    </g>
+                    <g stroke="#fff" stroke-width="6">
+                      <line x1="0" y1="0" x2="60" y2="30"/>
+                      <line x1="60" y1="0" x2="0" y2="30"/>
+                    </g>
+                    <g stroke="#C8102E" stroke-width="3">
+                      <line x1="0" y1="0" x2="60" y2="30"/>
+                      <line x1="60" y1="0" x2="0" y2="30"/>
+                    </g>
+                  </svg>
+                </span>
+                <span class="lang-label">EN</span>
+              </button>
+
+              <button id="lang-fr" aria-pressed="false" aria-label="Français">
+                <span class="flag" aria-hidden="true">
+                  <svg viewBox="0 0 3 2" width="18" height="12" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                    <rect width="1" height="2" x="0" fill="#0055A4"/>
+                    <rect width="1" height="2" x="1" fill="#FFFFFF"/>
+                    <rect width="1" height="2" x="2" fill="#EF4135"/>
+                  </svg>
+                </span>
+                <span class="lang-label">FR</span>
+              </button>
+            </div>
           </nav>
         </div>
       </header>
@@ -35,13 +74,13 @@
         <section class="hero" id="home" aria-labelledby="hero-heading">
           <div class="container hero-inner">
             <div class="hero-content">
-              <h2 id="hero-heading">Calm, confidential therapy to help you move forward</h2>
-              <p class="lead">I offer compassionate, evidence-informed therapy in Brighton and online. Together we’ll build tools that fit your life—helping with anxiety, low mood, stress and life transitions.</p>
+              <h2 id="hero-heading"><span data-lang="en">Calm, confidential therapy to help you move forward</span><span data-lang="fr">Thérapie calme et confidentielle pour vous aider à aller de l’avant</span></h2>
+              <p class="lead"><span data-lang="en">I offer compassionate, evidence-informed therapy in Brighton and online. Together we’ll build tools that fit your life—helping with anxiety, low mood, stress and life transitions.</span><span data-lang="fr">J’offre un soutien psychologique bienveillant et fondé sur des preuves à Brighton et en ligne. Ensemble, nous construirons des outils adaptés à votre vie — pour aider face à l’anxiété, la dépression, le stress et les transitions de vie.</span></p>
               <div class="hero-actions">
-                <a class="btn btn-primary" href="#contact">Request a free 15‑minute call</a>
-                <a class="btn btn-outline" href="#services">Learn about therapy</a>
+                <a class="btn btn-primary" href="#contact"><span data-lang="en">Request a free 15‑minute consultation</span><span data-lang="fr">Demander une consultation gratuite de 15 minutes</span></a>
+                <a class="btn btn-outline" href="#services"><span data-lang="en">Learn about therapy</span><span data-lang="fr">En savoir plus sur la thérapie</span></a>
               </div>
-              <p class="muted small">Sessions available in-person and remote; I work with adults, individuals and professionals seeking supervision.</p>
+              <p class="muted small"><span data-lang="en">Sessions available in-person and remote; I work with adults, individuals and professionals seeking supervision.</span><span data-lang="fr">Séances en présentiel et à distance ; j’accompagne les adultes, les adolescents (16+) et les professionnels en supervision.</span></p>
             </div>
 
             <div class="hero-media" aria-hidden="true">
@@ -52,70 +91,87 @@
           </div>
         </section>
 
+        <section class="container about-card" id="about" aria-labelledby="about-heading">
+          <article class="card">
+            <h2 id="about-heading"><span data-lang="en">Lucie Ramet — <strong>CBT</strong> and <strong>ACT Therapy</strong> (<strong>French &amp; English</strong>)</span><span data-lang="fr">Lucie Ramet — <strong>Thérapie CBT</strong> et <strong>ACT</strong> (<strong>Français &amp; Anglais</strong>)</span></h2>
+
+            <p><span data-lang="en">I offer <strong>compassionate</strong>, <strong>evidence-based</strong> psychological support for <strong>adolescents (16+) and adults</strong>, available <strong>in-person in Brighton (UK)</strong> and <strong>online</strong> for <strong>expats and French speakers worldwide</strong>.</span><span data-lang="fr">J’offre un accompagnement psychologique <strong>bienveillant</strong> et <strong>fondé sur des preuves</strong> pour les <strong>adolescents (16+) et les adultes</strong>, disponible <strong>en cabinet à Brighton (R.-U.)</strong> et <strong>en ligne</strong> pour les expatriés et les francophones partout dans le monde.</span></p>
+
+            <p><span data-lang="en">As a <strong>French Clinical Psychologist</strong>, I have lived in the <strong>United States</strong> and <strong>Canada</strong> during my academic years, and have worked in <strong>France</strong>, <strong>Singapore</strong>, and now the <strong>United Kingdom</strong>. These experiences have allowed me to connect with people from <strong>diverse cultures</strong>, backgrounds, and perspectives, enriching both my practice and worldview.</span><span data-lang="fr">En tant que <strong>psychologue clinicienne française</strong>, j’ai vécu aux <strong>États‑Unis</strong> et au <strong>Canada</strong> pendant mes études, et j’ai exercé en <strong>France</strong>, à <strong>Singapour</strong> et désormais au <strong>Royaume‑Uni</strong>. Ces expériences m’ont permis de me connecter avec des personnes de cultures et de parcours variés, enrichissant ma pratique et ma vision.</span></p>
+
+            <p><span data-lang="en">Now <strong>settled in Brighton</strong>, I draw on this <strong>international experience</strong> to provide <strong>personalized, culturally sensitive therapy</strong>, supporting you in navigating life’s challenges with <strong>openness, balance, and compassion</strong>.</span><span data-lang="fr">Installée désormais à <strong>Brighton</strong>, je m’appuie sur cette <strong>expérience internationale</strong> pour proposer une thérapie <strong>personnalisée</strong> et <strong>culturellement sensible</strong>, afin de vous aider à traverser les épreuves avec <strong>ouverture, équilibre et bienveillance</strong>.</span></p>
+          </article>
+        </section>
+
   <section class="section-band section-band--alt" id="services" aria-labelledby="services-heading">
     <div class="container cards">
-          <h2 id="services-heading">Therapy & support</h2>
-          <p class="muted">Tailored, time-limited or open-ended therapy depending on your needs.</p>
+          <h2 id="services-heading"><span data-lang="en">Therapy & support</span><span data-lang="fr">Thérapie & accompagnement</span></h2>
+          <p class="muted"><span data-lang="en">Tailored, time-limited or open-ended therapy depending on your needs.</span><span data-lang="fr">Thérapies sur mesure, brèves ou ouvertes selon vos besoins.</span></p>
 
           <div class="grid grid-3">
             <article class="card">
-              <h3>CBT — Cognitive Behavioural Therapy</h3>
-              <p class="muted">Practical, skills-focused approach to understand and change patterns that cause distress.</p>
+              <h3><span data-lang="en">CBT — Cognitive Behavioural Therapy</span><span data-lang="fr">TCC — Thérapie cognitivo‑comportementale</span></h3>
+              <p class="muted"><span data-lang="en">Practical, skills-focused approach to understand and change patterns that cause distress.</span><span data-lang="fr">Approche pratique axée sur les compétences pour comprendre et modifier les schémas causant de la détresse.</span></p>
             </article>
 
             <article class="card">
-              <h3>ACT — Acceptance & Commitment Therapy</h3>
-              <p class="muted">Mindfulness and values-based work to help you live a meaningful life alongside difficult thoughts and feelings.</p>
+              <h3><span data-lang="en">ACT — Acceptance & Commitment Therapy</span><span data-lang="fr">ACT — Thérapie d'acceptation et d'engagement</span></h3>
+              <p class="muted"><span data-lang="en">Mindfulness and values-based work to help you live a meaningful life alongside difficult thoughts and feelings.</span><span data-lang="fr">Travail de pleine conscience et centré sur les valeurs pour vous aider à mener une vie signifiante malgré les pensées et émotions difficiles.</span></p>
             </article>
 
             <article class="card">
-              <h3>Supervision & consultancy</h3>
-              <p class="muted">Reflective, supportive supervision for practitioners and trainees, focusing on growth and clinical confidence.</p>
+              <h3><span data-lang="en">Supervision & consultancy</span><span data-lang="fr">Supervision & conseil</span></h3>
+              <p class="muted"><span data-lang="en">Reflective, supportive supervision for practitioners and trainees, focusing on growth and clinical confidence.</span><span data-lang="fr">Supervision réflexive et bienveillante pour praticiens et stagiaires, axée sur la croissance professionnelle et la confiance clinique.</span></p>
             </article>
           </div>
       </div>
     </div>
   </section>
 
-  <section class="section-band" id="testimonials" aria-labelledby="testimonials-heading">
-    <div class="container testimonials">
-          <h2 id="testimonials-heading">What people say</h2>
-          <div class="grid grid-2">
-            <blockquote class="quote card">
-              <div class="rating" aria-hidden="true">★★★★★</div>
-              <p class="quote-text">"Warm, professional and practical—I felt heard and supported from the first session."</p>
-              <cite>— J., Brighton</cite>
-            </blockquote>
-
-            <blockquote class="quote card">
-              <div class="rating" aria-hidden="true">★★★★★</div>
-              <p class="quote-text">"Lucie helped me make sense of difficult feelings and build tools I still use today."</p>
-              <cite>— K., Online client</cite>
-            </blockquote>
-          </div>
-    </div>
-  </section>
+  <!-- testimonials moved to footer area per user request -->
 
         <section class="section-band section-band--alt" id="where" aria-labelledby="where-heading">
           <div class="container">
-            <h2 id="where-heading">Where to find me</h2>
+            <h2 id="where-heading"><span data-lang="en">Where to find me</span><span data-lang="fr">Où me trouver</span></h2>
             <div class="grid grid-2 locations">
               <div class="card location in-person">
-                <h3>In‑person</h3>
-                <p class="muted">I receive clients in person on Wednesdays and Fridays at:</p>
-                <address>49 Church Road, Hove, BN3 2BE</address>
-                <div class="map-wrap">
-                  <iframe src="https://www.google.com/maps?q=49+Church+Road,+Hove,+BN3+2BE&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="false"></iframe>
-                </div>
+                <h3><span data-lang="en">In‑person</span><span data-lang="fr">En personne</span></h3>
+                <p class="muted"><span data-lang="en">I receive clients in person on Wednesdays and Fridays at:</span><span data-lang="fr">Je reçois des clients en cabinet les mercredis et vendredis à :</span></p>
+                  <h4 class="practice-name"><span data-lang="en">Brighton and Hove Psychotherapy</span><span data-lang="fr">Brighton and Hove Psychotherapy</span></h4>
+                  <address>
+                    <span data-lang="en">49 Church Road<br>Hove, BN3 2BE<br>East Sussex<br>United Kingdom</span>
+                    <span data-lang="fr">49 Church Road<br>Hove, BN3 2BE<br>East Sussex<br>Royaume‑Uni</span>
+                  </address>
+
+                  <p class="muted"><strong><span data-lang="en">Contact</span><span data-lang="fr">Contact</span></strong>: <a href="mailto:info@lucietherapy.com">info@lucietherapy.com</a><br>
+                  <a href="https://www.brightonandhovepsychotherapy.com" target="_blank" rel="noopener noreferrer">www.brightonandhovepsychotherapy.com</a></p>
+
+                  <div class="map-wrap">
+                    <iframe src="https://www.google.com/maps?q=49+Church+Road,+Hove,+BN3+2BE&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="false"></iframe>
+                  </div>
               </div>
 
               <div class="card location online">
-                <h3>Online</h3>
-                <p class="muted">I continue to work with the practice I was with in Singapore when I was an expat. I take online clients on mornings.</p>
-                <a href="https://theotherclinic.sg/" target="_blank" rel="noopener noreferrer">
-                  <img src="https://i0.wp.com/theotherclinic.sg/wp-content/uploads/2025/03/house-with-border.jpg?resize=768%2C614&ssl=1" alt="The Other Clinic, Singapore" class="external-img">
-                </a>
-                <p class="muted small" style="margin-top:8px">Visit <a href="https://theotherclinic.sg/" target="_blank" rel="noopener noreferrer">theotherclinic.sg</a> for more information.</p>
+                <h3><span data-lang="en">Online</span><span data-lang="fr">En ligne</span></h3>
+                    <div class="card-meta">
+                      <span class="telehealth-badge" role="img" aria-label="Telehealth badge">
+                        <img src="media/telehealth.svg" alt="" class="telehealth-icon" aria-hidden="true">
+                        <span class="badge-label"><span data-lang="en">Telehealth</span><span data-lang="fr">Télésanté</span></span>
+                      </span>
+                    </div>
+
+                    <p class="muted"><span data-lang="en">I previously worked in Singapore with The Other Clinic, and I continue this collaboration by offering telehealth sessions for clients based in Singapore or those who have relocated to Europe.</span><span data-lang="fr">J'ai précédemment travaillé à Singapour avec The Other Clinic, et je continue cette collaboration en proposant des séances de télésanté pour les clients basés à Singapour ou ceux qui ont déménagé en Europe.</span></p>
+
+                    <p class="muted small schedule-note"><span data-lang="en">For clients based in Singapore: I offer telehealth sessions 4–9pm SGT.</span><span data-lang="fr">Pour les clients basés à Singapour : je propose des séances de télésanté de 16h à 21h (heure de Singapour).</span></p>
+                    <a href="https://theotherclinic.sg/" target="_blank" rel="noopener noreferrer" class="external-media">
+                    <img src="media/theotherclinichouser.webp" alt="The Other Clinic, Singapore" class="external-img" loading="lazy" decoding="async">
+                    <!-- SVG sometimes doesn't render in some contexts; use PNG fallback which is included in the repo -->
+                    <img src="media/logo-toc.png" alt="The Other Clinic logo" class="partner-logo stamp" aria-hidden="true" width="88" loading="lazy" decoding="async">
+                  </a>
+                <p class="muted small" style="margin-top:8px">
+                  <span data-lang="en"><strong>Contact (Singapore)</strong>: <a href="mailto:hello@theotherclinic.sg">hello@theotherclinic.sg</a> • <a href="https://theotherclinic.sg/lucie-ramet/" target="_blank" rel="noopener noreferrer">Web — The Other Clinic</a></span>
+                  <span data-lang="fr"><strong>Contact (Singapour)</strong> : <a href="mailto:hello@theotherclinic.sg">hello@theotherclinic.sg</a> • <a href="https://theotherclinic.sg/lucie-ramet/" target="_blank" rel="noopener noreferrer">Site — The Other Clinic</a></span>
+                </p>
               </div>
             </div>
           </div>
@@ -125,14 +181,14 @@
           <div class="container">
             <div class="grid grid-2 contact-grid">
             <div>
-              <h2 id="contact-heading">Request an appointment</h2>
-              <p class="muted">Complete the form or email <a href="mailto:hello@brightonpsychology.co.uk">hello@brightonpsychology.co.uk</a>. I aim to respond within 2–3 working days.</p>
+              <h2 id="contact-heading"><span data-lang="en">Request an appointment</span><span data-lang="fr">Demander un rendez‑vous</span></h2>
+              <p class="muted"><span data-lang="en">Complete the form or email <a href="mailto:info@lucietherapy.com">info@lucietherapy.com</a>. I aim to respond within 2–3 working days.</span><span data-lang="fr">Remplissez le formulaire ou envoyez un courriel à <a href="mailto:info@lucietherapy.com">info@lucietherapy.com</a>. Je réponds sous 2–3 jours ouvrables.</span></p>
 
               <form class="contact-form" onsubmit="handleSubmit(event)">
-                <label for="name">Full name</label>
+                <label for="name"><span data-lang="en">Full name</span><span data-lang="fr">Nom complet</span></label>
                 <input id="name" name="name" type="text" required>
 
-                <label for="email">Email</label>
+                <label for="email"><span data-lang="en">Email</span><span data-lang="fr">Email</span></label>
                 <input id="email" name="email" type="email" required>
 
                 <label for="service">Service</label>
@@ -158,9 +214,9 @@
             <aside class="sidebar">
               <div class="card contact-card">
                 <h3>Quick info</h3>
-                <p class="muted">Free 15‑minute phone consultation available. In-person in Brighton or secure online sessions.</p>
-                <p class="muted"><strong>Email</strong>: <a href="mailto:hello@brightonpsychology.co.uk">hello@brightonpsychology.co.uk</a></p>
-                <p class="muted"><strong>Phone</strong>: +44 7400 000000</p>
+                <p class="muted"><span data-lang="en">Free 15‑minute consultation by email or video.</span><span data-lang="fr">Consultation gratuite de 15 minutes par e-mail ou visioconférence.</span></p>
+                <p class="muted"><strong><span data-lang="en">Email</span><span data-lang="fr">Email</span></strong>: <a href="mailto:info@lucietherapy.com">info@lucietherapy.com</a></p>
+                <!-- Instagram link removed from sidebar; moved to footer per request -->
               </div>
             </aside>
             </div>
@@ -171,23 +227,74 @@
     <aside class="quick-info-floating" aria-label="Quick contact info">
       <div class="card contact-card">
         <h3>Quick info</h3>
-        <p class="muted">Free 15‑minute phone consultation available. In-person in Brighton or secure online sessions.</p>
-        <p class="muted"><strong>Email</strong>: <a href="mailto:hello@brightonpsychology.co.uk">hello@brightonpsychology.co.uk</a></p>
-        <p class="muted"><strong>Phone</strong>: +44 7400 000000</p>
+        <p class="muted"><span data-lang="en">Free 15‑minute consultation by email or video.</span><span data-lang="fr">Consultation gratuite de 15 minutes par e-mail ou visioconférence.</span></p>
+        <p class="muted"><strong><span data-lang="en">Email</span><span data-lang="fr">Email</span></strong>: <a href="mailto:info@lucietherapy.com">info@lucietherapy.com</a></p>
+        <!-- Instagram link removed from floating quick-info; moved to footer per request -->
         <p style="margin-top:10px"><a class="btn btn-primary" href="#contact">Request a slot</a></p>
       </div>
     </aside>
       </main>
 
+  <!-- Testimonials: moved down so visitors see core info first -->
+  <section class="section-band" id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container testimonials">
+          <h2 id="testimonials-heading"><span data-lang="en">What people say</span><span data-lang="fr">Ce que disent les clients</span></h2>
+          <div class="grid grid-2">
+            <blockquote class="quote card">
+              <div class="rating" aria-hidden="true">★★★★★</div>
+              <p class="quote-text"><span data-lang="en">"Warm, professional and practical—I felt heard and supported from the first session."</span><span data-lang="fr">« Chaleureuse, professionnelle et pragmatique — je me suis senti·e entendu·e et soutenu·e dès la première séance. »</span></p>
+              <cite>— J., Brighton</cite>
+            </blockquote>
+
+            <blockquote class="quote card">
+              <div class="rating" aria-hidden="true">★★★★★</div>
+              <p class="quote-text"><span data-lang="en">"Lucie helped me make sense of difficult feelings and build tools I still use today."</span><span data-lang="fr">« Lucie m'a aidé à comprendre des émotions difficiles et à construire des outils que j'utilise encore aujourd'hui. »</span></p>
+              <cite>— K., Online client</cite>
+            </blockquote>
+          </div>
+    </div>
+  </section>
+
       <footer class="site-footer">
         <div class="container footer-inner">
           <p>&copy; <span id="year"></span> Lucie Ramet — Therapy practice, Brighton, UK.</p>
           <p class="muted small">For urgent support, contact NHS 111 or emergency services.</p>
+          <div class="social-links footer-social" aria-label="Social links">
+            <a href="https://www.instagram.com/lucie_ramet_psychologist/?hl=fr" target="_blank" rel="noopener noreferrer" aria-label="Instagram — Lucie Ramet">
+              <svg class="icon icon-instagram" viewBox="0 0 24 24" width="18" height="18" focusable="false" aria-hidden="true">
+                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5zm6.2-3.7a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zM12 10.5A1.5 1.5 0 1 1 10.5 12 1.5 1.5 0 0 1 12 10.5z"/>
+              </svg>
+              <span class="sr-only">Instagram</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/lucie-ramet-psychologue/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn — Lucie Ramet">
+              <svg class="icon icon-linkedin" viewBox="0 0 24 24" width="18" height="18" focusable="false" aria-hidden="true">
+                <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.1c.67-1.2 2.3-2.4 4.7-2.4 5 0 5.9 3.3 5.9 7.6V24h-5V16.5c0-1.8 0-4.2-2.6-4.2-2.6 0-3 2-3 4v7.7h-5V8z"/>
+              </svg>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+          </div>
         </div>
       </footer>
     </div>
 
     <script>
+      // Language switcher: toggles body class and persists choice in localStorage
+      (function(){
+        const setLang = (lang)=>{
+          document.body.classList.remove('lang-en','lang-fr');
+          document.body.classList.add(lang === 'fr' ? 'lang-fr' : 'lang-en');
+          localStorage.setItem('siteLang', lang);
+          document.getElementById('lang-en').setAttribute('aria-pressed', lang==='en');
+          document.getElementById('lang-fr').setAttribute('aria-pressed', lang==='fr');
+        };
+        // init
+        const stored = localStorage.getItem('siteLang') || 'en';
+        setLang(stored);
+        document.getElementById('lang-en').addEventListener('click', ()=>setLang('en'));
+        document.getElementById('lang-fr').addEventListener('click', ()=>setLang('fr'));
+      })();
+
       function handleSubmit(e){
         e.preventDefault();
         const btn = document.querySelector('.contact-form button[type=submit]');

@@ -47,6 +47,21 @@ body{
 .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 .btn-cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff}
 
+/* Language toggle */
+.lang-toggle{display:flex;gap:8px;align-items:center;margin-left:12px}
+.lang-toggle button{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid #e6eef0;padding:6px 10px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px;line-height:1;color:var(--muted)}
+.lang-toggle button .flag{font-size:16px;line-height:1}
+.lang-toggle button .flag svg{width:18px;height:12px;display:block}
+.lang-toggle button[aria-pressed="true"]{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border-color:transparent;box-shadow:0 8px 18px rgba(2,6,23,0.12)}
+.lang-toggle button:focus{outline:3px solid rgba(13,148,136,0.18);outline-offset:3px}
+
+/* Show/hide language content using body class */
+.lang-en [data-lang="en"]{display:inline}
+.lang-en [data-lang="fr"]{display:none}
+.lang-fr [data-lang="fr"]{display:inline}
+.lang-fr [data-lang="en"]{display:none}
+
+
 /* Hero */
 .hero{padding:48px 0}
 .hero-inner{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:center}
@@ -140,4 +155,54 @@ textarea{min-height:120px}
 .quote cite{display:block;margin-top:8px;color:var(--muted)}
 
 .external-img{width:100%;border-radius:8px;display:block;margin-top:12px}
+
+/* Partner / external clinic logo */
+.partner-link{display:block;margin-top:10px}
+.partner-logo{display:block;width:140px;max-width:45%;height:auto;border-radius:8px;background:transparent;padding:6px}
+
+@media (max-width:520px){
+	.partner-logo{max-width:160px}
+}
+
+/* External media wrapper + stamp logo */
+.external-media{position:relative;display:block}
+.external-media .external-img{display:block;width:100%;height:auto;border-radius:8px}
+.external-media .partner-logo.stamp{position:absolute;top:10px;left:10px;width:88px;height:auto;border-radius:8px;padding:0;box-shadow:0 6px 18px rgba(2,6,23,0.12);border:none;background:transparent}
+
+/* Ensure the partner logo sits cleanly on top of the photo.
+	Use isolation so blend modes only affect the image beneath it.
+	mix-blend-mode helps remove plain white backgrounds from PNG fallbacks
+	when a true transparent source isn't available. */
+.external-media{isolation:isolate}
+.external-media .partner-logo.stamp{mix-blend-mode:multiply}
+
+@media (max-width:720px){
+  .external-media .partner-logo.stamp{width:64px;top:8px;left:8px}
+}
+
+/* remove the old partner-link spacing rule (if present) */
+.partner-link{margin-top:0}
+
+/* Telehealth badge */
+.telehealth-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(20,184,166,0.08);color:var(--accent-2);padding:6px 10px;border-radius:999px;border:1px solid rgba(20,184,166,0.14);font-weight:700;font-size:13px}
+.telehealth-badge img.telehealth-icon{width:16px;height:16px;flex:0 0 16px;display:block}
+.telehealth-badge .badge-label{display:inline-block}
+.schedule-note{margin-top:8px}
+
+/* Social links styling */
+.social-links{display:flex;gap:8px;align-items:center;margin-top:8px}
+.social-links a{display:inline-flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none}
+.social-links a:hover{color:var(--accent)}
+.icon-instagram{width:18px;height:18px;display:block;fill:currentColor}
+.icon-linkedin{width:18px;height:18px;display:block;fill:currentColor}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Footer social placement */
+.footer-inner{display:flex;align-items:center;gap:18px}
+.footer-social{margin-left:auto;display:flex;gap:12px;align-items:center}
+
+@media (max-width:520px){
+	.telehealth-badge{font-size:12px;padding:6px 8px}
+	.telehealth-badge svg{width:14px;height:14px}
+}
 
