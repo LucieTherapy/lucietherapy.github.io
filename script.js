@@ -86,16 +86,39 @@ function updateContent(lang) {
     // About Me (SPLIT CONTENT)
     document.getElementById("about-title").textContent = CONTENT.about.title[lang]
     document.getElementById("about-education").innerHTML = CONTENT.about.education[lang]
-    document.getElementById("about-affiliations").innerHTML = CONTENT.about.affiliations[lang]
     document.getElementById("about-experience").innerHTML = CONTENT.about.experience[lang]
 
-    // 4. MAP PINS & ARROWS
+    // --- AUTOMATIC AFFILIATIONS GENERATOR ---
+    const affData = CONTENT.about.affiliations
+    let affHTML = `<h3 class="about-subtitle">${affData.title[lang]}</h3>`
+    affHTML += `<ul class="affiliations-list">`
+    affData.list.forEach((item) => {
+        affHTML += `
+            <li>
+                <div class="aff-left">
+                    <img src="${item.logo}" class="aff-logo" alt="${item.org[lang]}">
+                    <div>
+                        <strong>${item.role[lang]}</strong><br>
+                        ${item.org[lang]}
+                    </div>
+                </div>
+                <div class="aff-date">
+                    ${item.location[lang]}<br>
+                    ${item.date[lang]}
+                </div>
+            </li>
+        `
+    })
+    affHTML += `</ul>`
+    affHTML += `<p style="margin-top: 20px; font-style: italic;">${affData.footer[lang]}</p>`
+    document.getElementById("about-affiliations").innerHTML = affHTML
+    // ----------------------------------------
+
+    // MAP PINS & ARROWS
     const mapContainer = document.getElementById("about-map-container")
     const svgLayer = document.getElementById("map-arrows-svg")
-    // Clear pins
     const existingPins = mapContainer.querySelectorAll(".map-pin")
     existingPins.forEach((pin) => pin.remove())
-    // Clear arrows (keep defs)
     const paths = svgLayer.querySelectorAll("path")
     paths.forEach((p) => p.remove())
 
@@ -206,7 +229,6 @@ function renderBlogCarousel(lang) {
     const track = document.getElementById("blog-track")
     track.innerHTML = ""
 
-    // Use full blog array directly
     let displayPosts = [...CONTENT.blog]
     if (displayPosts.length < 9) {
         displayPosts = [...CONTENT.blog, ...CONTENT.blog, ...CONTENT.blog]
