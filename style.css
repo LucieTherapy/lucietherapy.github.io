@@ -473,7 +473,7 @@ body {
 
 /* Hover States */
 .map-pin:hover {
-    background-color: var(--sage-green);
+    background-color: var(--sage-green); /* UPDATED: Teal Green on hover */
     transform: translate(-50%, -50%) scale(1.3);
     z-index: 30;
 }
@@ -484,6 +484,11 @@ body {
     opacity: 1;
     visibility: visible;
     bottom: 30px;
+}
+
+/* --- CLICKABLE SERVICES --- */
+.service-card.clickable {
+    cursor: pointer;
 }
 
 /* --- PRACTICE --- */

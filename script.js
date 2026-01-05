@@ -71,29 +71,25 @@ function updateContent(lang) {
     document.getElementById(`btn-${lang}`).classList.add("active")
 
     // Nav
-    document.getElementById("link-bio").textContent = CONTENT.ui[lang].nav_bio
-    document.getElementById("link-about").textContent = CONTENT.ui[lang].nav_about
-    document.getElementById("link-practice").textContent = CONTENT.ui[lang].nav_practice
-    document.getElementById("link-services").textContent = CONTENT.ui[lang].nav_services
-    document.getElementById("link-blog").textContent = CONTENT.ui[lang].nav_blog
+    document.getElementById("link-bio").textContent = CONTENT.ui.nav_bio[lang]
+    document.getElementById("link-about").textContent = CONTENT.ui.nav_about[lang]
+    document.getElementById("link-practice").textContent = CONTENT.ui.nav_practice[lang]
+    document.getElementById("link-services").textContent = CONTENT.ui.nav_services[lang]
+    document.getElementById("link-blog").textContent = CONTENT.ui.nav_blog[lang]
 
     // Bio
     document.getElementById("page-name").textContent = CONTENT.titles.name
-    document.getElementById("page-role").innerHTML = CONTENT.titles[lang].role
+    document.getElementById("page-role").innerHTML = CONTENT.titles.role[lang]
     document.getElementById("bio-text").innerHTML = CONTENT.summary[lang]
-    document.getElementById("btn-bio-action").textContent = CONTENT.ui[lang].btn_background
+    document.getElementById("btn-bio-action").textContent = CONTENT.ui.btn_background[lang]
 
-    // About Me (SPLIT CONTENT - UPDATED ACCESSORS)
+    // About Me (SPLIT CONTENT)
     document.getElementById("about-title").textContent = CONTENT.about.title[lang]
-
-    // 1. Education
     document.getElementById("about-education").innerHTML = CONTENT.about.education[lang]
-    // 2. Affiliations
     document.getElementById("about-affiliations").innerHTML = CONTENT.about.affiliations[lang]
-    // 3. Experience
     document.getElementById("about-experience").innerHTML = CONTENT.about.experience[lang]
 
-    // 4. MAP PINS & ARROWS (UPDATED ACCESSORS)
+    // 4. MAP PINS & ARROWS
     const mapContainer = document.getElementById("about-map-container")
     const svgLayer = document.getElementById("map-arrows-svg")
     // Clear pins
@@ -103,7 +99,6 @@ function updateContent(lang) {
     const paths = svgLayer.querySelectorAll("path")
     paths.forEach((p) => p.remove())
 
-    // NEW: Access shared timeline array
     const timeline = CONTENT.about.timeline
 
     // Create Pins
@@ -113,10 +108,8 @@ function updateContent(lang) {
         pin.style.top = item.top + "%"
         pin.style.left = item.left + "%"
 
-        // Check shared labelPos property
         const labelClass = item.labelPos === "top" ? "pin-label top" : "pin-label"
 
-        // Access localized strings via [lang]
         pin.innerHTML = `
             <div class="${labelClass}">${item.location[lang]}</div>
             <div class="pin-info">
@@ -157,49 +150,53 @@ function updateContent(lang) {
     }
 
     // Practice
-    const pData = CONTENT.practice[lang]
-    document.getElementById("practice-main-title").textContent = pData.title
-    document.getElementById("ip-title").textContent = pData.in_person_title
-    document.getElementById("ip-desc").textContent = pData.in_person_desc
-    document.getElementById("ip-loc-name").textContent = pData.location_name
-    document.getElementById("ip-address").innerHTML = pData.address_lines.join("<br>")
+    const pData = CONTENT.practice
+    document.getElementById("practice-main-title").textContent = pData.title[lang]
+    document.getElementById("ip-title").textContent = pData.in_person_title[lang]
+    document.getElementById("ip-desc").textContent = pData.in_person_desc[lang]
+    document.getElementById("ip-loc-name").textContent = pData.location_name[lang]
+    document.getElementById("ip-address").innerHTML = pData.address_lines[lang].join("<br>")
     document.getElementById("ip-email").textContent = pData.contact_email
     document.getElementById("ip-email").href = "mailto:" + pData.contact_email
     document.getElementById("ip-web").href = "http://" + pData.contact_web
-    document.getElementById("btn-contact-left").textContent = CONTENT.ui[lang].btn_contact
-    document.getElementById("ol-title").textContent = pData.online_title
-    document.getElementById("ol-badge").textContent = CONTENT.ui[lang].telehealth_badge
-    document.getElementById("ol-desc").textContent = pData.online_desc
-    document.getElementById("ol-sub").textContent = pData.online_sub
+    document.getElementById("btn-contact-left").textContent = CONTENT.ui.btn_contact[lang]
+    document.getElementById("ol-title").textContent = pData.online_title[lang]
+    document.getElementById("ol-badge").textContent = CONTENT.ui.telehealth_badge[lang]
+    document.getElementById("ol-desc").textContent = pData.online_desc[lang]
+    document.getElementById("ol-sub").textContent = pData.online_sub[lang]
     document.getElementById("sg-email").textContent = pData.sg_contact
     document.getElementById("sg-email").href = "mailto:" + pData.sg_contact
     document.getElementById("sg-web").href = pData.sg_web_url
-    document.getElementById("btn-contact-right").textContent = CONTENT.ui[lang].btn_contact
+    document.getElementById("btn-contact-right").textContent = CONTENT.ui.btn_contact[lang]
 
     // Services
-    document.getElementById("services-title").textContent = CONTENT.services[lang].title
+    document.getElementById("services-title").textContent = CONTENT.services.title[lang]
     const servicesContainer = document.getElementById("services-container")
     servicesContainer.innerHTML = ""
-    CONTENT.services[lang].cards.forEach((card) => {
+    CONTENT.services.cards.forEach((card) => {
         const bgStyle = card.img ? `style="background-image: url('media/${card.img}');"` : ""
         const hasBgClass = card.img ? "has-bg" : ""
+
+        const clickAttr = card.blogPostId ? `onclick="openBlogDrawer('${card.blogPostId}')"` : ""
+        const pointerClass = card.blogPostId ? "clickable" : ""
+
         const cardHTML = `
-            <div class="service-card ${hasBgClass}" ${bgStyle}>
-                <div class="s-content-default"><h3 class="s-title">${card.title}</h3></div>
+            <div class="service-card ${hasBgClass} ${pointerClass}" ${bgStyle} ${clickAttr}>
+                <div class="s-content-default"><h3 class="s-title">${card.title[lang]}</h3></div>
                 <div class="s-overlay">
-                    <h3 class="s-title" style="color:white; margin-bottom:15px;">${card.title}</h3>
-                    <p class="s-desc">${card.desc}</p>
+                    <h3 class="s-title" style="color:white; margin-bottom:15px;">${card.title[lang]}</h3>
+                    <p class="s-desc">${card.desc[lang]}</p>
                 </div>
             </div>`
         servicesContainer.innerHTML += cardHTML
     })
-    document.getElementById("fees-title").textContent = CONTENT.services[lang].fees_title
-    document.getElementById("fees-desc").textContent = CONTENT.services[lang].fees_desc
-    document.getElementById("insurance-info").textContent = CONTENT.services[lang].insurance
-    document.getElementById("book-btn").textContent = CONTENT.ui[lang].btn_book
+    document.getElementById("fees-title").textContent = CONTENT.services.fees_title[lang]
+    document.getElementById("fees-desc").textContent = CONTENT.services.fees_desc[lang]
+    document.getElementById("insurance-info").textContent = CONTENT.services.insurance[lang]
+    document.getElementById("book-btn").textContent = CONTENT.ui.btn_book[lang]
 
     // Blog
-    document.getElementById("blog-title").textContent = CONTENT.ui[lang].nav_blog
+    document.getElementById("blog-title").textContent = CONTENT.ui.nav_blog[lang]
 
     // Render Carousel
     renderBlogCarousel(lang)
@@ -209,15 +206,16 @@ function renderBlogCarousel(lang) {
     const track = document.getElementById("blog-track")
     track.innerHTML = ""
 
+    // Use full blog array directly
     let displayPosts = [...CONTENT.blog]
     if (displayPosts.length < 9) {
         displayPosts = [...CONTENT.blog, ...CONTENT.blog, ...CONTENT.blog]
     }
 
     displayPosts.forEach((post, index) => {
-        const title = post[lang].title
+        const title = post.title[lang]
         const tmpDiv = document.createElement("div")
-        tmpDiv.innerHTML = post[lang].content
+        tmpDiv.innerHTML = post.content[lang]
         const text = tmpDiv.textContent || tmpDiv.innerText || ""
         const excerpt = text.substring(0, 80) + "..."
 
@@ -230,7 +228,7 @@ function renderBlogCarousel(lang) {
                     <div class="blog-date">${post.date}</div>
                     <h3 class="blog-title">${title}</h3>
                     <p class="blog-excerpt">${excerpt}</p>
-                    <span class="blog-link">${CONTENT.ui[lang].read_more} →</span>
+                    <span class="blog-link">${CONTENT.ui.read_more[lang]} →</span>
                 </div>
             </div>
         `
@@ -335,9 +333,9 @@ window.openBlogDrawer = (id) => {
     const post = CONTENT.blog.find((p) => p.id === id)
     if (!post) return
 
-    document.getElementById("drawer-title").textContent = post[lang].title
+    document.getElementById("drawer-title").textContent = post.title[lang]
     document.getElementById("drawer-date").textContent = post.date
-    document.getElementById("drawer-body").innerHTML = post[lang].content
+    document.getElementById("drawer-body").innerHTML = post.content[lang]
 
     const imgContainer = document.getElementById("drawer-img-container")
     if (post.img) {
