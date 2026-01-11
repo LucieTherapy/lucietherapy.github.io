@@ -61,6 +61,28 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 2000)
         })
     })
+
+    // 7. Contact Modal Logic
+    const bookBtn = document.getElementById("book-btn")
+    const modal = document.getElementById("contact-modal")
+    const modalClose = document.getElementById("modal-close")
+
+    if (bookBtn && modal && modalClose) {
+        bookBtn.addEventListener("click", (e) => {
+            e.preventDefault()
+            modal.classList.add("show")
+        })
+
+        modalClose.addEventListener("click", () => {
+            modal.classList.remove("show")
+        })
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.classList.remove("show")
+            }
+        })
+    }
 })
 
 /* --- CAROUSEL STATE --- */
@@ -217,6 +239,17 @@ function updateContent(lang) {
     document.getElementById("fees-desc").textContent = CONTENT.services.fees_desc[lang]
     document.getElementById("insurance-info").textContent = CONTENT.services.insurance[lang]
     document.getElementById("book-btn").textContent = CONTENT.ui.btn_book[lang]
+
+    // Contact Modal Form Labels
+    document.getElementById("modal-title").textContent = CONTENT.form.title[lang]
+    document.getElementById("lbl-email").textContent = CONTENT.form.lbl_email[lang]
+    document.getElementById("lbl-availability").textContent = CONTENT.form.lbl_availability[lang]
+    document.getElementById("lbl-type").textContent = CONTENT.form.lbl_type[lang]
+    document.getElementById("opt-online").textContent = CONTENT.form.opt_online[lang]
+    document.getElementById("opt-inperson").textContent = CONTENT.form.opt_inperson[lang]
+    document.getElementById("lbl-message").textContent = CONTENT.form.lbl_message[lang]
+    document.getElementById("btn-submit").textContent = CONTENT.form.btn_submit[lang]
+    document.getElementById("modal-close").setAttribute("aria-label", CONTENT.form.btn_close[lang])
 
     // Blog
     document.getElementById("blog-title").textContent = CONTENT.ui.nav_blog[lang]

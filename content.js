@@ -14,6 +14,18 @@ const CONTENT = {
         back_blog: { en: "Back to Blog", fr: "Retour au blog" },
     },
 
+    form: {
+        title: { en: "Contact Me", fr: "Me Contacter" },
+        lbl_email: { en: "Your Email", fr: "Votre Email" },
+        lbl_availability: { en: "Preferred Days/Time", fr: "Jours/Heure Préférés" },
+        lbl_type: { en: "Consultation Type", fr: "Type de Consultation" },
+        opt_online: { en: "Online", fr: "En ligne" },
+        opt_inperson: { en: "In-Person", fr: "En Personne" },
+        lbl_message: { en: "Message", fr: "Message" },
+        btn_submit: { en: "Send Request", fr: "Envoyer" },
+        btn_close: { en: "Close", fr: "Fermer" },
+    },
+
     titles: {
         name: "Lucie RAMET",
         role: {
