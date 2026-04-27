@@ -261,6 +261,7 @@ function updateContent(lang) {
     document.getElementById("fees-desc").textContent = CONTENT.services.fees_desc[lang]
     document.getElementById("insurance-info").textContent = CONTENT.services.insurance[lang]
     document.getElementById("book-btn").textContent = CONTENT.ui.btn_book[lang]
+    document.getElementById("supervision-btn").textContent = CONTENT.ui.btn_supervision[lang]
 
     // Contact Modal Form Labels
     document.getElementById("modal-title").textContent = CONTENT.form.title[lang]
@@ -424,17 +425,9 @@ window.openBlogDrawer = (id) => {
 
     document.getElementById("drawer-title").textContent = post.title[lang]
     document.getElementById("drawer-date").textContent = post.date
-    document.getElementById("drawer-body").innerHTML = post.content[lang]
 
-    const imgContainer = document.getElementById("drawer-img-container")
-    const drawerBody = document.getElementById("drawer-body")
-    if (post.img) {
-        imgContainer.innerHTML = `<img src="media/${post.img}" alt="">`
-        drawerBody.insertAdjacentElement("afterbegin", imgContainer)
-    } else {
-        imgContainer.innerHTML = ""
-        imgContainer.remove()
-    }
+    const imgHtml = post.img ? `<div id="drawer-img-container"><img src="media/${post.img}" alt=""></div>` : ""
+    document.getElementById("drawer-body").innerHTML = imgHtml + post.content[lang]
 
     overlay.classList.add("open")
     drawer.classList.add("open")
