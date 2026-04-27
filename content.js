@@ -288,12 +288,10 @@ const CONTENT = {
     fees_desc: {
       en: "Individual therapy session (50 mins): £90",
       fr: "Séance individuelle de thérapie (50 mins) : 90£",
-      en: "Supervision session (50 mins): £90 (60£/70€ for trainees in AFTCC)",
-      fr: "Séance de supervision (50 mins) : 90£ (60£/70€ pour les étudiants de l'AFTCC)",
     },
     insurance: {
-      en: "",
-      fr: "",
+      en: "Supervision session (50 mins): £90 (60£/70€ for trainees in AFTCC)",
+      fr: "Séance de supervision (50 mins) : 90£ (60£/70€ pour les étudiants de l'AFTCC)",
     },
     cards: [
       {
