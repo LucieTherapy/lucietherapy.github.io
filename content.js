@@ -1,66 +1,69 @@
 const CONTENT = {
-    // UI Labels
-    ui: {
-        nav_bio: { en: "Biography", fr: "Biographie" },
-        nav_practice: { en: "Where to find me", fr: "Où me trouver" },
-        nav_services: { en: "Services", fr: "Services" },
-        nav_blog: { en: "Blog", fr: "Blog" },
-        nav_about: { en: "About Me", fr: "À propos" },
-        btn_background: { en: "About me", fr: "Mon parcours" },
-        btn_contact: { en: "Contact", fr: "Me Contacter" },
-        btn_book: { en: "Book an Appointment", fr: "Prendre Rendez-vous" },
-        btn_supervision: { en: "Supervision Inquiry", fr: "Demande de supervision" },
-        telehealth_badge: { en: "The Other Clinic", fr: "The Other Clinic" },
-        read_more: { en: "Read Article", fr: "Lire l'article" },
-        back_blog: { en: "Back to Blog", fr: "Retour au blog" },
+  // UI Labels
+  ui: {
+    nav_bio: { en: "Biography", fr: "Biographie" },
+    nav_practice: { en: "Where to find me", fr: "Où me trouver" },
+    nav_services: { en: "Services", fr: "Services" },
+    nav_blog: { en: "Blog", fr: "Blog" },
+    nav_about: { en: "About Me", fr: "À propos" },
+    btn_background: { en: "About me", fr: "Mon parcours" },
+    btn_contact: { en: "Contact", fr: "Me Contacter" },
+    btn_book: { en: "Book an Appointment", fr: "Prendre Rendez-vous" },
+    btn_supervision: {
+      en: "Supervision Inquiry",
+      fr: "Demande de supervision",
     },
+    telehealth_badge: { en: "The Other Clinic", fr: "The Other Clinic" },
+    read_more: { en: "Read Article", fr: "Lire l'article" },
+    back_blog: { en: "Back to Blog", fr: "Retour au blog" },
+  },
 
-    titles: {
-        name: "Lucie RAMET",
-        role: {
-            en: "Chartered Psychologist<br>CBT & ACT Therapist",
-            fr: "Psychologue Clinicienne<br>Thérapeute TCC et ACT",
-        },
+  titles: {
+    name: "Lucie RAMET",
+    role: {
+      en: "Chartered Psychologist<br>CBT & ACT Therapist",
+      fr: "Psychologue Clinicienne<br>Thérapeute TCC et ACT",
     },
+  },
 
-    form: {
-        title: { en: "Therapy Inquiry", fr: "Demande de Thérapie" },
-        lbl_email: { en: "Your Email", fr: "Votre Email" },
-        lbl_availability: {
-            en: "Preferred Days/Time",
-            fr: "Jours/Heure Préférés",
-        },
-        lbl_type: { en: "Consultation Type", fr: "Type de Consultation" },
-        opt_online: { en: "Online", fr: "En ligne" },
-        opt_inperson: { en: "In-Person", fr: "En Personne" },
-        lbl_message: { en: "Message", fr: "Message" },
-        btn_submit: { en: "Send Request", fr: "Envoyer" },
-        btn_close: { en: "Close", fr: "Fermer" },
+  form: {
+    title: { en: "Therapy Inquiry", fr: "Demande de Thérapie" },
+    lbl_email: { en: "Your Email", fr: "Votre Email" },
+    lbl_availability: {
+      en: "Preferred Days/Time",
+      fr: "Jours/Heure Préférés",
     },
+    lbl_type: { en: "Consultation Type", fr: "Type de Consultation" },
+    opt_online: { en: "Online", fr: "En ligne" },
+    opt_inperson: { en: "In-Person", fr: "En Personne" },
+    lbl_message: { en: "Message", fr: "Message" },
+    btn_submit: { en: "Send Request", fr: "Envoyer" },
+    btn_close: { en: "Close", fr: "Fermer" },
+  },
 
-    form_supervision: {
-        title: { en: "Supervision Inquiry", fr: "Demande de Supervision" },
-        lbl_email: { en: "Your Email", fr: "Votre Email" },
-        lbl_background: { en: "Your Background", fr: "Votre Profil" },
-        opt_trainee: { en: "In training at AFTCC", fr: "En formation à l'AFTCC" },
-        opt_qualified: { en: "Qualified Therapist", fr: "Thérapeute qualifié(e)" },
-        lbl_availability: {
-            en: "Preferred Days/Time",
-            fr: "Jours/Heure Préférés",
-        },
-        lbl_message: { en: "Message", fr: "Message" },
-        btn_submit: { en: "Send Request", fr: "Envoyer" },
-        btn_close: { en: "Close", fr: "Fermer" },
+  form_supervision: {
+    title: { en: "Supervision Inquiry", fr: "Demande de Supervision" },
+    lbl_email: { en: "Your Email", fr: "Votre Email" },
+    lbl_background: { en: "Your Background", fr: "Votre Profil" },
+    opt_trainee: { en: "In training at AFTCC", fr: "En formation à l'AFTCC" },
+    opt_qualified: { en: "Qualified Therapist", fr: "Thérapeute qualifié(e)" },
+    lbl_availability: {
+      en: "Preferred Days/Time",
+      fr: "Jours/Heure Préférés",
     },
+    lbl_message: { en: "Message", fr: "Message" },
+    btn_submit: { en: "Send Request", fr: "Envoyer" },
+    btn_close: { en: "Close", fr: "Fermer" },
+  },
 
-    summary: {
-        en: `
+  summary: {
+    en: `
         <h3 class="section-subtitle">CBT and ACT Therapy in French and English</h3>
         <p>I provide short and long-term support for adolescents (16+) and adults, both in-person in Brighton (United Kingdom) and online for Expats and French speakers.</p>
         <p>As a French Clinical Psychologist, I have had the privilege of residing a few years in the United States, Canada, and living and practicing in Singapore, before settling in the UK.</p>
         <p>Now settled in Brighton, I draw upon this wealth of experiences and interactions to provide you with compassionate and personalized support, respectful of your identity and life journey.</p>
         `,
-        fr: `
+    fr: `
         <h3 class="about-subtitle">Formation et parcours</h3>
 <p>
     Je suis <strong>psychologue clinicienne</strong>, titulaire d'une licence et d'un master de psychologie clinique et psychopathologie obtenus à l'Université Paris Cité.
@@ -72,13 +75,13 @@ const CONTENT = {
     Par ailleurs, j'ai poursuivi des formations approfondies en <strong>Thérapie d'Acceptation et d'Engagement (ACT)</strong> et acquis des compétences cliniques en <strong>Thérapie Comportementale Dialectique (TCD / DBT)</strong>.
 </p>
 `,
-    },
+  },
 
-    about: {
-        title: { en: "About Me", fr: "À propos de moi" },
+  about: {
+    title: { en: "About Me", fr: "À propos de moi" },
 
-        education: {
-            en: `
+    education: {
+      en: `
                <h3 class="about-subtitle">Education and Training</h3>
 <p>
     I am a <strong>French Clinical Psychologist</strong> with a Bachelor's and a Master's of Science degree in Clinical Psychology and Psychopathology from the University of Paris Cité.
@@ -90,16 +93,16 @@ const CONTENT = {
     In addition, I have pursued extensive training in <strong>Acceptance and Commitment Therapy (ACT)</strong> and have acquired clinical skills in <strong>Dialectical Behavior Therapy (DBT)</strong>.
 </p>
 `,
-            fr: `
+      fr: `
                 <h3 class="about-subtitle">Formation</h3>
                 <p>Je suis diplômée d'une licence et d'un <strong>master de Psychologie Clinique et Psychopathologie</strong> de l'Université Paris Cité.</p>
                 <p>Dans le but de compléter ma formation initiale, j'ai obtenu une qualification spécialisée en <strong>Thérapie Comportementale et Cognitive (TCC)</strong> après trois années de formation à l'AFTCC.</p>
                 <p>De plus, j'ai également été formée à la <strong>Thérapie d'Acceptation et d'Engagement (ACT)</strong> et j'ai acquis des compétences en <strong>Thérapie Comportementale Dialectique (DBT)</strong>.</p>
             `,
-        },
+    },
 
-        experience: {
-            en: `
+    experience: {
+      en: `
               <h3 class="about-subtitle">Experience</h3>
 <p>
     I have over 12 years of experience in <strong>public and private health sectors</strong> across <strong>France, Singapore, and the UK</strong>, supporting clients of all ages with a wide range of difficulties. My background includes conducting assessments for severe psychiatric disorders in hospital psychiatric departments and designing interventions for children and adolescents with developmental challenges.
@@ -111,7 +114,7 @@ const CONTENT = {
     Since moving to <strong>Brighton</strong> in 2023, I see clients in person at <strong>Brighton and Hove Psychotherapy</strong> and continue to offer online consultations across Europe and Asia via <strong>The Other Clinic</strong>.
 </p>
 `,
-            fr: `
+      fr: `
               <h3 class="about-subtitle">Expérience</h3>
 <p>
     Avec plus de 12 ans d'expérience dans les <strong>secteurs public et privé en France et à l'international</strong>, j'ai accompagné des patients aux profils variés, notamment dans des services hospitaliers de psychiatrie auprès de personnes souffrant de troubles psychiatriques sévères.
@@ -123,258 +126,266 @@ const CONTENT = {
     Installée à <strong>Brighton</strong> depuis 2023, je reçois au cabinet <strong>Brighton and Hove Psychotherapy</strong> et propose également des consultations en ligne pour les patients résidant en Europe et en Asie.
 </p>
  `,
-        },
-
-        // STRUCTURED AFFILIATIONS LIST
-        affiliations: {
-            title: {
-                en: "Professional Affiliation",
-                fr: "Affiliation professionnelle",
-            },
-            list: [
-                {
-                    logo: "media/logo_bps.png",
-                    role: {
-                        en: "Chartered Member CPsychol (716681)",
-                        fr: "Chartered Member CPsychol (716681)",
-                    },
-                    org: {
-                        en: "British Psychological Society (BPS)",
-                        fr: "British Psychological Society (BPS)",
-                    },
-                    location: { en: "United Kingdom", fr: "Royaume-Uni" },
-                    date: { en: "Since 2023", fr: "Depuis 2023" },
-                },
-                {
-                    logo: "media/logo_sps.png",
-                    role: {
-                        en: "Full Member (FM022016A)",
-                        fr: "Full Member (FM022016A)",
-                    },
-                    org: {
-                        en: "Singapore Psychological Society (SPS)",
-                        fr: "Société de Psychologie de Singapour (SPS)",
-                    },
-                    location: { en: "Singapore", fr: "Singapour" },
-                    date: { en: "Since 2021", fr: "Depuis 2021" },
-                },
-                {
-                    logo: "media/logo_aftcc.png",
-                    role: {
-                        en: "Registered Therapist Practitioner & CBT Supervisor ",
-                        fr: "Thérapeute Praticien TCC & Superviseur TPS",
-                    },
-                    org: {
-                        en: "French Association for Behavioural and Cognitive Therapy (AFTCC)",
-                        fr: "Association Française de Thérapie Comportementale et Cognitive (AFTCC)",
-                    },
-                    location: { en: "France", fr: "France" },
-                    date: { en: "Since 2014", fr: "Depuis 2014" },
-                },
-                {
-                    logo: "media/logo_acbs.jpg",
-                    role: {
-                        en: "Professional Member ‑ ACT Practitioner",
-                        fr: "Professional Member ‑ Praticien ACT",
-                    },
-                    org: {
-                        en: "Association for Contextual Behavioral Science (ACBS)",
-                        fr: "Association pour les Sciences Comportementales et Contextuelles (ACBS)",
-                    },
-                    location: { en: "Intl, UK Chapter", fr: "Intl, UK Chapter" },
-                    date: { en: "Since 2023", fr: "Depuis 2023" },
-                },
-                {
-                    logo: "media/logo_universite.png",
-                    role: { en: "Alumni Member", fr: "Membre Alumni" },
-                    org: {
-                        en: "Université Paris Cité Alumni",
-                        fr: "Université Paris Cité Alumni",
-                    },
-                    location: { en: "France", fr: "France" },
-                    date: { en: "Alumni", fr: "Alumni" },
-                },
-            ],
-            footer: {
-                en: "I have been engaged in monthly supervision continuously since graduation, with professionals trained in CBT and/or ACT.",
-                fr: "Je suis en supervision clinique mensuelle depuis 2015 avec des professionnels formés aux TCC et à ACT.",
-            },
-        },
-
-        timeline: [
-            {
-                location: { en: "New York", fr: "New York" },
-                year: { en: "2007-2009", fr: "2007-2009" },
-                desc: { en: "Lived in New York", fr: "Vie à New York" },
-                top: 32,
-                left: 19,
-                labelPos: "top",
-            },
-            {
-                location: { en: "Paris", fr: "Paris" },
-                year: { en: "2009-2018", fr: "2009-2018" },
-                desc: {
-                    en: "Studied at the University of Paris Cité, worked for 4 years at the 'Hopital du Chesnay'",
-                    fr: "Études à l'Université Paris Cité, psychologue à l'Hôpital du Chesnay",
-                },
-                top: 24,
-                left: 44,
-            },
-            {
-                location: { en: "Singapore", fr: "Singapour" },
-                year: { en: "2018-2022", fr: "2018-2022" },
-                desc: {
-                    en: "Worked at Thrive Family, The Other Clinic in Singapore",
-                    fr: "Thrive Family, The Other Clinic à Singapour",
-                },
-                top: 60,
-                left: 75,
-            },
-            {
-                location: { en: "Brighton", fr: "Brighton" },
-                year: { en: "2022-present", fr: "2022-présent" },
-                desc: {
-                    en: "Brighton & Hove Therapy in Brighton, UK",
-                    fr: "Brighton & Hove Therapy à Brighton, UK",
-                },
-                top: 18,
-                left: 43,
-                labelPos: "top",
-            },
-        ],
     },
 
-    practice: {
-        title: { en: "Where to find me", fr: "Où me trouver" },
-        in_person_title: {
-            en: "In-person & Online",
-            fr: "En personne et en ligne",
-        },
-        in_person_desc: {
-            en: "I receive clients in person on Mondays, Wednesdays and Fridays at:",
-            fr: "Je reçois les patients en personne les lundis et vendredis à :",
-        },
-        location_name: {
-            en: "Brighton and Hove Psychotherapy",
-            fr: "Brighton and Hove Psychotherapy",
-        },
-        address_lines: {
-            en: ["49 Church Road", "Hove, BN3 2BE", "East Sussex", "United Kingdom"],
-            fr: ["49 Church Road", "Hove, BN3 2BE", "East Sussex", "Royaume-Uni"],
-        },
-        contact_email: "info@lucietherapy.com",
-        contact_web: "www.brightonandhovepsychotherapy.com",
-        contact_web_url: "https://www.brightonandhovepsychotherapy.com/practitioners/lucie-ramet/",
-        online_title: {
-            en: "Special collaboration - Asia/Singapore ",
-            fr: "Collaboration spéciale - Asie/Singapour",
-        },
-        online_desc: {
-            en: "I previously worked in Singapore with The Other Clinic, and I continue this collaboration by offering telehealth sessions for clients based in Singapore or those who have relocated to Europe.",
-            fr: "J'ai travaillé auparavant à Singapour avec The Other Clinic, et je continue cette collaboration en proposant des sessions de téléconsultation pour les clients basés à Singapour ou ceux qui ont déménagé en Europe.",
-        },
-        online_sub: {
-            en: "For clients based in Singapore: telehealth sessions from 4 to 9pm SGT.",
-            fr: "Pour les clients basés à Singapour : sessions de 16h à 21h SGT.",
-        },
-        sg_contact: "hello@theotherclinic.sg",
-        sg_web: { en: "Web - The Other Clinic", fr: "Web - The Other Clinic" },
-        sg_web_url: "https://theotherclinic.sg/lucie-ramet/",
-    },
-
-    services: {
-        title: { en: "Services", fr: "Services" },
-        fees_title: { en: "Fees & Appointments", fr: "Tarifs & Rendez-vous" },
-        fees_therapy: {
-            title: { en: "Individual therapy session", fr: "Séance individuelle de thérapie" },
-            price: { en: "50min - £90", fr: "50min - 100€" },
-        },
-        fees_supervision: {
-            title: { en: "Supervision session", fr: "Séance de supervision" },
-            price: { en: "50min - £90*", fr: "50min - 100€*" },
-            note: { en: "*£60 for trainees at AFTCC", fr: "*70€ pour les étudiants de l'AFTCC" },
-        },
-        insurance: {
-            en: "",
-            fr: "",
-        },
-        cards: [
-            {
-                title: {
-                    en: "CBT - Cognitive Behavioural Therapy",
-                    fr: "TCC - Thérapie Cognitivo-Comportementale",
-                },
-                desc: {
-                    en: "An evidence-based, goal-oriented approach focused on modifying maladaptive thoughts and behaviours.",
-                    fr: "Une approche fondée sur des preuves et orientée vers des objectifs, visant la modification des pensées et comportements dysfonctionnels.",
-                },
-                img: "img_cbt.jpg",
-                blogPostId: "post-what-is-cbt",
-            },
-            {
-                title: {
-                    en: "ACT - Acceptance & Commitment Therapy",
-                    fr: "ACT - Thérapie d'Acceptation et d'Engagement",
-                },
-                desc: {
-                    en: "An evidence-based approach using acceptance, mindfulness, and values to help you move toward a more meaningful life.",
-                    fr: "Une approche fondée sur des données scientifiques, utilisant l'acceptation, la pleine conscience et les valeurs pour avancer vers une vie plus porteuse de sens.",
-                },
-                img: "img_act.webp",
-                blogPostId: "post-what-is-ACT",
-            },
-            {
-                title: {
-                    en: "Supervision",
-                    fr: "Supervision",
-                },
-                desc: {
-                    en: "A collaborative, supportive supervisory relationship to deepen clinical understanding and professional confidence.",
-                    fr: "Une relation de supervision bienveillante et collaborative pour approfondir votre compréhension clinique et votre confiance professionnelle.",
-                },
-                img: "img_supervision.webp",
-                blogPostId: "post-cbt-supervision",
-            },
-            {
-                title: { en: "Support for Expats", fr: "Soutien aux Expatriés" },
-                desc: {
-                    en: "Navigate change, build resilience, and thrive abroad.",
-                    fr: "Soutien spécialisé pour naviguer les défis de la vie à l'étranger.",
-                },
-                img: "img_expat.jpg",
-                blogPostId: "post-navigating-expat-life",
-            },
-            {
-                title: { en: "Online Therapy", fr: "Thérapie en Ligne" },
-                desc: {
-                    en: "Flexible online therapy sessions to support your well-being-anytime, anywhere.",
-                    fr: "Séances de thérapie en ligne, flexibles et bienveillantes, pour soutenir votre bien-être où que vous soyez.",
-                },
-                img: "img_telehealth.png",
-                blogPostId: "post-online-therapy",
-            },
-            {
-                title: { en: "Mindfulness", fr: "Mindfulness" },
-                desc: {
-                    en: "Guidance for young adults managing academic pressure, independence, and the social challenges of university life.",
-                    fr: "Accompagnement des jeunes adultes face à la pression académique, l'indépendance et la vie sociale universitaire.",
-                },
-                img: "img_university.jpeg",
-            },
-        ],
-    },
-
-    blog: [
+    // STRUCTURED AFFILIATIONS LIST
+    affiliations: {
+      title: {
+        en: "Professional Affiliation",
+        fr: "Affiliation professionnelle",
+      },
+      list: [
         {
-            id: "post-what-is-cbt",
-            date: "",
-            img: "blog_cbt.jpg",
-            title: {
-                en: "What is Cognitive Behavioural Therapy (CBT)?",
-                fr: "Qu'est-ce que la Thérapie Cognitivo-Comportementale (TCC) ?",
-            },
-            content: {
-                en: `
+          logo: "media/logo_bps.png",
+          role: {
+            en: "Chartered Member CPsychol (716681)",
+            fr: "Chartered Member CPsychol (716681)",
+          },
+          org: {
+            en: "British Psychological Society (BPS)",
+            fr: "British Psychological Society (BPS)",
+          },
+          location: { en: "United Kingdom", fr: "Royaume-Uni" },
+          date: { en: "Since 2023", fr: "Depuis 2023" },
+        },
+        {
+          logo: "media/logo_sps.png",
+          role: {
+            en: "Full Member (FM022016A)",
+            fr: "Full Member (FM022016A)",
+          },
+          org: {
+            en: "Singapore Psychological Society (SPS)",
+            fr: "Société de Psychologie de Singapour (SPS)",
+          },
+          location: { en: "Singapore", fr: "Singapour" },
+          date: { en: "Since 2021", fr: "Depuis 2021" },
+        },
+        {
+          logo: "media/logo_aftcc.png",
+          role: {
+            en: "Registered Therapist Practitioner & CBT Supervisor ",
+            fr: "Thérapeute Praticien TCC & Superviseur TPS",
+          },
+          org: {
+            en: "French Association for Behavioural and Cognitive Therapy (AFTCC)",
+            fr: "Association Française de Thérapie Comportementale et Cognitive (AFTCC)",
+          },
+          location: { en: "France", fr: "France" },
+          date: { en: "Since 2014", fr: "Depuis 2014" },
+        },
+        {
+          logo: "media/logo_acbs.jpg",
+          role: {
+            en: "Professional Member ‑ ACT Practitioner",
+            fr: "Professional Member ‑ Praticien ACT",
+          },
+          org: {
+            en: "Association for Contextual Behavioral Science (ACBS)",
+            fr: "Association pour les Sciences Comportementales et Contextuelles (ACBS)",
+          },
+          location: { en: "Intl, UK Chapter", fr: "Intl, UK Chapter" },
+          date: { en: "Since 2023", fr: "Depuis 2023" },
+        },
+        {
+          logo: "media/logo_universite.png",
+          role: { en: "Alumni Member", fr: "Membre Alumni" },
+          org: {
+            en: "Université Paris Cité Alumni",
+            fr: "Université Paris Cité Alumni",
+          },
+          location: { en: "France", fr: "France" },
+          date: { en: "Alumni", fr: "Alumni" },
+        },
+      ],
+      footer: {
+        en: "I have been engaged in monthly supervision continuously since graduation, with professionals trained in CBT and/or ACT.",
+        fr: "Je suis en supervision clinique mensuelle depuis 2015 avec des professionnels formés aux TCC et à ACT.",
+      },
+    },
+
+    timeline: [
+      {
+        location: { en: "New York", fr: "New York" },
+        year: { en: "2007-2009", fr: "2007-2009" },
+        desc: { en: "Lived in New York", fr: "Vie à New York" },
+        top: 32,
+        left: 19,
+        labelPos: "top",
+      },
+      {
+        location: { en: "Paris", fr: "Paris" },
+        year: { en: "2009-2018", fr: "2009-2018" },
+        desc: {
+          en: "Studied at the University of Paris Cité, worked for 4 years at the 'Hopital du Chesnay'",
+          fr: "Études à l'Université Paris Cité, psychologue à l'Hôpital du Chesnay",
+        },
+        top: 24,
+        left: 44,
+      },
+      {
+        location: { en: "Singapore", fr: "Singapour" },
+        year: { en: "2018-2022", fr: "2018-2022" },
+        desc: {
+          en: "Worked at Thrive Family, The Other Clinic in Singapore",
+          fr: "Thrive Family, The Other Clinic à Singapour",
+        },
+        top: 60,
+        left: 75,
+      },
+      {
+        location: { en: "Brighton", fr: "Brighton" },
+        year: { en: "2022-present", fr: "2022-présent" },
+        desc: {
+          en: "Brighton & Hove Therapy in Brighton, UK",
+          fr: "Brighton & Hove Therapy à Brighton, UK",
+        },
+        top: 18,
+        left: 43,
+        labelPos: "top",
+      },
+    ],
+  },
+
+  practice: {
+    title: { en: "Where to find me", fr: "Où me trouver" },
+    in_person_title: {
+      en: "In-person & Online",
+      fr: "En personne et en ligne",
+    },
+    in_person_desc: {
+      en: "I receive clients in person on Mondays, Wednesdays and Fridays at:",
+      fr: "Je reçois les patients en personne les lundis et vendredis à :",
+    },
+    location_name: {
+      en: "Brighton and Hove Psychotherapy",
+      fr: "Brighton and Hove Psychotherapy",
+    },
+    address_lines: {
+      en: ["49 Church Road", "Hove, BN3 2BE", "East Sussex", "United Kingdom"],
+      fr: ["49 Church Road", "Hove, BN3 2BE", "East Sussex", "Royaume-Uni"],
+    },
+    contact_email: "info@lucietherapy.com",
+    contact_web: "www.brightonandhovepsychotherapy.com",
+    contact_web_url:
+      "https://www.brightonandhovepsychotherapy.com/practitioners/lucie-ramet/",
+    online_title: {
+      en: "Special collaboration - Asia/Singapore ",
+      fr: "Collaboration spéciale - Asie/Singapour",
+    },
+    online_desc: {
+      en: "I previously worked in Singapore with The Other Clinic, and I continue this collaboration by offering telehealth sessions for clients based in Singapore or those who have relocated to Europe.",
+      fr: "J'ai travaillé auparavant à Singapour avec The Other Clinic, et je continue cette collaboration en proposant des sessions de téléconsultation pour les clients basés à Singapour ou ceux qui ont déménagé en Europe.",
+    },
+    online_sub: {
+      en: "For clients based in Singapore: telehealth sessions from 4 to 9pm SGT.",
+      fr: "Pour les clients basés à Singapour : sessions de 16h à 21h SGT.",
+    },
+    sg_contact: "hello@theotherclinic.sg",
+    sg_web: { en: "Web - The Other Clinic", fr: "Web - The Other Clinic" },
+    sg_web_url: "https://theotherclinic.sg/lucie-ramet/",
+  },
+
+  services: {
+    title: { en: "Services", fr: "Services" },
+    fees_title: { en: "Fees & Appointments", fr: "Tarifs & Rendez-vous" },
+    fees_therapy: {
+      title: {
+        en: "Individual therapy session",
+        fr: "Séance individuelle de thérapie",
+      },
+      price: { en: "50min - £90", fr: "50min - 100€" },
+    },
+    fees_supervision: {
+      title: { en: "Supervision session", fr: "Séance de supervision" },
+      price: { en: "50min - £90*", fr: "50min - 100€*" },
+      note: {
+        en: "*£60 for trainees at AFTCC",
+        fr: "*70€ pour les étudiants de l'AFTCC",
+      },
+    },
+    insurance: {
+      en: "",
+      fr: "",
+    },
+    cards: [
+      {
+        title: {
+          en: "CBT - Cognitive Behavioural Therapy",
+          fr: "TCC - Thérapie Cognitivo-Comportementale",
+        },
+        desc: {
+          en: "An evidence-based, goal-oriented approach focused on modifying maladaptive thoughts and behaviours.",
+          fr: "Une approche fondée sur des preuves et orientée vers des objectifs, visant la modification des pensées et comportements dysfonctionnels.",
+        },
+        img: "img_cbt.jpg",
+        blogPostId: "post-what-is-cbt",
+      },
+      {
+        title: {
+          en: "ACT - Acceptance & Commitment Therapy",
+          fr: "ACT - Thérapie d'Acceptation et d'Engagement",
+        },
+        desc: {
+          en: "An evidence-based approach using acceptance, mindfulness, and values to help you move toward a more meaningful life.",
+          fr: "Une approche fondée sur des données scientifiques, utilisant l'acceptation, la pleine conscience et les valeurs pour avancer vers une vie plus porteuse de sens.",
+        },
+        img: "img_act.webp",
+        blogPostId: "post-what-is-ACT",
+      },
+      {
+        title: {
+          en: "Supervision",
+          fr: "Supervision",
+        },
+        desc: {
+          en: "A collaborative, supportive supervisory relationship to deepen clinical understanding and professional confidence.",
+          fr: "Une relation de supervision bienveillante et collaborative pour approfondir votre compréhension clinique et votre confiance professionnelle.",
+        },
+        img: "img_supervision.webp",
+        blogPostId: "post-cbt-supervision",
+      },
+      {
+        title: { en: "Support for Expats", fr: "Soutien aux Expatriés" },
+        desc: {
+          en: "Navigate change, build resilience, and thrive abroad.",
+          fr: "Soutien spécialisé pour naviguer les défis de la vie à l'étranger.",
+        },
+        img: "img_expat.jpg",
+        blogPostId: "post-navigating-expat-life",
+      },
+      {
+        title: { en: "Online Therapy", fr: "Thérapie en Ligne" },
+        desc: {
+          en: "Flexible online therapy sessions to support your well-being-anytime, anywhere.",
+          fr: "Séances de thérapie en ligne, flexibles et bienveillantes, pour soutenir votre bien-être où que vous soyez.",
+        },
+        img: "img_telehealth.png",
+        blogPostId: "post-online-therapy",
+      },
+      {
+        title: { en: "Mindfulness", fr: "Mindfulness" },
+        desc: {
+          en: "Guidance for young adults managing academic pressure, independence, and the social challenges of university life.",
+          fr: "Accompagnement des jeunes adultes face à la pression académique, l'indépendance et la vie sociale universitaire.",
+        },
+        img: "img_university.jpeg",
+        blogPostId: "Mindfulness",
+      },
+    ],
+  },
+
+  blog: [
+    {
+      id: "post-what-is-cbt",
+      date: "",
+      img: "blog_cbt.jpg",
+      title: {
+        en: "What is Cognitive Behavioural Therapy (CBT)?",
+        fr: "Qu'est-ce que la Thérapie Cognitivo-Comportementale (TCC) ?",
+      },
+      content: {
+        en: `
     <p>
       <strong>Cognitive Behavioural Therapy (CBT)</strong> is the main foundation of my clinical work. I use <strong>evidence-based approaches</strong>, including <strong>CBT</strong> and <strong>Acceptance and Commitment Therapy (ACT)</strong>. I was trained in CBT with the <strong>French Association for Cognitive and Behavioural Therapy (AFTCC)</strong>.
     </p>
@@ -394,7 +405,7 @@ const CONTENT = {
       My therapeutic work is grounded in <strong>respect</strong> and <strong>compassion</strong>, providing a <strong>supportive space</strong> for clients to express their experiences while working toward <strong>meaningful and sustainable change</strong>.
     </p>
   `,
-                fr: `
+        fr: `
     <p>
       La <strong>Thérapie Cognitivo-Comportementale (TCC)</strong> constitue la base principale de mon travail clinique. J'utilise des <strong>approches fondées sur des données scientifiques</strong>, notamment la <strong>TCC</strong> et la <strong>Thérapie d'Acceptation et d'Engagement (ACT)</strong>. J'ai été formée à la TCC par l'<strong>Association Française de Thérapie Comportementale et Cognitive (AFTCC)</strong>.
     </p>
@@ -414,31 +425,31 @@ const CONTENT = {
       Mon travail thérapeutique s'inscrit dans un cadre de <strong>respect</strong> et de <strong>compassion</strong>, offrant un <strong>espace sécurisant</strong> pour l'expression de l'expérience vécue et favorisant un <strong>changement durable et porteur de sens</strong>.
     </p>
   `,
-            },
-        },
-        {
-            id: "post-understanding-anxiety",
-            date: "2024-05-15",
-            img: "blog_anxiety.jpg",
-            title: {
-                en: "Understanding Anxiety: A First Step",
-                fr: "Comprendre l'anxiété : Une première étape",
-            },
-            content: {
-                en: `<p>Anxiety is a natural response to stress...</p>`,
-                fr: `<p>L'anxiété est une réponse naturelle au stress...</p>`,
-            },
-        },
-        {
-            id: "post-what-is-ACT",
-            date: "",
-            img: "blog_act.webp",
-            title: {
-                en: "Acceptance and Commitment Therapy (ACT): Building a Meaningful Life",
-                fr: "Thérapie d'Acceptation et d'Engagement (ACT) : Vers une vie porteuse de sens",
-            },
-            content: {
-                en: `
+      },
+    },
+    {
+      id: "post-understanding-anxiety",
+      date: "2024-05-15",
+      img: "blog_anxiety.jpg",
+      title: {
+        en: "Understanding Anxiety: A First Step",
+        fr: "Comprendre l'anxiété : Une première étape",
+      },
+      content: {
+        en: `<p>Anxiety is a natural response to stress...</p>`,
+        fr: `<p>L'anxiété est une réponse naturelle au stress...</p>`,
+      },
+    },
+    {
+      id: "post-what-is-ACT",
+      date: "",
+      img: "blog_act.webp",
+      title: {
+        en: "Acceptance and Commitment Therapy (ACT): Building a Meaningful Life",
+        fr: "Thérapie d'Acceptation et d'Engagement (ACT) : Vers une vie porteuse de sens",
+      },
+      content: {
+        en: `
     <p>
       <strong>Acceptance and Commitment Therapy (ACT)</strong> is one of the core approaches guiding my clinical work, alongside <strong>Cognitive Behavioural Therapy (CBT)</strong>. Both are <strong>evidence-based therapies</strong> grounded in scientific research.
     </p>
@@ -464,7 +475,7 @@ const CONTENT = {
       ACT offers a space to explore inner experiences with openness while learning how to move forward in a way that feels <strong>authentic</strong>, <strong>meaningful</strong>, and aligned with <strong>what matters most to you</strong>.
     </p>
   `,
-                fr: `
+        fr: `
     <p>
       La <strong>Thérapie d'Acceptation et d'Engagement (ACT)</strong> fait partie des approches centrales qui orientent mon travail clinique, aux côtés de la <strong>Thérapie Cognitivo-Comportementale (TCC)</strong>. Ces deux approches sont <strong>fondées sur des données scientifiques</strong> et largement reconnues pour leur efficacité.
     </p>
@@ -490,18 +501,18 @@ const CONTENT = {
       L'ACT offre ainsi un cadre permettant d'aborder son expérience intérieure avec davantage d'ouverture, tout en avançant progressivement vers une vie <strong>plus authentique, plus engagée et plus en accord avec ce qui est essentiel pour soi</strong>.
     </p>
   `,
-            },
-        },
-        {
-            id: "post-navigating-expat-life",
-            date: "",
-            img: "blog_expat.png",
-            title: {
-                en: "Navigating Life Abroad: Support for Expatriates",
-                fr: "Vivre à l'Étranger : Accompagnement des Expatriés",
-            },
-            content: {
-                en: `<p>Expatriation presents a remarkable opportunity for growth - both professionally and personally. Often romanticized as an idyllic adventure filled with travel, cultural immersion, enriching encounters, and skill development, the reality of life abroad can also be demanding. Leaving behind what is familiar and reconstructing a sense of home and identity in a new environment can test one's resilience and emotional resources.</p>
+      },
+    },
+    {
+      id: "post-navigating-expat-life",
+      date: "",
+      img: "blog_expat.png",
+      title: {
+        en: "Navigating Life Abroad: Support for Expatriates",
+        fr: "Vivre à l'Étranger : Accompagnement des Expatriés",
+      },
+      content: {
+        en: `<p>Expatriation presents a remarkable opportunity for growth - both professionally and personally. Often romanticized as an idyllic adventure filled with travel, cultural immersion, enriching encounters, and skill development, the reality of life abroad can also be demanding. Leaving behind what is familiar and reconstructing a sense of home and identity in a new environment can test one's resilience and emotional resources.</p>
 <p>This leap into the unknown sometimes requires significant psychological and emotional adjustment - learning how to navigate change while making space for fulfilment, connection, and a sense of belonging.</p>
 <h3>Common Challenges for Expatriates</h3>
 <ul>
@@ -526,7 +537,7 @@ const CONTENT = {
 </ul>
 <p>In our sessions, you will find a <strong>safe, supportive, and non-judgmental environment</strong> where you can explore your experience, deepen your understanding of what you are going through, and develop practical strategies to navigate life abroad.</p>`,
 
-                fr: `<p>L'expatriation est une occasion exceptionnelle de développement, tant sur le plan professionnel que personnel. Souvent idéalisée comme une aventure enrichissante faite de voyages, d'immersion culturelle et de rencontres stimulantes, la réalité de la vie à l'étranger peut également être exigeante. Quitter ce qui est familier et reconstruire un sentiment de foyer et d'identité dans un nouvel environnement peut mettre à l'épreuve votre résilience et vos ressources émotionnelles.</p>
+        fr: `<p>L'expatriation est une occasion exceptionnelle de développement, tant sur le plan professionnel que personnel. Souvent idéalisée comme une aventure enrichissante faite de voyages, d'immersion culturelle et de rencontres stimulantes, la réalité de la vie à l'étranger peut également être exigeante. Quitter ce qui est familier et reconstruire un sentiment de foyer et d'identité dans un nouvel environnement peut mettre à l'épreuve votre résilience et vos ressources émotionnelles.</p>
 <p>Ce saut dans l'inconnu demande parfois un <strong>ajustement psychologique et émotionnel important - apprendre à gérer le changement tout en faisant de la place pour l'épanouissement, la connexion sociale et le sentiment d'appartenance.</strong></p>
 <h3>Défis courants rencontrés par les expatriés</h3>
 <ul>
@@ -550,18 +561,18 @@ const CONTENT = {
 <li><strong>L'accompagnement des enfants et adolescents</strong> - Soutenir les jeunes membres de la famille dans les changements scolaires, le développement identitaire et l'adaptation sociale</li>
 </ul>
 <p>Dans nos séances, vous trouverez un <strong>environnement sécurisant, bienveillant et sans jugement</strong>, où vous pourrez explorer votre expérience, approfondir votre compréhension de ce que vous traversez et développer des stratégies pratiques pour naviguer la vie à l'étranger.</p>`,
-            },
-        },
-        {
-            id: "post-cbt-supervision",
-            date: "",
-            img: "blog_supervision.jpg",
-            title: {
-                en: "CBT Supervision: A Dedicated Space for Your Professional Growth",
-                fr: "Supervision TCC : Un espace dédié à votre développement professionnel",
-            },
-            content: {
-                en: `
+      },
+    },
+    {
+      id: "post-cbt-supervision",
+      date: "",
+      img: "blog_supervision.jpg",
+      title: {
+        en: "CBT Supervision: A Dedicated Space for Your Professional Growth",
+        fr: "Supervision TCC : Un espace dédié à votre développement professionnel",
+      },
+      content: {
+        en: `
       As a <strong>TPS-certified supervisor</strong> (Thérapeute Praticien Superviseur) recognised by the <strong>AFTCC</strong>, I offer <strong>CBT supervision</strong> for clinicians and students. Supervision supports your <strong>professional development</strong>, strengthens your clinical skills, and can contribute to your AFTCC certification pathway.
     </p>
 
@@ -608,7 +619,7 @@ const CONTENT = {
       Supervision is a collaborative process. Your engagement-through case preparation, reflection, and deliberate practice-makes the work meaningful. Together, we build a professional partnership that supports <strong>ethical, effective, and technically sound CBT practice</strong>, while recognising you as a developing professional, not just a set of techniques.
     </p>
   `,
-                fr: `
+        fr: `
     <p>
       En tant que <strong>superviseure certifiée TPS</strong> (Thérapeute Praticien Superviseur) reconnue par l'<strong>AFTCC (Association Française de Thérapie Comportementale et Cognitive)</strong>, je propose des services de <strong>supervision en TCC</strong> pour praticiens et étudiants. La supervision soutient votre <strong>développement professionnel</strong>, renforce vos compétences cliniques et peut s'inscrire dans le cadre de la certification AFTCC.
     </p>
@@ -647,18 +658,18 @@ const CONTENT = {
       La supervision fonctionne comme un <strong>partenariat actif</strong>. Votre implication - que ce soit dans la préparation des cas, la réflexion ou la mise en pratique - permet à la supervision d'être réellement bénéfique pour votre développement professionnel. Ensemble, nous construisons un cadre de travail qui soutient une pratique de la TCC <strong>éthique, efficace et techniquement solide</strong>, tout en accompagnant votre progression en tant que clinicien·ne.
     </p>
   `,
-            },
-        },
-        {
-            id: "post-online-therapy",
-            date: "",
-            img: "blog_online_therapy.png",
-            title: {
-                en: "Online Therapy: Accessible Support from Anywhere",
-                fr: "Thérapie en Ligne : un soutien accessible où que vous soyez",
-            },
-            content: {
-                en: `
+      },
+    },
+    {
+      id: "post-online-therapy",
+      date: "",
+      img: "blog_online_therapy.png",
+      title: {
+        en: "Online Therapy: Accessible Support from Anywhere",
+        fr: "Thérapie en Ligne : un soutien accessible où que vous soyez",
+      },
+      content: {
+        en: `
   <p>
     Whether you are going through a life transition, facing challenges abroad, or simply looking for accessible support, I offer <strong>online therapy sessions</strong> tailored to your needs.
   </p>
@@ -696,7 +707,7 @@ const CONTENT = {
     The choice between online and in-person sessions depends on your <strong>needs, circumstances, and goals</strong>. Together, we will determine the format that best supports your mental health journey.
   </p>
 `,
-                fr: `
+        fr: `
   <p>
     Que vous traversiez une transition de vie, fassiez face à des défis à l'étranger ou cherchiez simplement un accompagnement accessible, je propose des <strong>séances de thérapie en ligne</strong> adaptées à votre situation.
   </p>
@@ -734,7 +745,94 @@ const CONTENT = {
     Le choix entre séances en ligne et consultations en présentiel dépend de vos <strong>besoins, circonstances et objectifs</strong>. Ensemble, nous déterminerons le format le plus adapté pour soutenir votre parcours de santé mentale.
   </p>
 `,
-            },
-        },
-    ],
-}
+      },
+    },
+    {
+      id: "Mindfulness",
+      date: "",
+      img: "blog_online_therapy.png",
+      title: {
+        en: "Online Therapy: Accessible Support from Anywhere",
+        fr: "Thérapie en Ligne : un soutien accessible où que vous soyez",
+      },
+      content: {
+        en: `
+  <p>
+    Whether you are going through a life transition, facing challenges abroad, or simply looking for accessible support, I offer <strong>online therapy sessions</strong> tailored to your needs.
+  </p>
+
+  <p>
+    I am committed to providing the same high standards of <strong>ethics, confidentiality, and quality of care</strong> as in in-person sessions.
+  </p>
+
+  <p>
+    To help you make the most of your sessions, I adapt all therapeutic interventions and tools for the online format. Features such as Zoom whiteboards can be used to enhance immersion and facilitate practical exercises.
+  </p>
+
+  <p>
+    With your consent, I can coordinate with other professionals in your healthcare network - your general practitioner, psychiatrist, dietitian, etc. - to ensure seamless and optimal care.
+  </p>
+
+  <h3>Benefits of Online Therapy Sessions</h3>
+  <ul>
+    <li><strong>Accessibility:</strong> Receive support without constraints of travel, health, or scheduling (e.g., chronic pain, agoraphobia, busy schedules).</li>
+    <li><strong>Flexibility:</strong> Schedule sessions according to your routine, wherever you are.</li>
+    <li><strong>Continuity of care:</strong> Maintain your therapy even during vacations, travel, or after relocating.</li>
+    <li><strong>Choice of professionals:</strong> Access highly qualified specialists regardless of your location.</li>
+    <li><strong>Support for expatriates:</strong> Find a professional who speaks your language in your host country.</li>
+    <li><strong>Confidentiality and reduced stigma:</strong> Sessions offer a safe, private space and can reduce the social stigma associated with seeking mental health support.</li>
+  </ul>
+
+  <h3>Points to Consider</h3>
+  <ul>
+    <li><strong>Confidentiality:</strong> To benefit fully from online sessions, make sure you have a quiet, private space. Interruptions or lack of privacy may reduce the quality of the session.</li>
+    <li><strong>Technology:</strong> A stable internet connection and a computer or smartphone are necessary. Technical issues may occasionally interrupt the flow of a session.</li>
+    <li><strong>Complexity of difficulties:</strong> For certain severe or complex mental health challenges, in-person support may be recommended to ensure a thorough assessment and optimal care.</li>
+  </ul>
+
+  <p>
+    The choice between online and in-person sessions depends on your <strong>needs, circumstances, and goals</strong>. Together, we will determine the format that best supports your mental health journey.
+  </p>
+`,
+        fr: `
+  <p>
+    Que vous traversiez une transition de vie, fassiez face à des défis à l'étranger ou cherchiez simplement un accompagnement accessible, je propose des <strong>séances de thérapie en ligne</strong> adaptées à votre situation.
+  </p>
+
+  <p>
+    Je m'engage à vous offrir le même niveau élevé d'<strong>éthique, de confidentialité et de qualité de soins</strong> qu'en consultations en présentiel.
+  </p>
+
+  <p>
+    Pour vous aider à tirer le meilleur parti de vos séances, j'adapte toutes mes interventions et outils thérapeutiques au format numérique. Des fonctionnalités comme le tableau blanc sur Zoom peuvent être utilisées pour renforcer l'immersion et faciliter certains exercices pratiques.
+  </p>
+
+  <p>
+    Avec votre consentement, je peux collaborer avec d'autres professionnels de votre réseau de soins - médecin traitant, psychiatre, diététicien, etc. - afin d'assurer une coordination harmonieuse et optimale de votre prise en charge.
+  </p>
+
+  <h3>Avantages des séances de thérapie en ligne</h3>
+  <ul>
+    <li><strong>Accessibilité :</strong> Bénéficiez d'un accompagnement sans contraintes de déplacement, de santé ou d'emploi du temps (ex. : douleurs chroniques, agoraphobie, horaires chargés).</li>
+    <li><strong>Flexibilité :</strong> Planifiez vos séances selon votre routine, où que vous soyez.</li>
+    <li><strong>Continuité des soins :</strong> Maintenez le suivi même pendant les vacances, les déplacements ou après un déménagement.</li>
+    <li><strong>Choix de professionnels :</strong> Accédez à des spécialistes qualifiés et expérimentés, indépendamment de votre lieu de résidence.</li>
+    <li><strong>Soutien aux expatriés :</strong> Trouvez un professionnel parlant votre langue dans votre pays d'accueil.</li>
+    <li><strong>Confidentialité et réduction de la stigmatisation :</strong> Les séances offrent un cadre sûr et privé, et peuvent réduire la gêne liée à la recherche d'aide psychologique.</li>
+  </ul>
+
+  <h3>Points à considérer</h3>
+  <ul>
+    <li><strong>Confidentialité :</strong> Pour tirer pleinement parti des séances, veillez à disposer d'un espace calme et privé. Les interruptions ou le manque de confidentialité peuvent réduire la qualité de la séance.</li>
+    <li><strong>Technologie :</strong> Une connexion internet stable et un ordinateur ou smartphone sont nécessaires. Les problèmes techniques peuvent parfois interrompre le déroulement de la séance.</li>
+    <li><strong>Complexité des difficultés :</strong> Pour certaines problématiques sévères ou complexes, un accompagnement en personne peut être recommandé afin de garantir une évaluation et un suivi optimal.</li>
+  </ul>
+
+  <p>
+    Le choix entre séances en ligne et consultations en présentiel dépend de vos <strong>besoins, circonstances et objectifs</strong>. Ensemble, nous déterminerons le format le plus adapté pour soutenir votre parcours de santé mentale.
+  </p>
+`,
+      },
+    },
+  ],
+};
