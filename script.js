@@ -258,7 +258,11 @@ function updateContent(lang) {
         servicesContainer.innerHTML += cardHTML
     })
     document.getElementById("fees-title").textContent = CONTENT.services.fees_title[lang]
-    document.getElementById("fees-desc").textContent = CONTENT.services.fees_desc[lang]
+    document.getElementById("fees-therapy-title").textContent = CONTENT.services.fees_therapy.title[lang]
+    document.getElementById("fees-therapy-price").textContent = CONTENT.services.fees_therapy.price[lang]
+    document.getElementById("fees-supervision-title").textContent = CONTENT.services.fees_supervision.title[lang]
+    document.getElementById("fees-supervision-price").textContent = CONTENT.services.fees_supervision.price[lang]
+    document.getElementById("fees-supervision-note").textContent = CONTENT.services.fees_supervision.note[lang]
     document.getElementById("insurance-info").textContent = CONTENT.services.insurance[lang]
     document.getElementById("book-btn").textContent = CONTENT.ui.btn_book[lang]
     document.getElementById("supervision-btn").textContent = CONTENT.ui.btn_supervision[lang]

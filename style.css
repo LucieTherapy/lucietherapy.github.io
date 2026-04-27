@@ -692,11 +692,42 @@ body {
     max-width: 800px;
     margin: 0 auto;
 }
+.pricing-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+.pricing-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 6px;
+    background: var(--cream-bg);
+}
 .price-title {
     font-family: var(--font-serif);
     color: var(--gold-accent);
     font-size: 1.5rem;
     margin-bottom: 10px;
+}
+.price-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+}
+.price-amount {
+    font-size: 0.95rem;
+    color: var(--text-grey);
+    font-weight: 500;
+}
+.price-note {
+    font-size: 0.78rem;
+    color: #999;
+    font-style: italic;
 }
 .price-value {
     font-size: 1.2rem;
