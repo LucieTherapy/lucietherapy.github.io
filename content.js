@@ -247,8 +247,8 @@ const CONTENT = {
       fr: "En personne et en ligne",
     },
     in_person_desc: {
-      en: "I receive clients in person on Wednesdays and Fridays at:",
-      fr: "Je reçois les patients en personne les mercredis et vendredis à :",
+      en: "I receive clients in person on Mondays, Wednesdays and Fridays at:",
+      fr: "Je reçois les patients en personne les lundis et vendredis à :",
     },
     location_name: {
       en: "Brighton and Hove Psychotherapy",
