@@ -228,7 +228,9 @@ body {
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease, bottom 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        bottom 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .copy-toast.show {
@@ -723,6 +725,20 @@ body {
     background-color: #4a8c7f;
     box-shadow: 0 5px 15px rgba(95, 171, 156, 0.4);
 }
+.supervision-btn {
+    background-color: var(--gold-accent);
+    margin-left: 15px;
+}
+.supervision-btn:hover {
+    background-color: #8a6e55;
+    box-shadow: 0 5px 15px rgba(168, 139, 113, 0.4);
+}
+#ol-sub {
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--text-grey);
+    margin-top: 8px;
+}
 
 /* --- BLOG SECTION & CAROUSEL --- */
 .blog-bg {
@@ -781,7 +797,10 @@ body {
     border: 1px solid #eee;
     display: flex;
     flex-direction: column;
-    transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease,
+        filter 0.4s ease;
 }
 
 /* INACTIVE STATE */
@@ -966,11 +985,22 @@ body {
     border-bottom: 1px solid #eee;
     padding-bottom: 20px;
 }
+#drawer-img-container {
+    max-height: 25vh;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 4px;
+}
 #drawer-img-container img {
     width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 30px;
+    height: 50vh;
+    object-fit: cover;
+    object-position: center 0%;
+    border-radius: 0;
+    margin-bottom: 0;
+    will-change: transform;
+    display: block;
 }
 #drawer-body {
     font-size: 1.1rem;
@@ -1088,7 +1118,9 @@ body {
     z-index: 2000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
 }
 
 .modal-overlay.show {

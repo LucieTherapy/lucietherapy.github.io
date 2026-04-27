@@ -83,6 +83,28 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
     }
+
+    // 8. Supervision Modal Logic
+    const supervisionBtn = document.getElementById("supervision-btn")
+    const supervisionModal = document.getElementById("supervision-modal")
+    const supervisionModalClose = document.getElementById("supervision-modal-close")
+
+    if (supervisionBtn && supervisionModal && supervisionModalClose) {
+        supervisionBtn.addEventListener("click", (e) => {
+            e.preventDefault()
+            supervisionModal.classList.add("show")
+        })
+
+        supervisionModalClose.addEventListener("click", () => {
+            supervisionModal.classList.remove("show")
+        })
+
+        supervisionModal.addEventListener("click", (e) => {
+            if (e.target === supervisionModal) {
+                supervisionModal.classList.remove("show")
+            }
+        })
+    }
 })
 
 /* --- CAROUSEL STATE --- */
@@ -203,7 +225,7 @@ function updateContent(lang) {
     document.getElementById("ip-address").innerHTML = pData.address_lines[lang].join("<br>")
     document.getElementById("ip-email").textContent = pData.contact_email
     document.getElementById("ip-email").href = "mailto:" + pData.contact_email
-    document.getElementById("ip-web").href = "http://" + pData.contact_web
+    document.getElementById("ip-web").href = pData.contact_web_url
     document.getElementById("btn-contact-left").textContent = CONTENT.ui.btn_contact[lang]
     document.getElementById("ol-title").textContent = pData.online_title[lang]
     document.getElementById("ol-badge").textContent = CONTENT.ui.telehealth_badge[lang]
@@ -250,6 +272,18 @@ function updateContent(lang) {
     document.getElementById("lbl-message").textContent = CONTENT.form.lbl_message[lang]
     document.getElementById("btn-submit").textContent = CONTENT.form.btn_submit[lang]
     document.getElementById("modal-close").setAttribute("aria-label", CONTENT.form.btn_close[lang])
+
+    // Supervision Modal Form Labels
+    const sf = CONTENT.form_supervision
+    document.getElementById("supervision-modal-title").textContent = sf.title[lang]
+    document.getElementById("sup-lbl-email").textContent = sf.lbl_email[lang]
+    document.getElementById("sup-lbl-background").textContent = sf.lbl_background[lang]
+    document.getElementById("sup-opt-trainee").textContent = sf.opt_trainee[lang]
+    document.getElementById("sup-opt-qualified").textContent = sf.opt_qualified[lang]
+    document.getElementById("sup-lbl-availability").textContent = sf.lbl_availability[lang]
+    document.getElementById("sup-lbl-message").textContent = sf.lbl_message[lang]
+    document.getElementById("sup-btn-submit").textContent = sf.btn_submit[lang]
+    document.getElementById("supervision-modal-close").setAttribute("aria-label", sf.btn_close[lang])
 
     // Blog
     document.getElementById("blog-title").textContent = CONTENT.ui.nav_blog[lang]
@@ -420,6 +454,15 @@ const closeDrawer = () => {
 
 document.getElementById("drawer-close").addEventListener("click", closeDrawer)
 document.getElementById("drawer-overlay").addEventListener("click", closeDrawer)
+
+// Parallax effect for blog post header image
+document.getElementById("blog-drawer").addEventListener("scroll", () => {
+    const drawer = document.getElementById("blog-drawer")
+    const img = drawer.querySelector("#drawer-img-container img")
+    if (img) {
+        img.style.transform = `translateY(${drawer.scrollTop * 0.35}px)`
+    }
+})
 
 window.addEventListener("resize", () => {
     const lang = document.getElementById("btn-fr").classList.contains("active") ? "fr" : "en"

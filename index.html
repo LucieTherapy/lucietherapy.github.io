@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -162,6 +162,7 @@
                             <p id="fees-desc" class="price-value"></p>
                             <p id="insurance-info" class="insurance-info"></p>
                             <a href="mailto:info@lucietherapy.com" id="book-btn" class="book-btn">Book an Appointment</a>
+                            <a href="#" id="supervision-btn" class="book-btn supervision-btn">Supervision Inquiry</a>
                         </div>
                     </div>
                 </section>
@@ -228,9 +229,9 @@
         <div id="contact-modal" class="modal-overlay">
             <div class="modal-content">
                 <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
-                <h2 id="modal-title">Contact Me</h2>
+                <h2 id="modal-title">Therapy Inquiry</h2>
                 <form action="https://formsubmit.co/info@lucietherapy.com" method="POST" class="contact-form">
-                    <input type="hidden" name="_subject" value="New Appointment Request" />
+                    <input type="hidden" name="_subject" value="New Therapy Inquiry" />
                     <input type="hidden" name="_template" value="table" />
                     <input type="hidden" name="_captcha" value="false" />
 
@@ -264,6 +265,50 @@
                     </div>
 
                     <button type="submit" class="submit-btn" id="btn-submit">Send Request</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- SUPERVISION MODAL -->
+        <div id="supervision-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button id="supervision-modal-close" class="modal-close" aria-label="Close">&times;</button>
+                <h2 id="supervision-modal-title">Supervision Inquiry</h2>
+                <form action="https://formsubmit.co/info@lucietherapy.com" method="POST" class="contact-form">
+                    <input type="hidden" name="_subject" value="New Supervision Inquiry" />
+                    <input type="hidden" name="_template" value="table" />
+                    <input type="hidden" name="_captcha" value="false" />
+
+                    <div class="form-group">
+                        <label for="sup-email" id="sup-lbl-email">Your Email</label>
+                        <input type="email" id="sup-email" name="email" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label id="sup-lbl-background">Your Background</label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="background" value="Trainee" checked />
+                                <span id="sup-opt-trainee">Trainee</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="background" value="Qualified Therapist" />
+                                <span id="sup-opt-qualified">Qualified Therapist</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sup-availability" id="sup-lbl-availability">Preferred Days/Time</label>
+                        <input type="text" id="sup-availability" name="availability" placeholder="e.g. Wednesday mornings" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sup-message" id="sup-lbl-message">Message</label>
+                        <textarea id="sup-message" name="message" rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="sup-btn-submit">Send Request</button>
                 </form>
             </div>
         </div>
