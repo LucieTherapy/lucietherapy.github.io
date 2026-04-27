@@ -41,7 +41,7 @@ const CONTENT = {
     title: { en: "Supervision Inquiry", fr: "Demande de Supervision" },
     lbl_email: { en: "Your Email", fr: "Votre Email" },
     lbl_background: { en: "Your Background", fr: "Votre Profil" },
-    opt_trainee: { en: "Trainee", fr: "En formation" },
+    opt_trainee: { en: "In training at AFTCC", fr: "En formation à l'AFTCC" },
     opt_qualified: { en: "Qualified Therapist", fr: "Thérapeute qualifié(e)" },
     lbl_availability: {
       en: "Preferred Days/Time",
@@ -146,7 +146,10 @@ const CONTENT = {
         },
         {
           logo: "media/logo_sps.png",
-          role: { en: "Full Member (FM022016A)", fr: "Full Member (FM022016A)" },
+          role: {
+            en: "Full Member (FM022016A)",
+            fr: "Full Member (FM022016A)",
+          },
           org: {
             en: "Singapore Psychological Society (SPS)",
             fr: "Société de Psychologie de Singapour (SPS)",
