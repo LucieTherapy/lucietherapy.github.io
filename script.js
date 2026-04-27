@@ -427,10 +427,13 @@ window.openBlogDrawer = (id) => {
     document.getElementById("drawer-body").innerHTML = post.content[lang]
 
     const imgContainer = document.getElementById("drawer-img-container")
+    const drawerBody = document.getElementById("drawer-body")
     if (post.img) {
-        imgContainer.innerHTML = `<img src="media/${post.img}">`
+        imgContainer.innerHTML = `<img src="media/${post.img}" alt="">`
+        drawerBody.insertAdjacentElement("afterbegin", imgContainer)
     } else {
         imgContainer.innerHTML = ""
+        imgContainer.remove()
     }
 
     overlay.classList.add("open")
@@ -454,15 +457,6 @@ const closeDrawer = () => {
 
 document.getElementById("drawer-close").addEventListener("click", closeDrawer)
 document.getElementById("drawer-overlay").addEventListener("click", closeDrawer)
-
-// Parallax effect for blog post header image
-document.getElementById("blog-drawer").addEventListener("scroll", () => {
-    const drawer = document.getElementById("blog-drawer")
-    const img = drawer.querySelector("#drawer-img-container img")
-    if (img) {
-        img.style.transform = `translateY(${drawer.scrollTop * 0.35}px)`
-    }
-})
 
 window.addEventListener("resize", () => {
     const lang = document.getElementById("btn-fr").classList.contains("active") ? "fr" : "en"

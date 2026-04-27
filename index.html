@@ -122,7 +122,17 @@
                                     </div>
                                 </div>
                                 <div class="card-btn-container">
-                                    <a href="#services" class="cta-button card-btn" id="btn-contact-left">Contact</a>
+                                    <a
+                                        href="javascript:void(0)"
+                                        class="cta-button card-btn"
+                                        id="btn-contact-left"
+                                        onclick="
+                                            document
+                                                .getElementById('pricing-section')
+                                                .scrollIntoView({ behavior: 'smooth', block: 'center' })
+                                        "
+                                        >Contact</a
+                                    >
                                 </div>
                             </div>
                             <div class="practice-card">
@@ -157,7 +167,7 @@
                     <div class="container-wide">
                         <h2 id="services-title" class="section-heading">Services</h2>
                         <div class="services-grid" id="services-container"></div>
-                        <div class="pricing-section">
+                        <div class="pricing-section" id="pricing-section">
                             <h3 id="fees-title" class="price-title"></h3>
                             <p id="fees-desc" class="price-value"></p>
                             <p id="insurance-info" class="insurance-info"></p>
@@ -209,7 +219,7 @@
                 </section>
 
                 <footer>
-                    <p>© 2024 Lucie Ramet Psychology</p>
+                    <p>© 2026 Lucie Ramet Therapy</p>
                 </footer>
             </div>
         </div>

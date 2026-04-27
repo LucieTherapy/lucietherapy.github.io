@@ -134,8 +134,8 @@ const CONTENT = {
         {
           logo: "media/logo_bps.png",
           role: {
-            en: "Chartered Member CPsychol 716681",
-            fr: "Chartered Member CPsychol 716681",
+            en: "Chartered Member CPsychol (716681)",
+            fr: "Chartered Member CPsychol (716681)",
           },
           org: {
             en: "British Psychological Society (BPS)",
@@ -146,7 +146,7 @@ const CONTENT = {
         },
         {
           logo: "media/logo_sps.png",
-          role: { en: "Full Member FM022016A", fr: "Full Member FM022016A" },
+          role: { en: "Full Member (FM022016A)", fr: "Full Member (FM022016A)" },
           org: {
             en: "Singapore Psychological Society (SPS)",
             fr: "Société de Psychologie de Singapour (SPS)",
