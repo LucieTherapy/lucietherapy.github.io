@@ -6,7 +6,7 @@ const CONTENT = {
         nav_services: { en: "Services", fr: "Services" },
         nav_blog: { en: "Blog", fr: "Blog" },
         nav_about: { en: "About Me", fr: "À propos" },
-        btn_background: { en: "About me", fr: "À propos de moi" },
+        btn_background: { en: "About me", fr: "Mon parcours" },
         btn_contact: { en: "Contact", fr: "Me Contacter" },
         btn_book: { en: "Book an Appointment", fr: "Prendre Rendez-vous" },
         btn_supervision: { en: "Supervision Inquiry", fr: "Demande de supervision" },
