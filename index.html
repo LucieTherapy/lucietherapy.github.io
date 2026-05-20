@@ -1,338 +1,463 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Lucie Ramet - Therapy</title>
-        <link rel="icon" href="media/favicon.jpg" type="image/jpeg" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="main-layout">
-            <aside class="sidebar-nav">
-                <div class="sidebar-content">
-                    <div class="brand-name">Lucie Ramet</div>
-                    <ul class="nav-links">
-                        <li><a href="#bio" class="nav-item active" id="link-bio">Biography</a></li>
-                        <li><a href="#practice" class="nav-item" id="link-practice">Where to find me</a></li>
-                        <li><a href="#services" class="nav-item" id="link-services">Services</a></li>
-                        <li><a href="#blog" class="nav-item" id="link-blog">Blog</a></li>
-                        <li><a href="#about" class="nav-item" id="link-about">About Me</a></li>
-                    </ul>
-                    <div class="lang-switch-inline">
-                        <button onclick="setLanguage('fr')" id="btn-fr" class="lang-btn">
-                            <img src="https://flagcdn.com/w40/fr.png" alt="FR" class="flag-icon" /> FR
-                        </button>
-                        <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">
-                            <img src="https://flagcdn.com/w40/gb.png" alt="UK" class="flag-icon" /> EN
-                        </button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucie Ramet - Therapy</title>
+    <link rel="icon" href="media/favicon.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-layout">
+      <aside class="sidebar-nav">
+        <div class="sidebar-content">
+          <div class="brand-name">Lucie Ramet</div>
+          <ul class="nav-links">
+            <li>
+              <a href="#bio" class="nav-item active" id="link-bio">Biography</a>
+            </li>
+            <li>
+              <a href="#practice" class="nav-item" id="link-practice"
+                >Where to find me</a
+              >
+            </li>
+            <li>
+              <a href="#services" class="nav-item" id="link-services"
+                >Services</a
+              >
+            </li>
+            <li><a href="#blog" class="nav-item" id="link-blog">Blog</a></li>
+            <li>
+              <a href="#about" class="nav-item" id="link-about">About Me</a>
+            </li>
+          </ul>
+          <div class="lang-switch-inline">
+            <button onclick="setLanguage('fr')" id="btn-fr" class="lang-btn">
+              <img
+                src="https://flagcdn.com/w40/fr.png"
+                alt="FR"
+                class="flag-icon"
+              />
+              FR
+            </button>
+            <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">
+              <img
+                src="https://flagcdn.com/w40/gb.png"
+                alt="UK"
+                class="flag-icon"
+              />
+              EN
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="content-area">
+        <section id="bio" class="section-pad top-section">
+          <div class="container-narrow">
+            <header class="content-header">
+              <h1 id="page-name"></h1>
+              <h2 id="page-role"></h2>
+              <hr class="divider" />
+            </header>
+            <div class="profile-layout">
+              <div class="text-block">
+                <div id="bio-text"></div>
+                <a href="#about" class="cta-button" id="btn-bio-action"
+                  >About Me</a
+                >
+                <div class="credentials-container">
+                  <div class="logo-grid">
+                    <div class="logo-left">
+                      <img
+                        src="media/logo_bps.png"
+                        alt="BPS"
+                        class="logo-bps"
+                      />
                     </div>
+                    <div class="logo-right">
+                      <img
+                        src="media/logo_aftcc.png"
+                        alt="AFTCC"
+                        class="logo-small"
+                      />
+                      <img
+                        src="media/logo_sps.png"
+                        alt="SPS"
+                        class="logo-small"
+                      />
+                    </div>
+                  </div>
                 </div>
-            </aside>
-
-            <div class="content-area">
-                <section id="bio" class="section-pad top-section">
-                    <div class="container-narrow">
-                        <header class="content-header">
-                            <h1 id="page-name"></h1>
-                            <h2 id="page-role"></h2>
-                            <hr class="divider" />
-                        </header>
-                        <div class="profile-layout">
-                            <div class="text-block">
-                                <div id="bio-text"></div>
-                                <a href="#about" class="cta-button" id="btn-bio-action">About Me</a>
-                                <div class="credentials-container">
-                                    <div class="logo-grid">
-                                        <div class="logo-left"><img src="media/logo_bps.png" alt="BPS" class="logo-bps" /></div>
-                                        <div class="logo-right">
-                                            <img src="media/logo_aftcc.png" alt="AFTCC" class="logo-small" />
-                                            <img src="media/logo_sps.png" alt="SPS" class="logo-small" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="image-block">
-                                <img src="media/profile.jpg" alt="Lucie Ramet Profile" />
-                                <div class="social-links-container">
-                                    <a
-                                        href="https://www.instagram.com/lucie_ramet_psychologist/?hl=fr"
-                                        target="_blank"
-                                        class="social-icon"
-                                        aria-label="Instagram"
-                                    >
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                            <path
-                                                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-                                            />
-                                        </svg>
-                                    </a>
-                                    <a
-                                        href="https://www.linkedin.com/in/lucie-ramet-psychologue/"
-                                        target="_blank"
-                                        class="social-icon"
-                                        aria-label="LinkedIn"
-                                    >
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                            <path
-                                                d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.28c12.4-23.47 42.69-48.28 87.91-48.28 94.03 0 111.37 61.9 111.37 142.3V448z"
-                                            />
-                                        </svg>
-                                    </a>
-                                    <div class="social-icon email-copy" id="btn-copy-email" aria-label="Copy Email">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                            <path
-                                                d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
-                                            />
-                                        </svg>
-                                        <span class="copy-toast" id="copy-toast">info@lucietherapy.com copied!</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="practice" class="section-pad practice-bg">
-                    <div class="container-wide">
-                        <h2 id="practice-main-title" class="section-heading">Where to find me</h2>
-                        <div class="cards-grid">
-                            <div class="practice-card">
-                                <div class="card-content-spacer">
-                                    <h3 id="ip-title" class="card-title">In-person</h3>
-                                    <p id="ip-desc" class="card-desc"></p>
-                                    <h4 id="ip-loc-name" class="loc-name"></h4>
-                                    <div id="ip-address" class="address-block"></div>
-                                    <div class="contact-links">
-                                        <span class="label">Contact: </span>
-                                        <a href="#" id="ip-email"></a> | <a href="#" id="ip-web" target="_blank">Web</a>
-                                    </div>
-                                    <div class="media-wrapper map-embed">
-                                        <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2520.5786738914614!2d-0.17646192323758376!3d50.829398860647895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4875854344555555%3A0x123456789!2zNDkgQ2h1cmNoIFJkLCBIb3ZlIEJOMyAyQkUsIFVL!5e0!3m2!1sen!2suk!4v1610000000000!5m2!1sen!2suk"
-                                            allowfullscreen=""
-                                            loading="lazy"
-                                        ></iframe>
-                                    </div>
-                                </div>
-                                <div class="card-btn-container">
-                                    <a
-                                        href="javascript:void(0)"
-                                        class="cta-button card-btn"
-                                        id="btn-contact-left"
-                                        onclick="
-                                            document
-                                                .getElementById('pricing-section')
-                                                .scrollIntoView({ behavior: 'smooth', block: 'center' })
-                                        "
-                                        >Contact</a
-                                    >
-                                </div>
-                            </div>
-                            <div class="practice-card">
-                                <div class="card-content-spacer">
-                                    <h3 id="ol-title" class="card-title">Online</h3>
-                                    <span id="ol-badge" class="badge">Telehealth</span>
-                                    <p id="ol-desc" class="card-desc mt-4"></p>
-                                    <p id="ol-sub" class="text-sm text-gray"></p>
-                                    <div class="contact-links">
-                                        <span class="label">Singapore: </span>
-                                        <a href="#" id="sg-email"></a> | <a href="#" id="sg-web" target="_blank">Web</a>
-                                    </div>
-                                    <div class="media-wrapper">
-                                        <img src="media/img_toc.png" alt="The Other Clinic" class="fixed-media" />
-                                    </div>
-                                </div>
-                                <div class="card-btn-container">
-                                    <a
-                                        href="https://theotherclinic.sg/lucie-ramet/"
-                                        target="_blank"
-                                        class="cta-button card-btn"
-                                        id="btn-contact-right"
-                                        >Contact</a
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="services" class="section-pad">
-                    <div class="container-wide">
-                        <h2 id="services-title" class="section-heading">Services</h2>
-                        <div class="services-grid" id="services-container"></div>
-                        <div class="pricing-section" id="pricing-section">
-                            <h3 id="fees-title" class="price-title"></h3>
-                            <div class="pricing-columns">
-                                <div class="pricing-col">
-                                    <p id="fees-therapy-title" class="price-label"></p>
-                                    <p id="fees-therapy-price" class="price-amount"></p>
-                                    <p id="insurance-info" class="insurance-info"></p>
-                                    <a href="mailto:info@lucietherapy.com" id="book-btn" class="book-btn">Book an Appointment</a>
-                                </div>
-                                <div class="pricing-col">
-                                    <p id="fees-supervision-title" class="price-label"></p>
-                                    <p id="fees-supervision-price" class="price-amount"></p>
-                                    <p id="fees-supervision-note" class="price-note"></p>
-                                    <a href="#" id="supervision-btn" class="book-btn supervision-btn">Supervision Inquiry</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="blog" class="section-pad blog-bg">
-                    <div class="container-wide">
-                        <h2 id="blog-title" class="section-heading">Blog</h2>
-
-                        <div class="carousel-wrapper">
-                            <div class="nav-zone prev-zone" id="zone-prev">
-                                <span class="arrow">❮</span>
-                            </div>
-
-                            <div class="carousel-window">
-                                <div class="carousel-track" id="blog-track"></div>
-                            </div>
-
-                            <div class="nav-zone next-zone" id="zone-next">
-                                <span class="arrow">❯</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="about" class="section-pad">
-                    <div class="container-wide">
-                        <h2 id="about-title" class="section-heading">About Me</h2>
-                        <div class="about-grid-layout">
-                            <div class="about-cell" id="about-education"></div>
-                            <div class="about-cell" id="about-affiliations"></div>
-                            <div class="about-cell" id="about-experience"></div>
-                            <div class="about-cell map-cell" id="about-map-container">
-                                <img src="media/img_map.png" alt="Map" class="map-img" />
-                                <svg class="map-arrows-svg" id="map-arrows-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                    <defs>
-                                        <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
-                                            <polygon points="0 0, 6 2, 0 4" fill="#a88b71" />
-                                        </marker>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <footer>
-                    <p>© 2026 Lucie Ramet Therapy</p>
-                </footer>
+              </div>
+              <div class="image-block">
+                <img src="media/profile.jpg" alt="Lucie Ramet Profile" />
+                <div class="social-links-container">
+                  <a
+                    href="https://www.instagram.com/lucie_ramet_psychologist/?hl=fr"
+                    target="_blank"
+                    class="social-icon"
+                    aria-label="Instagram"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                    >
+                      <path
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/lucie-ramet-psychologue/"
+                    target="_blank"
+                    class="social-icon"
+                    aria-label="LinkedIn"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                    >
+                      <path
+                        d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.28c12.4-23.47 42.69-48.28 87.91-48.28 94.03 0 111.37 61.9 111.37 142.3V448z"
+                      />
+                    </svg>
+                  </a>
+                  <div
+                    class="social-icon email-copy"
+                    id="btn-copy-email"
+                    aria-label="Copy Email"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                      />
+                    </svg>
+                    <span class="copy-toast" id="copy-toast"
+                      >info@lucietherapy.com copied!</span
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+        </section>
 
-        <div class="drawer-overlay" id="drawer-overlay"></div>
-        <div class="blog-drawer" id="blog-drawer">
-            <button class="drawer-close" id="drawer-close">×</button>
-            <div class="drawer-content">
-                <h1 id="drawer-title"></h1>
-                <p id="drawer-date" class="drawer-meta"></p>
-                <div id="drawer-body"></div>
+        <section id="practice" class="section-pad practice-bg">
+          <div class="container-wide">
+            <h2 id="practice-main-title" class="section-heading">
+              Where to find me
+            </h2>
+            <div class="cards-grid">
+              <div class="practice-card">
+                <div class="card-content-spacer">
+                  <h3 id="ip-title" class="card-title">In-person</h3>
+                  <p id="ip-desc" class="card-desc"></p>
+                  <h4 id="ip-loc-name" class="loc-name"></h4>
+                  <div id="ip-address" class="address-block"></div>
+                  <div class="contact-links">
+                    <span class="label">Contact: </span>
+                    <a href="#" id="ip-email"></a> |
+                    <a href="#" id="ip-web" target="_blank">Web</a>
+                  </div>
+                  <div class="media-wrapper map-embed">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2520.5786738914614!2d-0.17646192323758376!3d50.829398860647895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4875854344555555%3A0x123456789!2zNDkgQ2h1cmNoIFJkLCBIb3ZlIEJOMyAyQkUsIFVL!5e0!3m2!1sen!2suk!4v1610000000000!5m2!1sen!2suk"
+                      allowfullscreen=""
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="card-btn-container">
+                  <a
+                    href="javascript:void(0)"
+                    class="cta-button card-btn"
+                    id="btn-contact-left"
+                    onclick="
+                      document
+                        .getElementById('pricing-section')
+                        .scrollIntoView({ behavior: 'smooth', block: 'center' })
+                    "
+                    >Contact</a
+                  >
+                </div>
+              </div>
+              <div class="practice-card">
+                <div class="card-content-spacer">
+                  <h3 id="ol-title" class="card-title">Online</h3>
+                  <span id="ol-badge" class="badge">Telehealth</span>
+                  <p id="ol-desc" class="card-desc mt-4"></p>
+                  <p id="ol-sub" class="text-sm text-gray"></p>
+                  <div class="contact-links">
+                    <span class="label">Singapore: </span>
+                    <a href="#" id="sg-email"></a> |
+                    <a href="#" id="sg-web" target="_blank">Web</a>
+                  </div>
+                  <div class="media-wrapper">
+                    <img
+                      src="media/img_toc.png"
+                      alt="The Other Clinic"
+                      class="fixed-media"
+                    />
+                  </div>
+                </div>
+                <div class="card-btn-container">
+                  <a
+                    href="https://theotherclinic.sg/lucie-ramet/"
+                    target="_blank"
+                    class="cta-button card-btn"
+                    id="btn-contact-right"
+                    >Contact</a
+                  >
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+        </section>
 
-        <!-- CONTACT MODAL -->
-        <div id="contact-modal" class="modal-overlay">
-            <div class="modal-content">
-                <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
-                <h2 id="modal-title">Therapy Inquiry</h2>
-                <form action="https://formsubmit.co/info@lucietherapy.com" method="POST" class="contact-form">
-                    <input type="hidden" name="_subject" value="New Therapy Inquiry" />
-                    <input type="hidden" name="_template" value="table" />
-                    <input type="hidden" name="_captcha" value="false" />
-
-                    <div class="form-group">
-                        <label for="email" id="lbl-email">Your Email</label>
-                        <input type="email" id="email" name="email" required />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="availability" id="lbl-availability">Preferred Day/Time</label>
-                        <input type="text" id="availability" name="availability" placeholder="e.g. Wednesday mornings" />
-                    </div>
-
-                    <div class="form-group">
-                        <label id="lbl-type">Consultation Type</label>
-                        <div class="radio-group">
-                            <label>
-                                <input type="radio" name="type" value="Online" checked />
-                                <span id="opt-online">Online</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="type" value="In-Person" />
-                                <span id="opt-inperson">In-Person</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message" id="lbl-message">Message</label>
-                        <textarea id="message" name="message" rows="4"></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn" id="btn-submit">Send Request</button>
-                </form>
+        <section id="services" class="section-pad">
+          <div class="container-wide">
+            <h2 id="services-title" class="section-heading">Services</h2>
+            <div class="services-grid" id="services-container"></div>
+            <div class="pricing-section" id="pricing-section">
+              <h3 id="fees-title" class="price-title"></h3>
+              <div class="pricing-columns">
+                <div class="pricing-col">
+                  <p id="fees-therapy-title" class="price-label"></p>
+                  <p id="fees-therapy-price" class="price-amount"></p>
+                  <p id="insurance-info" class="insurance-info"></p>
+                  <a
+                    href="mailto:info@lucietherapy.com"
+                    id="book-btn"
+                    class="book-btn"
+                    >Book an Appointment</a
+                  >
+                </div>
+                <div class="pricing-col">
+                  <p id="fees-supervision-title" class="price-label"></p>
+                  <p id="fees-supervision-price" class="price-amount"></p>
+                  <p id="fees-supervision-note" class="price-note"></p>
+                  <a
+                    href="#"
+                    id="supervision-btn"
+                    class="book-btn supervision-btn"
+                    >Supervision Inquiry</a
+                  >
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+        </section>
 
-        <!-- SUPERVISION MODAL -->
-        <div id="supervision-modal" class="modal-overlay">
-            <div class="modal-content">
-                <button id="supervision-modal-close" class="modal-close" aria-label="Close">&times;</button>
-                <h2 id="supervision-modal-title">Supervision Inquiry</h2>
-                <form action="https://formsubmit.co/info@lucietherapy.com" method="POST" class="contact-form">
-                    <input type="hidden" name="_subject" value="New Supervision Inquiry" />
-                    <input type="hidden" name="_template" value="table" />
-                    <input type="hidden" name="_captcha" value="false" />
+        <section id="blog" class="section-pad blog-bg">
+          <div class="container-wide">
+            <h2 id="blog-title" class="section-heading">Blog</h2>
 
-                    <div class="form-group">
-                        <label for="sup-email" id="sup-lbl-email">Your Email</label>
-                        <input type="email" id="sup-email" name="email" required />
-                    </div>
+            <div class="carousel-wrapper">
+              <div class="nav-zone prev-zone" id="zone-prev">
+                <span class="arrow">❮</span>
+              </div>
 
-                    <div class="form-group">
-                        <label id="sup-lbl-background">Your Background</label>
-                        <div class="radio-group">
-                            <label>
-                                <input type="radio" name="background" value="Trainee" checked />
-                                <span id="sup-opt-trainee">Trainee</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="background" value="Qualified Therapist" />
-                                <span id="sup-opt-qualified">Qualified Therapist</span>
-                            </label>
-                        </div>
-                    </div>
+              <div class="carousel-window">
+                <div class="carousel-track" id="blog-track"></div>
+              </div>
 
-                    <div class="form-group">
-                        <label for="sup-availability" id="sup-lbl-availability">Preferred Days/Time</label>
-                        <input type="text" id="sup-availability" name="availability" placeholder="e.g. Wednesday mornings" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sup-message" id="sup-lbl-message">Message</label>
-                        <textarea id="sup-message" name="message" rows="4"></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn" id="sup-btn-submit">Send Request</button>
-                </form>
+              <div class="nav-zone next-zone" id="zone-next">
+                <span class="arrow">❯</span>
+              </div>
             </div>
-        </div>
+          </div>
+        </section>
 
-        <script src="content.js"></script>
-        <script src="script.js"></script>
-    </body>
+        <section id="about" class="section-pad">
+          <div class="container-wide">
+            <h2 id="about-title" class="section-heading">About Me</h2>
+            <div class="about-grid-layout">
+              <div class="about-cell" id="about-education"></div>
+              <div class="about-cell" id="about-affiliations"></div>
+              <div class="about-cell" id="about-experience"></div>
+              <div class="about-cell map-cell" id="about-map-container">
+                <img src="media/img_map.png" alt="Map" class="map-img" />
+                <svg
+                  class="map-arrows-svg"
+                  id="map-arrows-svg"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                >
+                  <defs>
+                    <marker
+                      id="arrowhead"
+                      markerWidth="6"
+                      markerHeight="4"
+                      refX="5"
+                      refY="2"
+                      orient="auto"
+                    >
+                      <polygon points="0 0, 6 2, 0 4" fill="#a88b71" />
+                    </marker>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer>
+          <p>© 2026 Lucie Ramet Therapy</p>
+        </footer>
+      </div>
+    </div>
+
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="blog-drawer" id="blog-drawer">
+      <button class="drawer-close" id="drawer-close">×</button>
+      <div class="drawer-content">
+        <h1 id="drawer-title"></h1>
+        <p id="drawer-date" class="drawer-meta"></p>
+        <div id="drawer-body"></div>
+      </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div id="contact-modal" class="modal-overlay">
+      <div class="modal-content">
+        <button id="modal-close" class="modal-close" aria-label="Close">
+          &times;
+        </button>
+        <h2 id="modal-title">Therapy Inquiry</h2>
+        <form
+          action="https://formsubmit.co/info@lucietherapy.com"
+          method="POST"
+          class="contact-form"
+        >
+          <input type="hidden" name="_subject" value="New Therapy Inquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+
+          <div class="form-group">
+            <label for="email" id="lbl-email">Your Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="availability" id="lbl-availability"
+              >Preferred Day/Time</label
+            >
+            <input
+              type="text"
+              id="availability"
+              name="availability"
+              placeholder="e.g. Wednesday mornings"
+            />
+          </div>
+
+          <div class="form-group">
+            <label id="lbl-type">Consultation Type</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="type" value="Online" checked />
+                <span id="opt-online">Online</span>
+              </label>
+              <label>
+                <input type="radio" name="type" value="In-Person" />
+                <span id="opt-inperson">In-Person</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message" id="lbl-message">Message</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" id="btn-submit">
+            Send Request
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- SUPERVISION MODAL -->
+    <div id="supervision-modal" class="modal-overlay">
+      <div class="modal-content">
+        <button
+          id="supervision-modal-close"
+          class="modal-close"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <h2 id="supervision-modal-title">Supervision Inquiry</h2>
+        <form
+          action="https://formsubmit.co/info@lucietherapy.com"
+          method="POST"
+          class="contact-form"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Supervision Inquiry"
+          />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+
+          <div class="form-group">
+            <label for="sup-email" id="sup-lbl-email">Your Email</label>
+            <input type="email" id="sup-email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label id="sup-lbl-background">Your Background</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="background" value="Trainee" checked />
+                <span id="sup-opt-trainee">Trainee</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="background"
+                  value="Qualified Therapist"
+                />
+                <span id="sup-opt-qualified">Qualified Therapist</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="sup-availability" id="sup-lbl-availability"
+              >Preferred Days/Time</label
+            >
+            <input
+              type="text"
+              id="sup-availability"
+              name="availability"
+              placeholder="e.g. Wednesday mornings"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="sup-message" id="sup-lbl-message">Message</label>
+            <textarea id="sup-message" name="message" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" id="sup-btn-submit">
+            Send Request
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="content.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>

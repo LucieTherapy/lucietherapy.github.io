@@ -430,7 +430,7 @@ const CONTENT = {
     {
       id: "post-why-consult-therapist",
       date: "",
-      img: "blog_anxiety.jpg",
+      img: "blog_whyconsult.jpg",
       title: {
         en: "Why Consult a Therapist?",
         fr: "Pourquoi consulter un psychologue ?",
@@ -486,15 +486,15 @@ const CONTENT = {
   `,
         fr: `
     <p>
-      Par moments, la vie peut sembler difficile, éprouvante ou compliquée à traverser seul. La thérapie offre un espace pour ralentir, prendre du recul et mieux comprendre ce que l’on traverse, dans un cadre soutenant et sans jugement.
+      Par moments, la vie peut sembler difficile, éprouvante ou compliquée à traverser seul. La thérapie offre un espace pour ralentir, prendre du recul et mieux comprendre ce que l'on traverse, dans un cadre soutenant et sans jugement.
     </p>
 
     <p>
-      Les raisons de consulter sont nombreuses et propres à chacun. Certaines personnes viennent en période de crise ou de souffrance importante, tandis que d’autres souhaitent mieux se comprendre, améliorer leurs relations, traverser une transition de vie ou développer des manières plus adaptées de faire face au stress et aux émotions.
+      Les raisons de consulter sont nombreuses et propres à chacun. Certaines personnes viennent en période de crise ou de souffrance importante, tandis que d'autres souhaitent mieux se comprendre, améliorer leurs relations, traverser une transition de vie ou développer des manières plus adaptées de faire face au stress et aux émotions.
     </p>
 
     <p>
-      La thérapie ne s’adresse pas uniquement aux situations de crise. Il n’est pas nécessaire d’attendre que les difficultés deviennent insupportables pour demander de l’aide. Se sentir bloqué, dépassé, émotionnellement épuisé ou en décalage avec soi-même peut déjà être une raison suffisante pour consulter.
+      La thérapie ne s'adresse pas uniquement aux situations de crise. Il n'est pas nécessaire d'attendre que les difficultés deviennent insupportables pour demander de l'aide. Se sentir bloqué, dépassé, émotionnellement épuisé ou en décalage avec soi-même peut déjà être une raison suffisante pour consulter.
     </p>
 
     <p>
@@ -508,7 +508,7 @@ const CONTENT = {
     <h3>Motifs fréquents de consultation</h3>
 
     <p>
-      Les motifs de consultation sont nombreux et variés. Il n’y a pas de « mauvaise » raison de demander du soutien.
+      Les motifs de consultation sont nombreux et variés. Il n'y a pas de « mauvaise » raison de demander du soutien.
     </p>
 
     <p>Voici quelques exemples fréquents :</p>
@@ -526,8 +526,8 @@ const CONTENT = {
       <li>Deuil et perte</li>
       <li>Questionnements identitaires ou découverte de soi</li>
       <li>Perfectionnisme et pression de performance</li>
-      <li>Sentiment d’être bloqué ou dépassé</li>
-      <li>Comportements impulsifs ou difficultés d’adaptation</li>
+      <li>Sentiment d'être bloqué ou dépassé</li>
+      <li>Comportements impulsifs ou difficultés d'adaptation</li>
       <li>Souffrance psychologique ou émotionnelle</li>
       <li>Désir de changement ou de développement personnel</li>
     </ul>
@@ -908,6 +908,207 @@ const CONTENT = {
     La pleine conscience ne consiste pas à éliminer les pensées, à « penser positivement » ni à atteindre un état de calme permanent. L'objectif est de développer une autre manière d'entrer en relation avec ses pensées et ses émotions afin qu'elles influencent moins automatiquement les comportements et la vie quotidienne.
   </p>
 `,
+      },
+    },
+    {
+      id: "post-understanding-anxiety",
+      date: "",
+      img: "blog_anxiety.jpg",
+      title: {
+        en: "Understanding Anxiety",
+        fr: "Comprendre l'anxiété",
+      },
+      content: {
+        en: `
+    <p>
+      Anxiety is a natural human emotion that plays an important role in survival and self-protection. It helps us detect potential threats, prepare for challenges, and respond to situations that feel uncertain or demanding.
+    </p>
+
+    <p>
+      In certain situations, anxiety can therefore be helpful and adaptive. It may increase alertness, concentration, or motivation when facing something important.
+    </p>
+
+    <p>
+      However, when anxiety becomes too intense, persistent, or overwhelming, it can begin to interfere with daily life, relationships, work, sleep, and overall well-being. What was initially a protective response can gradually become a source of distress and exhaustion.
+    </p>
+
+    <p>
+      Anxiety can affect people on several levels.
+    </p>
+
+    <h3>Physical Symptoms</h3>
+
+    <p>
+      Physically, anxiety may involve symptoms such as:
+    </p>
+
+    <ul>
+      <li>A racing heart</li>
+      <li>Shortness of breath</li>
+      <li>Muscle tension</li>
+      <li>Dizziness</li>
+      <li>Sweating</li>
+      <li>Fatigue</li>
+      <li>Gastrointestinal discomfort</li>
+      <li>Difficulties sleeping</li>
+    </ul>
+
+    <h3>Cognitive Symptoms</h3>
+
+    <p>
+      Cognitively, anxiety is often associated with:
+    </p>
+
+    <ul>
+      <li>Excessive worry</li>
+      <li>Intrusive thoughts</li>
+      <li>Catastrophizing</li>
+      <li>Overthinking</li>
+      <li>Hypervigilance</li>
+      <li>Difficulty tolerating uncertainty</li>
+    </ul>
+
+    <h3>Behavioural Patterns</h3>
+
+    <p>
+      Behaviourally, anxiety may lead people to develop coping strategies aimed at reducing discomfort or regaining a sense of control. While understandable, some of these strategies can unintentionally maintain anxiety over time.
+    </p>
+
+    <p>
+      This may include:
+    </p>
+
+    <ul>
+      <li>Avoidance</li>
+      <li>Reassurance-seeking</li>
+      <li>Excessive checking</li>
+      <li>Compulsive behaviours</li>
+      <li>Procrastination</li>
+      <li>Withdrawing from situations perceived as threatening</li>
+    </ul>
+
+    <p>
+      In therapy, we work not only on reducing anxiety symptoms, but also on understanding the processes that maintain anxiety and developing more flexible ways of responding to difficult thoughts, emotions, bodily sensations, and uncertainty.
+    </p>
+
+    <h3>Anxiety-Related Difficulties</h3>
+
+    <p>
+      A wide range of anxiety-related difficulties and disorders exist, varying in intensity and impact on daily life. These may include:
+    </p>
+
+    <ul>
+      <li>Generalized Anxiety Disorder (GAD)</li>
+      <li>Social Anxiety</li>
+      <li>Panic Attacks</li>
+      <li>Health Anxiety</li>
+      <li>Agoraphobia</li>
+      <li>Specific Phobias</li>
+      <li>Obsessive-Compulsive Disorder (OCD)</li>
+      <li>Performance Anxiety</li>
+      <li>Separation Anxiety</li>
+      <li>Post-Traumatic Stress Disorder (PTSD)</li>
+    </ul>
+
+    <p>
+      Although anxiety can feel overwhelming at times, it is possible to develop a different relationship with it. Therapy can help people better understand their anxiety, reduce the impact it has on daily life, and respond to difficult thoughts and emotions in a more flexible and compassionate way.
+    </p>
+  `,
+        fr: `
+    <p>
+      L'anxiété est une émotion humaine naturelle qui joue un rôle important dans notre survie et notre capacité à réagir face au danger. Elle nous aide à détecter des menaces potentielles, à nous préparer à certains défis et à faire face à des situations perçues comme stressantes, incertaines ou exigeantes.
+    </p>
+
+    <p>
+      Dans certaines situations, l'anxiété peut donc être utile et adaptative. Elle peut augmenter la vigilance, la concentration ou la mobilisation face à un enjeu important.
+    </p>
+
+    <p>
+      Cependant, lorsque l'anxiété devient trop intense, persistante ou envahissante, elle peut commencer à avoir un impact important sur la vie quotidienne, les relations, le travail, le sommeil et le bien-être général. Ce qui était initialement une réponse de protection peut progressivement devenir une source de souffrance et d'épuisement.
+    </p>
+
+    <p>
+      L'anxiété peut se manifester à plusieurs niveaux.
+    </p>
+
+    <h3>Manifestations physiques</h3>
+
+    <p>
+      Sur le plan physique, elle peut entraîner :
+    </p>
+
+    <ul>
+      <li>Des palpitations</li>
+      <li>Une sensation d'oppression ou de souffle court</li>
+      <li>Des tensions musculaires</li>
+      <li>Des vertiges</li>
+      <li>De la transpiration</li>
+      <li>De la fatigue</li>
+      <li>Des troubles gastro-intestinaux</li>
+      <li>Des difficultés de sommeil</li>
+    </ul>
+
+    <h3>Manifestations au niveau des pensées</h3>
+
+    <p>
+      Sur le plan psychologique, l'anxiété est souvent associée :
+    </p>
+
+    <ul>
+      <li>Aux inquiétudes excessives</li>
+      <li>Aux pensées envahissantes</li>
+      <li>À l'anticipation de scénarios négatifs</li>
+      <li>Aux ruminations</li>
+      <li>À l'hypervigilance</li>
+      <li>À une difficulté à tolérer l'incertitude</li>
+    </ul>
+
+    <h3>Manifestations comportementales</h3>
+
+    <p>
+      Sur le plan comportemental, l'anxiété peut amener à développer des stratégies visant à réduire l'inconfort ou retrouver un sentiment de contrôle. Bien que compréhensibles, certaines de ces stratégies peuvent involontairement maintenir l'anxiété à long terme.
+    </p>
+
+    <p>
+      Cela peut inclure :
+    </p>
+
+    <ul>
+      <li>L'évitement</li>
+      <li>La recherche excessive de réassurance</li>
+      <li>Les vérifications répétées</li>
+      <li>Certains comportements compulsifs</li>
+      <li>La procrastination</li>
+      <li>Le retrait de situations perçues comme menaçantes</li>
+    </ul>
+
+    <p>
+      En thérapie, le travail ne consiste pas uniquement à réduire les symptômes anxieux, mais aussi à mieux comprendre les mécanismes qui maintiennent l'anxiété et à développer des façons plus souples de répondre aux pensées, émotions, sensations corporelles et situations d'incertitude.
+    </p>
+
+    <h3>Difficultés et troubles anxieux</h3>
+
+    <p>
+      Il existe différents troubles et manifestations liés à l'anxiété, dont l'intensité et l'impact sur le quotidien peuvent varier :
+    </p>
+
+    <ul>
+      <li>Trouble anxieux généralisé (TAG)</li>
+      <li>Anxiété sociale</li>
+      <li>Attaques de panique</li>
+      <li>Anxiété liée à la santé</li>
+      <li>Agoraphobie</li>
+      <li>Phobies spécifiques</li>
+      <li>Trouble obsessionnel-compulsif (TOC)</li>
+      <li>Anxiété de performance</li>
+      <li>Anxiété de séparation</li>
+      <li>Trouble de stress post-traumatique (TSPT)</li>
+    </ul>
+
+    <p>
+      Même si l'anxiété peut parfois sembler envahissante, il est possible d'apprendre à y répondre différemment. La thérapie peut aider à mieux comprendre son fonctionnement, à réduire son impact sur le quotidien et à développer des réponses plus souples face aux pensées et émotions difficiles.
+    </p>
+  `,
       },
     },
   ],
