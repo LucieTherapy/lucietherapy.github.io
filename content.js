@@ -369,7 +369,7 @@ const CONTENT = {
           en: "Practicing mindfulness to respond more intentionally rather than reacting automatically",
           fr: "Pratiquer la pleine conscience pour répondre de manière plus intentionnelle plutôt que de réagir automatiquement..",
         },
-        img: "img_university.jpeg",
+        img: "img_mindfulness.jpeg",
         blogPostId: "Mindfulness",
       },
     ],
