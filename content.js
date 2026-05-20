@@ -429,7 +429,7 @@ const CONTENT = {
     },
     {
       id: "post-why-consult-therapist",
-      date: "2024-05-15",
+      date: "",
       img: "blog_anxiety.jpg",
       title: {
         en: "Why Consult a Therapist?",
