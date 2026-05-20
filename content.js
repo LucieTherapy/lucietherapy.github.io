@@ -750,7 +750,7 @@ const CONTENT = {
     {
       id: "Mindfulness",
       date: "",
-      img: "blog_mindfulness.png",
+      img: "img_mindfulness.png",
       title: {
         en: "Mindfulness in Therapy: Responding Rather Than Reacting",
         fr: "Pleine conscience en thérapie : répondre plutôt que réagir",
