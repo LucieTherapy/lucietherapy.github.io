@@ -300,8 +300,8 @@ const CONTENT = {
       title: { en: "Supervision session", fr: "Séance de supervision" },
       price: { en: "50min - £90*", fr: "50min - 100€*" },
       note: {
-        en: "*£60 for trainees at AFTCC",
-        fr: "*70€ pour les étudiants de l'AFTCC",
+        en: "*£60 for trainees and members of the AFTCC",
+        fr: "*70€ pour les étudiants et membres de l'AFTCC",
       },
     },
     insurance: {
