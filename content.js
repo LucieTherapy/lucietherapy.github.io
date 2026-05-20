@@ -366,8 +366,8 @@ const CONTENT = {
       {
         title: { en: "Mindfulness", fr: "Mindfulness" },
         desc: {
-          en: "Guidance for young adults managing academic pressure, independence, and the social challenges of university life.",
-          fr: "Accompagnement des jeunes adultes face à la pression académique, l'indépendance et la vie sociale universitaire.",
+          en: "Practicing mindfulness to respond more intentionally rather than reacting automatically",
+          fr: "Pratiquer la pleine conscience pour répondre de manière plus intentionnelle plutôt que de réagir automatiquement..",
         },
         img: "img_university.jpeg",
         blogPostId: "Mindfulness",
@@ -750,86 +750,68 @@ const CONTENT = {
     {
       id: "Mindfulness",
       date: "",
-      img: "blog_online_therapy.png",
+      img: "blog_mindfulness.png",
       title: {
-        en: "Online Therapy: Accessible Support from Anywhere",
-        fr: "Thérapie en Ligne : un soutien accessible où que vous soyez",
+        en: "Mindfulness in Therapy: Responding Rather Than Reacting",
+        fr: "Pleine conscience en thérapie : répondre plutôt que réagir",
       },
       content: {
         en: `
   <p>
-    Whether you are going through a life transition, facing challenges abroad, or simply looking for accessible support, I offer <strong>online therapy sessions</strong> tailored to your needs.
+    In addition to <strong>CBT</strong> and <strong>ACT</strong>, I integrate mindfulness into therapy when it seems likely to be helpful for a client.
   </p>
 
   <p>
-    I am committed to providing the same high standards of <strong>ethics, confidentiality, and quality of care</strong> as in in-person sessions.
+    I often describe mindfulness as a way of training attention. It involves bringing attention to the present moment, intentionally and with curiosity, rather than functioning on autopilot. Rather than trying to empty the mind or force relaxation, mindfulness involves noticing what is already there — <strong>thoughts, emotions, and bodily sensations</strong> — and learning to observe them without immediately getting carried away by them or reacting automatically.
   </p>
 
   <p>
-    To help you make the most of your sessions, I adapt all therapeutic interventions and tools for the online format. Features such as Zoom whiteboards can be used to enhance immersion and facilitate practical exercises.
+    Our minds naturally tend to wander. Often, they move toward worries about the future, self-criticism, or replaying difficult moments from the past. Mindfulness helps us notice when attention has drifted and gently bring it back to the present moment, again and again.
   </p>
 
   <p>
-    With your consent, I can coordinate with other professionals in your healthcare network - your general practitioner, psychiatrist, dietitian, etc. - to ensure seamless and optimal care.
+    In <strong>ACT</strong>, mindfulness can help people observe difficult or unhelpful thoughts with more distance, rather than becoming caught up in them. In <strong>CBT</strong>, it can also help people become more aware of certain patterns of thinking, emotional reactions, and impulsive behaviours. Over time, this can help create more space to respond intentionally rather than reacting automatically.
   </p>
 
-  <h3>Benefits of Online Therapy Sessions</h3>
-  <ul>
-    <li><strong>Accessibility:</strong> Receive support without constraints of travel, health, or scheduling (e.g., chronic pain, agoraphobia, busy schedules).</li>
-    <li><strong>Flexibility:</strong> Schedule sessions according to your routine, wherever you are.</li>
-    <li><strong>Continuity of care:</strong> Maintain your therapy even during vacations, travel, or after relocating.</li>
-    <li><strong>Choice of professionals:</strong> Access highly qualified specialists regardless of your location.</li>
-    <li><strong>Support for expatriates:</strong> Find a professional who speaks your language in your host country.</li>
-    <li><strong>Confidentiality and reduced stigma:</strong> Sessions offer a safe, private space and can reduce the social stigma associated with seeking mental health support.</li>
-  </ul>
-
-  <h3>Points to Consider</h3>
-  <ul>
-    <li><strong>Confidentiality:</strong> To benefit fully from online sessions, make sure you have a quiet, private space. Interruptions or lack of privacy may reduce the quality of the session.</li>
-    <li><strong>Technology:</strong> A stable internet connection and a computer or smartphone are necessary. Technical issues may occasionally interrupt the flow of a session.</li>
-    <li><strong>Complexity of difficulties:</strong> For certain severe or complex mental health challenges, in-person support may be recommended to ensure a thorough assessment and optimal care.</li>
-  </ul>
+  <p>
+    Mindfulness is a skill that develops through practice. This may involve brief guided exercises such as breathing practices, grounding exercises, or body scans, as well as bringing fuller attention to everyday activities like walking, eating, or pausing during stressful moments. In therapy, we may begin with brief exercises during sessions and, where appropriate, gradually integrate these tools into daily life between sessions.
+  </p>
 
   <p>
-    The choice between online and in-person sessions depends on your <strong>needs, circumstances, and goals</strong>. Together, we will determine the format that best supports your mental health journey.
+    Research suggests that regular mindfulness practice may support attention regulation, emotional awareness, and psychological flexibility. For many people, it becomes a more <strong>flexible and less reactive way of relating to difficult internal experiences</strong>, rather than constantly trying to avoid, control, or struggle against them.
+  </p>
+
+  <p>
+    Mindfulness is not about eliminating thoughts, “thinking positively,” or achieving a constant state of calm. The goal is to develop a different relationship with thoughts and emotions so that they have less automatic influence over behaviour and daily life.
   </p>
 `,
         fr: `
   <p>
-    Que vous traversiez une transition de vie, fassiez face à des défis à l'étranger ou cherchiez simplement un accompagnement accessible, je propose des <strong>séances de thérapie en ligne</strong> adaptées à votre situation.
+    En complément de la <strong>TCC</strong> et de l'<strong>ACT</strong>, j'intègre la pleine conscience au travail thérapeutique lorsqu'elle semble pouvoir être utile au patient.
   </p>
 
   <p>
-    Je m'engage à vous offrir le même niveau élevé d'<strong>éthique, de confidentialité et de qualité de soins</strong> qu'en consultations en présentiel.
+    Je décris souvent la pleine conscience comme une manière d'entraîner l'attention. Elle consiste à ramener son attention vers le moment présent, de manière intentionnelle et avec curiosité, plutôt que de fonctionner en pilote automatique. Il ne s'agit pas de faire le vide ni de se forcer à se détendre, mais plutôt de remarquer ce qui est déjà là — <strong>pensées, émotions, sensations corporelles</strong> — et d'apprendre à les observer sans se laisser automatiquement emporter par elles ni y réagir immédiatement.
   </p>
 
   <p>
-    Pour vous aider à tirer le meilleur parti de vos séances, j'adapte toutes mes interventions et outils thérapeutiques au format numérique. Des fonctionnalités comme le tableau blanc sur Zoom peuvent être utilisées pour renforcer l'immersion et faciliter certains exercices pratiques.
+    Notre esprit a naturellement tendance à vagabonder. Il se tourne souvent vers les inquiétudes liées à l'avenir, l'autocritique ou les ruminations autour d'expériences passées difficiles. La pleine conscience aide à remarquer ces moments où l'attention s'éloigne, puis à la ramener doucement vers le présent, encore et encore.
   </p>
 
   <p>
-    Avec votre consentement, je peux collaborer avec d'autres professionnels de votre réseau de soins - médecin traitant, psychiatre, diététicien, etc. - afin d'assurer une coordination harmonieuse et optimale de votre prise en charge.
+    Dans l'ACT, la pleine conscience peut aider à observer les pensées difficiles et non aidantes avec plus de distance, plutôt que de se laisser happer par elles. En TCC, elle peut également aider à mieux repérer certains schémas de pensée, réactions émotionnelles et comportements impulsifs. Avec le temps, cela permet de créer davantage d'espace pour répondre de manière plus intentionnelle.
   </p>
 
-  <h3>Avantages des séances de thérapie en ligne</h3>
-  <ul>
-    <li><strong>Accessibilité :</strong> Bénéficiez d'un accompagnement sans contraintes de déplacement, de santé ou d'emploi du temps (ex. : douleurs chroniques, agoraphobie, horaires chargés).</li>
-    <li><strong>Flexibilité :</strong> Planifiez vos séances selon votre routine, où que vous soyez.</li>
-    <li><strong>Continuité des soins :</strong> Maintenez le suivi même pendant les vacances, les déplacements ou après un déménagement.</li>
-    <li><strong>Choix de professionnels :</strong> Accédez à des spécialistes qualifiés et expérimentés, indépendamment de votre lieu de résidence.</li>
-    <li><strong>Soutien aux expatriés :</strong> Trouvez un professionnel parlant votre langue dans votre pays d'accueil.</li>
-    <li><strong>Confidentialité et réduction de la stigmatisation :</strong> Les séances offrent un cadre sûr et privé, et peuvent réduire la gêne liée à la recherche d'aide psychologique.</li>
-  </ul>
-
-  <h3>Points à considérer</h3>
-  <ul>
-    <li><strong>Confidentialité :</strong> Pour tirer pleinement parti des séances, veillez à disposer d'un espace calme et privé. Les interruptions ou le manque de confidentialité peuvent réduire la qualité de la séance.</li>
-    <li><strong>Technologie :</strong> Une connexion internet stable et un ordinateur ou smartphone sont nécessaires. Les problèmes techniques peuvent parfois interrompre le déroulement de la séance.</li>
-    <li><strong>Complexité des difficultés :</strong> Pour certaines problématiques sévères ou complexes, un accompagnement en personne peut être recommandé afin de garantir une évaluation et un suivi optimal.</li>
-  </ul>
+  <p>
+    La pleine conscience est une compétence qui se développe avec la pratique. Cela peut prendre la forme de courts exercices guidés, comme la respiration, les exercices d'ancrage ou le scan corporel, mais aussi d'une attention plus consciente portée à des activités simples du quotidien, comme marcher, manger ou faire une pause dans des moments de stress. En thérapie, nous pouvons commencer par de brèves pratiques en séance puis, lorsque cela est pertinent, intégrer progressivement ces outils dans la vie quotidienne entre les séances.
+  </p>
 
   <p>
-    Le choix entre séances en ligne et consultations en présentiel dépend de vos <strong>besoins, circonstances et objectifs</strong>. Ensemble, nous déterminerons le format le plus adapté pour soutenir votre parcours de santé mentale.
+    Les recherches suggèrent que la pratique régulière de la pleine conscience peut soutenir la régulation de l'attention, la conscience émotionnelle et la flexibilité psychologique. Pour beaucoup de personnes, cela devient une manière plus <strong>souple et moins réactive d'entrer en relation avec les expériences internes difficiles</strong>, plutôt que de chercher constamment à les éviter ou à les contrôler.
+  </p>
+
+  <p>
+    La pleine conscience ne consiste pas à éliminer les pensées, à « penser positivement » ni à atteindre un état de calme permanent. L'objectif est de développer une autre manière d'entrer en relation avec ses pensées et ses émotions afin qu'elles influencent moins automatiquement les comportements et la vie quotidienne.
   </p>
 `,
       },
