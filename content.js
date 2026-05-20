@@ -762,7 +762,7 @@ const CONTENT = {
   </p>
 
   <p>
-    I often describe mindfulness as a way of training attention. It involves bringing attention to the present moment, intentionally and with curiosity, rather than functioning on autopilot. Rather than trying to empty the mind or force relaxation, mindfulness involves noticing what is already there — <strong>thoughts, emotions, and bodily sensations</strong> — and learning to observe them without immediately getting carried away by them or reacting automatically.
+    I often describe mindfulness as a way of training attention. It involves bringing attention to the present moment, intentionally and with curiosity, rather than functioning on autopilot. Rather than trying to empty the mind or force relaxation, mindfulness involves noticing what is already there : <strong>thoughts, emotions, and bodily sensations</strong> , and learning to observe them without immediately getting carried away by them or reacting automatically.
   </p>
 
   <p>
@@ -791,7 +791,7 @@ const CONTENT = {
   </p>
 
   <p>
-    Je décris souvent la pleine conscience comme une manière d'entraîner l'attention. Elle consiste à ramener son attention vers le moment présent, de manière intentionnelle et avec curiosité, plutôt que de fonctionner en pilote automatique. Il ne s'agit pas de faire le vide ni de se forcer à se détendre, mais plutôt de remarquer ce qui est déjà là — <strong>pensées, émotions, sensations corporelles</strong> — et d'apprendre à les observer sans se laisser automatiquement emporter par elles ni y réagir immédiatement.
+    Je décris souvent la pleine conscience comme une manière d'entraîner l'attention. Elle consiste à ramener son attention vers le moment présent, de manière intentionnelle et avec curiosité, plutôt que de fonctionner en pilote automatique. Il ne s'agit pas de faire le vide ni de se forcer à se détendre, mais plutôt de remarquer ce qui est déjà là : <strong>pensées, émotions, sensations corporelles</strong> , et d'apprendre à les observer sans se laisser automatiquement emporter par elles ni y réagir immédiatement.
   </p>
 
   <p>
