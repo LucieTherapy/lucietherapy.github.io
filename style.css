@@ -215,6 +215,11 @@ body {
     fill: var(--gold-accent);
     transform: translateY(-3px);
 }
+.inline-email-copy {
+    position: relative;
+    display: inline-block;
+}
+
 .copy-toast {
     position: absolute;
     bottom: -40px;
