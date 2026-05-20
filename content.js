@@ -428,16 +428,110 @@ const CONTENT = {
       },
     },
     {
-      id: "post-understanding-anxiety",
+      id: "post-why-consult-therapist",
       date: "2024-05-15",
       img: "blog_anxiety.jpg",
       title: {
-        en: "Understanding Anxiety: A First Step",
-        fr: "Comprendre l'anxiété : Une première étape",
+        en: "Why Consult a Therapist?",
+        fr: "Pourquoi consulter un psychologue ?",
       },
       content: {
-        en: `<p>Anxiety is a natural response to stress...</p>`,
-        fr: `<p>L'anxiété est une réponse naturelle au stress...</p>`,
+        en: `
+    <p>
+      At times, life can feel overwhelming, painful, or difficult to navigate alone. Therapy offers a space to slow down, reflect, and better understand what you are going through in a supportive and non-judgmental environment.
+    </p>
+
+    <p>
+      People seek therapy for many different reasons. Some come during periods of crisis or emotional distress, while others wish to better understand themselves, improve their relationships, navigate important life transitions, or develop healthier ways of coping with stress and emotions.
+    </p>
+
+    <p>
+      Therapy is not only for moments of crisis. You do not need to “have it all figured out” or wait until things become unbearable before reaching out for support. Sometimes, simply feeling stuck, emotionally exhausted, disconnected, or overwhelmed can be enough reason to seek help.
+    </p>
+
+    <p>
+      As a psychologist, I aim to provide a space where you can feel heard, supported, and understood. Together, we can explore patterns of thinking, emotional reactions, behaviours, and life experiences that may be contributing to your current difficulties. Therapy can help create more flexibility, self-understanding, and space to respond to challenges in a way that is more aligned with your needs and values.
+    </p>
+
+    <p>
+      Seeking support can be an important first step toward meaningful and lasting change.
+    </p>
+
+    <h3>Reasons People May Seek Therapy</h3>
+
+    <p>
+      The reasons for seeking therapy are varied and personal. There is no “wrong” reason to ask for support.
+    </p>
+
+    <p>Here are some common reasons people may reach out:</p>
+
+    <ul>
+      <li>Anxiety and stress</li>
+      <li>Sadness or depression</li>
+      <li>Burnout and emotional exhaustion</li>
+      <li>Anger or difficulty regulating emotions</li>
+      <li>Relationship or interpersonal difficulties</li>
+      <li>Low self-esteem or self-criticism</li>
+      <li>Sleep difficulties</li>
+      <li>Feeding and eating disorders</li>
+      <li>Difficult life events or transitions</li>
+      <li>Grief and loss</li>
+      <li>Identity questioning or self-discovery</li>
+      <li>Perfectionism and pressure to perform</li>
+      <li>Feeling stuck or overwhelmed</li>
+      <li>Impulsive behaviours or difficulty coping</li>
+      <li>Pain, suffering, or emotional distress</li>
+      <li>Desire for change or personal growth</li>
+    </ul>
+  `,
+        fr: `
+    <p>
+      Par moments, la vie peut sembler difficile, éprouvante ou compliquée à traverser seul. La thérapie offre un espace pour ralentir, prendre du recul et mieux comprendre ce que l’on traverse, dans un cadre soutenant et sans jugement.
+    </p>
+
+    <p>
+      Les raisons de consulter sont nombreuses et propres à chacun. Certaines personnes viennent en période de crise ou de souffrance importante, tandis que d’autres souhaitent mieux se comprendre, améliorer leurs relations, traverser une transition de vie ou développer des manières plus adaptées de faire face au stress et aux émotions.
+    </p>
+
+    <p>
+      La thérapie ne s’adresse pas uniquement aux situations de crise. Il n’est pas nécessaire d’attendre que les difficultés deviennent insupportables pour demander de l’aide. Se sentir bloqué, dépassé, émotionnellement épuisé ou en décalage avec soi-même peut déjà être une raison suffisante pour consulter.
+    </p>
+
+    <p>
+      En tant que psychologue, je cherche à offrir un espace où vous puissiez vous sentir écouté, soutenu et compris. Ensemble, nous pouvons explorer certains schémas de pensée, réactions émotionnelles, comportements ou expériences de vie qui contribuent aux difficultés actuelles. La thérapie peut aider à développer davantage de flexibilité, de compréhension de soi et de liberté dans la manière de répondre aux défis rencontrés.
+    </p>
+
+    <p>
+      Demander du soutien peut constituer une première étape importante vers un changement durable et une manière de se sentir davantage en accord avec soi-même.
+    </p>
+
+    <h3>Motifs fréquents de consultation</h3>
+
+    <p>
+      Les motifs de consultation sont nombreux et variés. Il n’y a pas de « mauvaise » raison de demander du soutien.
+    </p>
+
+    <p>Voici quelques exemples fréquents :</p>
+
+    <ul>
+      <li>Anxiété et stress</li>
+      <li>Tristesse ou dépression</li>
+      <li>Burnout et épuisement émotionnel</li>
+      <li>Colère ou difficultés à réguler ses émotions</li>
+      <li>Difficultés relationnelles ou interpersonnelles</li>
+      <li>Estime de soi ou autocritique</li>
+      <li>Troubles du sommeil</li>
+      <li>Troubles du comportement alimentaire</li>
+      <li>Événements de vie difficiles ou transitions</li>
+      <li>Deuil et perte</li>
+      <li>Questionnements identitaires ou découverte de soi</li>
+      <li>Perfectionnisme et pression de performance</li>
+      <li>Sentiment d’être bloqué ou dépassé</li>
+      <li>Comportements impulsifs ou difficultés d’adaptation</li>
+      <li>Souffrance psychologique ou émotionnelle</li>
+      <li>Désir de changement ou de développement personnel</li>
+    </ul>
+  `,
       },
     },
     {
