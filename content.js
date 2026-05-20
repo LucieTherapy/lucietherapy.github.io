@@ -278,7 +278,7 @@ const CONTENT = {
       fr: "J'ai travaillé auparavant à Singapour avec The Other Clinic, et je continue cette collaboration en proposant des sessions de téléconsultation pour les clients basés à Singapour ou ceux qui ont déménagé en Europe.",
     },
     online_sub: {
-      en: "For clients based in Singapore: telehealth sessions from 4 to 9pm SGT.",
+      en: "For clients based in Singapore : telehealth sessions from 4 to 9pm SGT.",
       fr: "Pour les clients basés à Singapour : sessions de 16h à 21h SGT.",
     },
     sg_contact: "hello@theotherclinic.sg",
