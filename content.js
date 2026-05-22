@@ -306,7 +306,7 @@ const CONTENT = {
     },
     insurance: {
       en: "",
-      fr: "",
+      fr: ""Séances en matinée en semaine — tarif réduit £80 (90€). Disponibilités limitées en horaires creux. Merci de me contacter pour les créneaux disponibles."",
     },
     cards: [
       {
