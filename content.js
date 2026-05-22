@@ -297,7 +297,7 @@ const CONTENT = {
       price: { en: "50min - £90", fr: "50min - 100€" },
     },
     fees_supervision: {
-      title: { en: "Supervision session", fr: "Séance de supervision" },
+      title: { en: "Clinical Supervision", fr: "Séance de supervision" },
       price: { en: "50min - £90*", fr: "50min - 100€*" },
       note: {
         en: "*£60 for trainees and members of the AFTCC",
