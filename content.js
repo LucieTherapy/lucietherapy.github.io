@@ -164,7 +164,7 @@ const CONTENT = {
         {
           logo: "media/logo_aftcc.png",
           role: {
-            en: "Registered Therapist Practitioner & CBT Supervisor ",
+            en: "CBT - Registered Therapist Practitioner & Supervisor ",
             fr: "Thérapeute Praticien TCC & Superviseur TPS",
           },
           org: {
@@ -178,24 +178,27 @@ const CONTENT = {
           logo: "media/logo_acbs.jpg",
           role: {
             en: "Professional Member ‑ ACT Practitioner",
-            fr: "Professional Member ‑ Praticien ACT",
+            fr: "Membre Professionnel ‑ Praticien ACT",
           },
           org: {
             en: "Association for Contextual Behavioral Science (ACBS)",
             fr: "Association pour les Sciences Comportementales et Contextuelles (ACBS)",
           },
-          location: { en: "Intl, UK Chapter", fr: "Intl, UK Chapter" },
+          location: {
+            en: "Intl, UK Chapter",
+            fr: "International, section du Royaume-Uni",
+          },
           date: { en: "Since 2023", fr: "Depuis 2023" },
         },
         {
           logo: "media/logo_universite.png",
           role: { en: "Alumni Member", fr: "Membre Alumni" },
           org: {
-            en: "Université Paris Cité Alumni",
-            fr: "Université Paris Cité Alumni",
+            en: "Université Paris Cité",
+            fr: "Université Paris Cité",
           },
           location: { en: "France", fr: "France" },
-          date: { en: "Alumni", fr: "Alumni" },
+          date: { en: "Since 2014", fr: "Depuis 2014" },
         },
       ],
       footer: {
