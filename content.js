@@ -298,6 +298,10 @@ const CONTENT = {
         fr: "Séance individuelle de thérapie",
       },
       price: { en: "50min - £90", fr: "50min - 100€" },
+      note: {
+        en: "",
+        fr: "*Nombre limité de créneaux en matinée au tarif réduit de 80€, selon les disponibilités",
+      },
     },
     fees_supervision: {
       title: { en: "Clinical Supervision", fr: "Séance de supervision" },
