@@ -1,0 +1,8 @@
+# Generated site — built by build.py, deployed by GitHub Actions.
+# Never committed: the Pages workflow builds it from source on every push.
+_site/
+
+__pycache__/
+*.pyc
+.venv/
+venv/

@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="bio" class="section-pad top-section">
+    <div class="container-narrow">
+        <header class="content-header">
+            <h1>{{ site.person.display_name }}</h1>
+            <p class="hero-role">{{ site.person.role_html[lang] | safe }}</p>
+            <hr class="divider" />
+        </header>
+        <div class="profile-layout">
+            <div class="text-block">
+                <div id="bio-text">{{ doc.blocks.summary | safe }}</div>
+                <a href="#about" class="cta-button">{{ s.btn_background }}</a>
+                <div class="credentials-container">
+                    <div class="logo-grid">
+                        <div class="logo-left">
+                            <img
+                                src="{{ img_src('logo_bps.png') }}"
+                                alt="British Psychological Society — Chartered Psychologist"
+                                class="logo-bps"
+                                loading="lazy"
+                                {{ img_attrs('logo_bps.png') }}
+                            />
+                        </div>
+                        <div class="logo-right">
+                            <img
+                                src="{{ img_src('logo_aftcc.png') }}"
+                                alt="Association Française de Thérapie Comportementale et Cognitive (AFTCC)"
+                                class="logo-small"
+                                loading="lazy"
+                                {{ img_attrs('logo_aftcc.png') }}
+                            />
+                            <img
+                                src="{{ img_src('logo_sps.png') }}"
+                                alt="Singapore Psychological Society"
+                                class="logo-small"
+                                loading="lazy"
+                                {{ img_attrs('logo_sps.png') }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="image-block">
+                <img
+                    src="{{ img_src('profile.jpg') }}"
+                    alt="{{ site.person.display_name }}, {{ site.person.job_title[lang] }}"
+                    {{ img_attrs('profile.jpg') }}
+                />
+                <div class="social-links-container">
+                    <a href="{{ site.person.instagram }}" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                        </svg>
+                    </a>
+                    <a href="{{ site.person.linkedin }}" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.28c12.4-23.47 42.69-48.28 87.91-48.28 94.03 0 111.37 61.9 111.37 142.3V448z" />
+                        </svg>
+                    </a>
+                    <a
+                        href="mailto:{{ site.person.email }}"
+                        class="social-icon"
+                        aria-label="{{ s.contact_label }}: {{ site.person.email }}"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+                            <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="practice" class="section-pad practice-bg">
+    <div class="container-wide">
+        <h2 class="section-heading">{{ practice.title[lang] }}</h2>
+        <div class="cards-grid">
+            <div class="practice-card">
+                <div class="card-content-spacer">
+                    <h3 class="card-title">{{ practice.in_person_title[lang] }}</h3>
+                    <p class="card-desc">{{ practice.in_person_desc[lang] }}</p>
+                    <h4 class="loc-name">{{ practice.location_name }}</h4>
+                    <address class="address-block">
+                        {{ practice.address.street }}<br />
+                        {{ practice.address.locality }}, {{ practice.address.postcode }}<br />
+                        {{ practice.address.region }}<br />
+                        {{ practice.address.country[lang] }}
+                    </address>
+                    <div class="contact-links">
+                        <span class="label">{{ s.contact_label }}: </span>
+                        <a href="mailto:{{ site.person.email }}">{{ site.person.email }}</a>
+                        |
+                        <a href="{{ practice.contact_web_url }}" target="_blank" rel="noopener">{{ s.web_label }}</a>
+                    </div>
+                    <div class="contact-links">
+                        <a href="{{ practice.map_url }}" target="_blank" rel="noopener">{{ s.map_label }}</a>
+                    </div>
+                    <p class="card-more">
+                        <a href="{{ page_url('brighton') }}">{{ s.read_more }} →</a>
+                    </p>
+                </div>
+                <div class="card-btn-container">
+                    <a href="#pricing-section" class="cta-button card-btn">{{ s.btn_contact }}</a>
+                </div>
+            </div>
+
+            <div class="practice-card">
+                <div class="card-content-spacer">
+                    <h3 class="card-title">{{ practice.online_title[lang] }}</h3>
+                    <p class="card-desc mt-4">{{ practice.online_desc[lang] }}</p>
+                    <p class="text-sm text-gray">{{ practice.online_sub[lang] }}</p>
+
+                    <h4 class="loc-name">{{ practice.singapore_title[lang] }}</h4>
+                    <p class="text-sm text-gray">{{ practice.singapore_desc[lang] }}</p>
+                    <p class="text-sm text-gray">{{ practice.singapore_sub[lang] }}</p>
+                    <div class="contact-links">
+                        <span class="label">Singapore: </span>
+                        <a href="mailto:{{ practice.sg_contact }}">{{ practice.sg_contact }}</a>
+                        |
+                        <a href="{{ practice.sg_web_url }}" target="_blank" rel="noopener">{{ practice.sg_web_label[lang] }}</a>
+                    </div>
+                    <p class="card-more">
+                        <a href="{{ page_url('online-fr') }}">{{ s.read_more }} →</a>
+                    </p>
+                </div>
+                <div class="card-btn-container">
+                    <a href="#pricing-section" class="cta-button card-btn">{{ s.btn_contact }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section-pad">
+    <div class="container-wide">
+        <h2 class="section-heading">{{ site.services.title[lang] }}</h2>
+        <div class="services-grid">
+            {% for card in site.services.cards %}
+            {% set target = post_url(card.key) %}
+            <a
+                class="service-card has-bg clickable"
+                {% if target %}href="{{ target }}"{% endif %}
+                style="background-image: url('{{ img_src(card.img) }}')"
+            >
+                <div class="s-content-default"><h3 class="s-title">{{ card.title[lang] }}</h3></div>
+                <div class="s-overlay">
+                    <h3 class="s-title s-title-over">{{ card.title[lang] }}</h3>
+                    <p class="s-desc">{{ card.desc[lang] }}</p>
+                    {% if target %}<span class="blog-link">{{ s.read_more }} →</span>{% endif %}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <div class="pricing-section" id="pricing-section">
+            <h3 class="price-title">{{ fees.title[lang] }}</h3>
+            <div class="pricing-columns">
+                <div class="pricing-col">
+                    <p class="price-label">{{ fees.therapy.title[lang] }}</p>
+                    <p class="price-amount">{{ fees.therapy.price[lang] }}</p>
+                    {% if fees.insurance[lang] %}
+                    <p class="insurance-info">{{ fees.insurance[lang] }}</p>
+                    {% endif %}
+                    <button type="button" id="book-btn" class="book-btn">{{ s.btn_book }}</button>
+                </div>
+                <div class="pricing-col">
+                    <p class="price-label">{{ fees.supervision.title[lang] }}</p>
+                    <p class="price-amount">{{ fees.supervision.price[lang] }}</p>
+                    <p class="price-note">{{ fees.supervision.note[lang] }}</p>
+                    <button type="button" id="supervision-btn" class="book-btn supervision-btn">
+                        {{ s.btn_supervision }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="blog" class="section-pad blog-bg">
+    <div class="container-wide">
+        <h2 class="section-heading">{{ s.nav_blog }}</h2>
+        <div class="post-grid">
+            {% for post in posts %}
+            <article class="blog-post-card">
+                <a href="{{ post.url }}" class="blog-card-link">
+                    {% if post.image %}
+                    <img
+                        src="{{ img_src(post.image) }}"
+                        alt=""
+                        class="blog-thumb"
+                        loading="lazy"
+                        {{ img_attrs(post.image) }}
+                    />
+                    {% endif %}
+                    <div class="blog-content">
+                        <h3 class="blog-title">{{ post.title }}</h3>
+                        <p class="blog-excerpt">{{ post.description }}</p>
+                        <span class="blog-link">{{ s.read_more }} →</span>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+        <p class="section-more">
+            <a href="{{ blog_url }}" class="cta-button">{{ s.all_articles }}</a>
+        </p>
+    </div>
+</section>
+
+<section id="about" class="section-pad">
+    <div class="container-wide">
+        <h2 class="section-heading">{{ s.about_title }}</h2>
+        <div class="about-grid-layout">
+            <div class="about-cell">{{ doc.blocks.education | safe }}</div>
+
+            <div class="about-cell">
+                <h3 class="about-subtitle">{{ site.affiliations.title[lang] }}</h3>
+                <ul class="affiliations-list">
+                    {% for item in site.affiliations.list %}
+                    <li>
+                        <div class="aff-left">
+                            <img
+                                src="{{ img_src(item.logo | replace('media/', '')) }}"
+                                class="aff-logo"
+                                alt="{{ item.org[lang] }}"
+                                loading="lazy"
+                            />
+                            <div>
+                                <strong>{{ item.role[lang] }}</strong><br />
+                                {{ item.org[lang] }}
+                            </div>
+                        </div>
+                        <div class="aff-date">{{ item.location[lang] }}<br />{{ item.date[lang] }}</div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <p class="aff-footer">{{ site.affiliations.footer[lang] }}</p>
+            </div>
+
+            <div class="about-cell">{{ doc.blocks.experience | safe }}</div>
+
+            <div class="about-cell map-cell" id="about-map-container">
+                <img
+                    src="{{ img_src('img_map.png') }}"
+                    alt="{{ 'Parcours : New York, Paris, Singapour, Brighton' if lang == 'fr' else 'Career path: New York, Paris, Singapore, Brighton' }}"
+                    class="map-img"
+                    loading="lazy"
+                    {{ img_attrs('img_map.png') }}
+                />
+                <svg class="map-arrows-svg" id="map-arrows-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+                            <polygon points="0 0, 6 2, 0 4" fill="#a88b71" />
+                        </marker>
+                    </defs>
+                    {% for d in map_arrows %}
+                    <path d="{{ d }}" class="arrow-path" marker-end="url(#arrowhead)" />
+                    {% endfor %}
+                </svg>
+                {% for item in site.timeline %}
+                <div class="map-pin" style="top: {{ item.top }}%; left: {{ item.left }}%">
+                    <div class="pin-label{% if item.get('label_pos') == 'top' %} top{% endif %}">{{ item.location[lang] }}</div>
+                    <div class="pin-info">
+                        <span class="pin-year">{{ item.year[lang] }}</span>
+                        {{ item.desc[lang] }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

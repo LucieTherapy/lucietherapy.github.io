@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="section-pad top-section">
+    <div class="container-narrow">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="{{ home_url }}">{{ site.person.display_name }}</a>
+            <span aria-hidden="true">/</span>
+            <a href="{{ blog_url }}">{{ s.nav_blog }}</a>
+            <span aria-hidden="true">/</span>
+            <span>{{ doc.title }}</span>
+        </nav>
+
+        <header class="content-header">
+            <h1>{{ doc.title }}</h1>
+            {% if doc.date %}
+            <p class="post-meta">
+                <time datetime="{{ doc.date }}">{{ s.published }} {{ pretty_date(doc.date, lang) }}</time>
+            </p>
+            {% endif %}
+            <hr class="divider" />
+        </header>
+
+        {% if doc.image %}
+        <figure class="page-hero">
+            <img
+                src="{{ img_src(doc.image) }}"
+                alt="{{ doc.title }}"
+                {{ img_attrs(doc.image) }}
+            />
+        </figure>
+        {% endif %}
+
+        <div class="prose">{{ doc.body | safe }}</div>
+
+        <div class="post-author">
+            <img
+                src="{{ img_src('profile.jpg') }}"
+                alt=""
+                class="author-avatar"
+                loading="lazy"
+                {{ img_attrs('profile.jpg') }}
+            />
+            <p>
+                <strong>{{ site.person.display_name }}</strong><br />
+                {{ site.person.job_title[lang] }}<br />
+                <a href="{{ page_url('brighton') }}">{{ practice.address.locality }}, {{ practice.address.region }}</a>
+                ·
+                <a href="{{ page_url('online-fr') }}">{{ practice.online_title[lang] }}</a>
+            </p>
+        </div>
+
+        <div class="page-cta">
+            <button type="button" id="book-btn" class="book-btn">{{ s.btn_book }}</button>
+        </div>
+
+        {% if related %}
+        <aside class="related">
+            <h2 class="related-heading">{{ s.related_articles }}</h2>
+            <ul class="related-list">
+                {% for post in related %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
+            <p class="section-more">
+                <a href="{{ blog_url }}">{{ s.all_articles }} →</a>
+            </p>
+        </aside>
+        {% endif %}
+    </div>
+</article>
+{% endblock %}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{ lang }}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Page not found — {{ site.person.display_name }}</title>
+        <meta name="robots" content="noindex, follow" />
+        <link rel="icon" href="/media/favicon.jpg" type="image/jpeg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body class="subpage">
+        <div class="main-layout">
+            <aside class="sidebar-nav">
+                <div class="sidebar-content">
+                    <a href="/" class="brand-name">{{ site.person.display_name }}</a>
+                </div>
+            </aside>
+            <div class="content-area">
+                <main class="section-pad top-section">
+                    <div class="container-narrow">
+                        <header class="content-header">
+                            <h1>Page not found</h1>
+                            <hr class="divider" />
+                        </header>
+                        <div class="prose">
+                            <p>
+                                Sorry — that page does not exist. It may have moved when the site was
+                                reorganised.
+                            </p>
+                            <p><em>Désolée — cette page n'existe pas ou a été déplacée.</em></p>
+                            <ul>
+                                <li><a href="/">Home</a> — <a href="/fr/">Accueil (français)</a></li>
+                                <li><a href="/blog/">Articles</a> — <a href="/fr/blog/">Articles (français)</a></li>
+                                <li>
+                                    <a href="/therapist-brighton-hove/">Therapy in Brighton &amp; Hove</a>
+                                </li>
+                                <li>
+                                    <a href="/fr/psychologue-francaise-en-ligne/">Psychologue française en ligne</a>
+                                </li>
+                                <li><a href="/cbt-supervision/">CBT supervision</a> — <a href="/fr/supervision-tcc/">Supervision TCC</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </main>
+                <footer>
+                    <p>© {{ year }} {{ site.person.display_name }}</p>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

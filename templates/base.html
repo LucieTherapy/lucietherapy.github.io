@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="{{ lang }}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>{{ doc.meta_title }}</title>
+        <meta name="description" content="{{ doc.description }}" />
+        {% if doc.keywords %}
+        <meta name="keywords" content="{{ doc.keywords | join(', ') }}" />
+        {% endif %}
+        <meta name="author" content="{{ site.person.display_name }}" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+
+        <link rel="canonical" href="{{ canonical }}" />
+        {% for lg, url in alternates | dictsort %}
+        <link rel="alternate" hreflang="{{ lg }}" href="{{ base_url }}{{ url }}" />
+        {% endfor %}
+        {% if default_lang in alternates %}
+        <link rel="alternate" hreflang="x-default" href="{{ base_url }}{{ alternates[default_lang] }}" />
+        {% endif %}
+
+        <meta property="og:type" content="{% if doc.kind == 'post' %}article{% else %}website{% endif %}" />
+        <meta property="og:site_name" content="{{ site.person.display_name }}" />
+        <meta property="og:title" content="{{ doc.meta_title }}" />
+        <meta property="og:description" content="{{ doc.description }}" />
+        <meta property="og:url" content="{{ canonical }}" />
+        <meta property="og:locale" content="{{ 'fr_FR' if lang == 'fr' else 'en_GB' }}" />
+        {% for lg in other_langs %}
+        <meta property="og:locale:alternate" content="{{ 'fr_FR' if lg == 'fr' else 'en_GB' }}" />
+        {% endfor %}
+        {% set og_image = base_url ~ img_src(doc.image or site.person.image | replace('media/', '')) %}
+        <meta property="og:image" content="{{ og_image }}" />
+        <meta property="og:image:alt" content="{{ doc.title }}" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="{{ doc.meta_title }}" />
+        <meta name="twitter:description" content="{{ doc.description }}" />
+        <meta name="twitter:image" content="{{ og_image }}" />
+
+        <meta name="theme-color" content="#a88b71" />
+        <link rel="icon" href="/media/favicon.jpg" type="image/jpeg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/style.css" />
+
+        <script type="application/ld+json">
+            {{ jsonld | safe }}
+        </script>
+        {% if doc.kind == 'home' %}
+        <script>
+            /* Redirect legacy ?post=<id>&lang=<xx> URLs to their new paths.
+               Runs before render so there is no flash of the wrong page. */
+            (function () {
+                var q = new URLSearchParams(location.search);
+                var post = q.get("post");
+                var lang = q.get("lang");
+                var lg = lang === "fr" ? "fr" : "en";
+                var map = {{ legacy_map | safe }};
+                if (post && map[post]) {
+                    location.replace(map[post][lg] || map[post].en);
+                    return;
+                }
+                var onFr = location.pathname.indexOf("/fr") === 0;
+                if (lang === "fr" && !onFr) location.replace("/fr/");
+                else if (lang === "en" && onFr) location.replace("/");
+            })();
+        </script>
+        {% endif %}
+    </head>
+    <body{% if doc.kind != 'home' %} class="subpage"{% endif %}>
+        <a href="#main" class="skip-link">{{ s.skip_to_content }}</a>
+
+        <div class="main-layout">
+            <aside class="sidebar-nav">
+                <div class="sidebar-content">
+                    <a href="{{ home_url }}" class="brand-name">{{ site.person.display_name }}</a>
+
+                    <ul class="nav-links">
+                        {% if doc.kind == 'home' %}
+                        <li><a href="#bio" class="nav-item active" id="link-bio">{{ s.nav_bio }}</a></li>
+                        <li><a href="#practice" class="nav-item" id="link-practice">{{ s.nav_practice }}</a></li>
+                        <li><a href="#services" class="nav-item" id="link-services">{{ s.nav_services }}</a></li>
+                        <li><a href="#blog" class="nav-item" id="link-blog">{{ s.nav_blog }}</a></li>
+                        <li><a href="#about" class="nav-item" id="link-about">{{ s.nav_about }}</a></li>
+                        {% else %}
+                        <li><a href="{{ home_url }}" class="nav-item">{{ s.nav_bio }}</a></li>
+                        <li><a href="{{ home_url }}#practice" class="nav-item">{{ s.nav_practice }}</a></li>
+                        <li><a href="{{ home_url }}#services" class="nav-item">{{ s.nav_services }}</a></li>
+                        <li><a href="{{ blog_url }}" class="nav-item{% if doc.kind in ('post', 'blog_index') %} active{% endif %}">{{ s.nav_blog }}</a></li>
+                        <li><a href="{{ home_url }}#about" class="nav-item">{{ s.nav_about }}</a></li>
+                        {% endif %}
+                    </ul>
+
+                    <ul class="nav-links nav-secondary">
+                        {% for p in nav_pages %}
+                        <li>
+                            <a href="{{ p.url }}" class="nav-item nav-sub{% if p.key == doc.key %} active{% endif %}">{{ p.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                    <div class="lang-switch-inline">
+                        {% for lg in ['fr', 'en'] %}
+                        {% if lg == lang %}
+                        <span class="lang-btn active" aria-current="true">
+                            <img
+                                src="https://flagcdn.com/w40/{{ 'fr' if lg == 'fr' else 'gb' }}.png"
+                                alt=""
+                                width="40"
+                                height="30"
+                                class="flag-icon"
+                            />{{ lg | upper }}
+                        </span>
+                        {% elif lg in alternates %}
+                        <a href="{{ alternates[lg] }}" class="lang-btn" hreflang="{{ lg }}" lang="{{ lg }}">
+                            <img
+                                src="https://flagcdn.com/w40/{{ 'fr' if lg == 'fr' else 'gb' }}.png"
+                                alt=""
+                                width="40"
+                                height="30"
+                                class="flag-icon"
+                            />{{ lg | upper }}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </aside>
+
+            <div class="content-area">
+                <main id="main">
+                    {% block content %}{% endblock %}
+                </main>
+
+                <footer>
+                    <p>
+                        © {{ year }} {{ site.person.display_name }} —
+                        {{ site.person.job_title[lang] }}<br />
+                        {{ practice.location_name }}, {{ practice.address.street }},
+                        {{ practice.address.locality }} {{ practice.address.postcode }},
+                        {{ practice.address.region }}, {{ practice.address.country[lang] }}
+                    </p>
+                    <p class="footer-links">
+                        <a href="{{ home_url }}">{{ s.nav_bio }}</a>
+                        {% for p in nav_pages %}
+                        · <a href="{{ p.url }}">{{ p.title }}</a>
+                        {% endfor %}
+                        · <a href="{{ blog_url }}">{{ s.nav_blog }}</a>
+                    </p>
+                </footer>
+            </div>
+        </div>
+
+        {% include "_modals.html" %}
+
+        <script src="/script.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,103 @@
+<!-- THERAPY INQUIRY MODAL -->
+<div id="contact-modal" class="modal-overlay">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button id="modal-close" class="modal-close" aria-label="{{ site.form.btn_close[lang] }}">&times;</button>
+        <h2 id="modal-title">{{ site.form.title[lang] }}</h2>
+        <form action="https://formsubmit.co/{{ site.person.email }}" method="POST" class="contact-form">
+            <input type="hidden" name="_subject" value="New Therapy Inquiry" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="true" />
+            <input type="hidden" name="page" value="{{ canonical }}" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="form-group">
+                <label for="email">{{ site.form.lbl_email[lang] }}</label>
+                <input type="email" id="email" name="email" autocomplete="email" required />
+            </div>
+
+            <div class="form-group">
+                <label for="availability">{{ site.form.lbl_availability[lang] }}</label>
+                <input
+                    type="text"
+                    id="availability"
+                    name="availability"
+                    placeholder="{{ 'ex. mercredi matin' if lang == 'fr' else 'e.g. Wednesday mornings' }}"
+                />
+            </div>
+
+            <div class="form-group">
+                <span class="form-label">{{ site.form.lbl_type[lang] }}</span>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="type" value="Online" checked />
+                        <span>{{ site.form.opt_online[lang] }}</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="type" value="In-Person" />
+                        <span>{{ site.form.opt_inperson[lang] }}</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">{{ site.form.lbl_message[lang] }}</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">{{ site.form.btn_submit[lang] }}</button>
+        </form>
+    </div>
+</div>
+
+<!-- SUPERVISION INQUIRY MODAL -->
+<div id="supervision-modal" class="modal-overlay">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="supervision-modal-title">
+        <button id="supervision-modal-close" class="modal-close" aria-label="{{ site.form_supervision.btn_close[lang] }}">
+            &times;
+        </button>
+        <h2 id="supervision-modal-title">{{ site.form_supervision.title[lang] }}</h2>
+        <form action="https://formsubmit.co/{{ site.person.email }}" method="POST" class="contact-form">
+            <input type="hidden" name="_subject" value="New Supervision Inquiry" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="true" />
+            <input type="hidden" name="page" value="{{ canonical }}" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="form-group">
+                <label for="sup-email">{{ site.form_supervision.lbl_email[lang] }}</label>
+                <input type="email" id="sup-email" name="email" autocomplete="email" required />
+            </div>
+
+            <div class="form-group">
+                <span class="form-label">{{ site.form_supervision.lbl_background[lang] }}</span>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="background" value="Trainee" checked />
+                        <span>{{ site.form_supervision.opt_trainee[lang] }}</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="background" value="Qualified Therapist" />
+                        <span>{{ site.form_supervision.opt_qualified[lang] }}</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="sup-availability">{{ site.form_supervision.lbl_availability[lang] }}</label>
+                <input
+                    type="text"
+                    id="sup-availability"
+                    name="availability"
+                    placeholder="{{ 'ex. mercredi matin' if lang == 'fr' else 'e.g. Wednesday mornings' }}"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="sup-message">{{ site.form_supervision.lbl_message[lang] }}</label>
+                <textarea id="sup-message" name="message" rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">{{ site.form_supervision.btn_submit[lang] }}</button>
+        </form>
+    </div>
+</div>
