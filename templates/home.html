@@ -261,7 +261,11 @@
                     {% endfor %}
                 </svg>
                 {% for item in site.timeline %}
-                <div class="map-pin" style="top: {{ item.top }}%; left: {{ item.left }}%">
+                <div
+                    class="map-pin{% if item.left < 30 %} pin-edge-left{% elif item.left > 70 %} pin-edge-right{% endif %}"
+                    style="top: {{ item.top }}%; left: {{ item.left }}%"
+                    tabindex="0"
+                >
                     <div class="pin-label{% if item.get('label_pos') == 'top' %} top{% endif %}">{{ item.location[lang] }}</div>
                     <div class="pin-info">
                         <span class="pin-year">{{ item.year[lang] }}</span>

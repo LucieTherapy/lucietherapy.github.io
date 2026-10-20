@@ -1,5 +1,4 @@
-### Formation
-{: .about-subtitle }
+### Formation {: .about-subtitle }
 
 Je suis diplômée d'une licence et d'un **master de Psychologie Clinique et Psychopathologie** de l'Université Paris Cité.
 

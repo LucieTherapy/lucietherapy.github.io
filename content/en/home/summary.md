@@ -1,5 +1,4 @@
-### CBT and ACT therapy in English and French, in Brighton & Hove and online
-{: .section-subtitle }
+### CBT and ACT therapy in English and French, in Brighton & Hove and online {: .section-subtitle }
 
 I am a **chartered psychologist** offering short and long-term support for adolescents (16+) and adults — **in person in Hove and Brighton**, East Sussex, and **online** for French speakers and expatriates wherever they live.
 

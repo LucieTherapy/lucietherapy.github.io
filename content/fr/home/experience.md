@@ -1,5 +1,4 @@
-### Expérience
-{: .about-subtitle }
+### Expérience {: .about-subtitle }
 
 Avec plus de 12 ans d'expérience dans les **secteurs public et privé en France et à l'international**, j'ai accompagné des patients aux profils variés, notamment dans des services hospitaliers de psychiatrie auprès de personnes souffrant de troubles psychiatriques sévères.
 

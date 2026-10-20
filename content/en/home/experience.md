@@ -1,5 +1,4 @@
-### Experience
-{: .about-subtitle }
+### Experience {: .about-subtitle }
 
 I have over 12 years of experience in **public and private health sectors** across **France, Singapore, and the UK**, supporting clients of all ages with a wide range of difficulties. My background includes conducting assessments for severe psychiatric disorders in hospital psychiatric departments and designing interventions for children and adolescents with developmental challenges.
 

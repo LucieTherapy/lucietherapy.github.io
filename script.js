@@ -3,10 +3,38 @@
    required for the page to be readable or navigable. */
 
 document.addEventListener("DOMContentLoaded", () => {
+    setupMobileNav()
     setupScrollSpy()
     setupModal("book-btn", "contact-modal", "modal-close")
     setupModal("supervision-btn", "supervision-modal", "supervision-modal-close")
 })
+
+/* Small screens: the sidebar collapses to a top bar, and the nav links
+   drop down from a menu button. Closes on link tap, outside tap, or Esc. */
+function setupMobileNav() {
+    const header = document.querySelector(".sidebar-nav")
+    const toggle = document.querySelector(".nav-toggle")
+    if (!header || !toggle) return
+
+    const setOpen = (open) => {
+        header.classList.toggle("nav-open", open)
+        toggle.setAttribute("aria-expanded", String(open))
+    }
+
+    toggle.addEventListener("click", () => setOpen(!header.classList.contains("nav-open")))
+    for (const link of header.querySelectorAll(".site-nav a")) {
+        link.addEventListener("click", () => setOpen(false))
+    }
+    document.addEventListener("click", (e) => {
+        if (!header.contains(e.target)) setOpen(false)
+    })
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && header.classList.contains("nav-open")) {
+            setOpen(false)
+            toggle.focus()
+        }
+    })
+}
 
 /* Highlight the sidebar link for the section currently in view.
    Only applies on the homepage, where the nav uses in-page anchors. */

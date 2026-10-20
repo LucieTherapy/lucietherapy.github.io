@@ -1,5 +1,4 @@
-### Thérapie TCC et ACT en français, en ligne et à Brighton
-{: .section-subtitle }
+### Thérapie TCC et ACT en français, en ligne et à Brighton {: .section-subtitle }
 
 Je suis **psychologue clinicienne française** et je propose un accompagnement, bref ou au long cours, aux adultes et aux adolescents à partir de 16 ans — **en ligne en français**, où que vous viviez, et **en personne à Hove et Brighton**, au Royaume-Uni.
 

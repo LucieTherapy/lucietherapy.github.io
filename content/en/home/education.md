@@ -1,5 +1,4 @@
-### Education and Training
-{: .about-subtitle }
+### Education and Training {: .about-subtitle }
 
 I am a **French Clinical Psychologist** with a Bachelor's and a Master's of Science degree in Clinical Psychology and Psychopathology from the University of Paris Cité.
 

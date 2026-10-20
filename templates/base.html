@@ -79,6 +79,11 @@
                 <div class="sidebar-content">
                     <a href="{{ home_url }}" class="brand-name">{{ site.person.display_name }}</a>
 
+                    <button type="button" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+                        <span class="nav-toggle-bar" aria-hidden="true"></span>
+                    </button>
+
+                    <nav id="site-nav" class="site-nav" aria-label="Menu">
                     <ul class="nav-links">
                         {% if doc.kind == 'home' %}
                         <li><a href="#bio" class="nav-item active" id="link-bio">{{ s.nav_bio }}</a></li>
@@ -102,6 +107,7 @@
                         </li>
                         {% endfor %}
                     </ul>
+                    </nav>
 
                     <div class="lang-switch-inline">
                         {% for lg in ['fr', 'en'] %}

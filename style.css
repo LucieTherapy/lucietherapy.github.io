@@ -441,19 +441,39 @@ body {
     font-size: 1rem;
 }
 
-/* Hover States */
-.map-pin:hover {
+/* Hover States (focus too, so a tap shows the info on touch screens) */
+.map-pin:hover,
+.map-pin:focus {
     background-color: var(--sage-green); /* UPDATED: Teal Green on hover */
     transform: translate(-50%, -50%) scale(1.3);
     z-index: 30;
 }
-.map-pin:hover .pin-label {
+.map-pin:hover .pin-label,
+.map-pin:focus .pin-label {
     opacity: 0;
 }
-.map-pin:hover .pin-info {
+.map-pin:hover .pin-info,
+.map-pin:focus .pin-info {
     opacity: 1;
     visibility: visible;
     bottom: 30px;
+}
+/* Pins near the map's edges open their info box inwards, not off-screen */
+.pin-edge-left .pin-info {
+    left: -10px;
+    transform: none;
+}
+.pin-edge-left .pin-info::after {
+    left: 18px;
+}
+.pin-edge-right .pin-info {
+    left: auto;
+    right: -10px;
+    transform: none;
+}
+.pin-edge-right .pin-info::after {
+    left: auto;
+    right: 12px;
 }
 
 /* --- CLICKABLE SERVICES --- */
@@ -716,7 +736,6 @@ body {
 }
 .supervision-btn {
     background-color: var(--gold-accent);
-    margin-left: 15px;
 }
 .supervision-btn:hover {
     background-color: #8a6e55;
@@ -829,44 +848,153 @@ body {
         top: 0;
         border-right: none;
         border-bottom: 1px solid #ddd;
-        padding: 10px 20px;
+        padding: 0 16px;
     }
     .sidebar-content {
-        padding: 10px;
+        padding: 8px 0;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-        gap: 10px;
+        gap: 12px;
     }
     .brand-name {
         font-size: 1.2rem;
         margin: 0;
-    }
-    .nav-links {
-        display: none;
+        margin-right: auto;
     }
     .lang-switch-inline {
         margin: 0;
     }
     .lang-btn {
-        padding: 4px 8px;
+        padding: 6px 10px;
         font-size: 0.8rem;
     }
+    /* The current language needs no button; only offer the other one */
+    .lang-switch-inline .lang-btn.active {
+        display: none;
+    }
+
+    /* Tighter spacing: 40px side padding left only ~295px for text */
+    .section-pad {
+        padding: 50px 20px;
+    }
+    .top-section {
+        padding-top: 36px;
+    }
+    section[id] {
+        scroll-margin-top: 56px; /* clear the sticky top bar */
+    }
+    .content-header {
+        margin-bottom: 30px;
+    }
+    .content-header h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+    .hero-role,
+    .content-header h2 {
+        font-size: 1rem;
+    }
+    .section-heading {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+
     .profile-layout {
         flex-direction: column-reverse;
+        gap: 30px;
     }
+    .image-block {
+        flex: none;
+        width: 100%;
+        max-width: 280px;
+        align-self: center;
+    }
+    .logo-bps {
+        height: 80px;
+    }
+    .logo-small {
+        height: 38px;
+    }
+
     .about-grid-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 40px;
+    }
+    .affiliations-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .aff-left {
+        gap: 14px;
+    }
+    .aff-logo {
+        width: 52px;
+        height: 52px;
+        flex-shrink: 0;
+    }
+    .aff-date {
+        text-align: left;
+        min-width: 0;
+        padding-left: 66px; /* line up under the text, not the logo */
     }
 
     .cards-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .practice-card {
+        padding: 24px 20px;
+    }
+    .contact-links {
+        overflow-wrap: anywhere;
     }
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
     }
-    
+    .service-card {
+        height: 220px;
+    }
+
+    .pricing-section {
+        padding: 28px 16px;
+    }
+    .pricing-columns {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+    .book-btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+
+    /* iOS ignores fixed backgrounds and zooms the image instead */
+    .practice-bg,
+    .blog-bg {
+        background-attachment: scroll;
+    }
+
+    /* Homepage: a few articles, then "All articles" */
+    #blog .post-grid .blog-post-card:nth-child(n + 4) {
+        display: none;
+    }
+    .blog-thumb {
+        height: 160px;
+    }
+
+    .pin-info {
+        width: 170px;
+        padding: 12px;
+    }
+
+    footer {
+        padding: 30px 20px;
+    }
+    .modal-content {
+        width: calc(100% - 24px);
+        padding: 1.5rem 1.25rem;
+    }
 
     /* Mobile Carousel - RESETTING MARGINS */
     .blog-post-card {
@@ -875,11 +1003,29 @@ body {
         opacity: 1 !important;
         filter: none !important;
     }
-    
-    
-    
-    
-    
+}
+
+/* Touch screens can't hover, so show service descriptions up front */
+@media (hover: none) {
+    .service-card {
+        height: auto;
+        min-height: 200px;
+    }
+    .service-card .s-content-default {
+        display: none;
+    }
+    .service-card .s-overlay {
+        position: relative;
+        min-height: inherit;
+        padding: 28px 22px;
+        opacity: 1;
+        transform: none;
+        background-color: rgba(95, 171, 156, 0.9);
+    }
+    .service-card:hover,
+    .post-grid .blog-post-card:hover {
+        transform: none;
+    }
 }
 
 /* --- CONTACT MODAL --- */
@@ -912,6 +1058,8 @@ body {
     border-radius: 8px;
     width: 90%;
     max-width: 500px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
     position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -957,7 +1105,8 @@ body {
 
 .radio-group {
     display: flex;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
 }
 
 .radio-group label {
@@ -1014,6 +1163,14 @@ body {
 a.brand-name {
     display: block;
     text-decoration: none;
+}
+/* On wide screens the nav wrapper is transparent to the sidebar's layout;
+   on small screens it becomes the drop-down menu (see MOBILE below). */
+.site-nav {
+    display: contents;
+}
+.nav-toggle {
+    display: none;
 }
 .nav-secondary {
     margin-top: 18px;
@@ -1226,6 +1383,12 @@ a.service-card {
     color: white;
     margin-bottom: 15px;
 }
+.s-overlay .blog-link {
+    color: white;
+    margin-top: 12px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
 
 /* --- Misc --- */
 .aff-footer {
@@ -1243,9 +1406,14 @@ button.book-btn {
     border: none;
     cursor: pointer;
 }
+footer {
+    padding: 40px;
+    border-top: 1px solid #e0dcd2;
+    font-size: 0.85rem;
+    color: var(--text-grey);
+}
 .footer-links {
     margin-top: 14px;
-    font-size: 0.85rem;
 }
 .footer-links a {
     color: var(--gold-accent);
@@ -1257,6 +1425,92 @@ button.book-btn {
 }
 
 @media (max-width: 900px) {
+    /* Drop-down menu under the top bar */
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin-right: -10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        order: 3;
+    }
+    .nav-toggle-bar,
+    .nav-toggle-bar::before,
+    .nav-toggle-bar::after {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--text-dark);
+        border-radius: 1px;
+        transition: transform 0.2s, background 0.2s;
+    }
+    .nav-toggle-bar {
+        position: relative;
+    }
+    .nav-toggle-bar::before,
+    .nav-toggle-bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+    }
+    .nav-toggle-bar::before {
+        top: -7px;
+    }
+    .nav-toggle-bar::after {
+        top: 7px;
+    }
+    .nav-open .nav-toggle-bar {
+        background: transparent;
+    }
+    .nav-open .nav-toggle-bar::before {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .nav-open .nav-toggle-bar::after {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .site-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+        padding: 8px 20px 20px;
+        background: var(--sidebar-bg);
+        border-bottom: 1px solid #ddd;
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+    }
+    .nav-open .site-nav {
+        display: block;
+    }
+    .site-nav .nav-links {
+        gap: 0;
+    }
+    .site-nav .nav-links a {
+        padding: 11px 0;
+        font-size: 1rem;
+        border-left: none;
+    }
+    .site-nav .nav-links a:hover,
+    .site-nav .nav-links a.active {
+        padding-left: 0;
+        border-left: none;
+        color: var(--sage-green);
+    }
+    .site-nav .nav-secondary {
+        margin-top: 8px;
+        padding-top: 8px;
+    }
+    .site-nav .nav-item.nav-sub {
+        font-size: 0.9rem;
+    }
+
     .post-grid {
         grid-template-columns: 1fr;
     }
