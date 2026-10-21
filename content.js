@@ -663,7 +663,7 @@ const CONTENT = {
         en: `
           **Acceptance and Commitment Therapy (ACT)** is one of the core approaches guiding my clinical work, alongside **Cognitive Behavioural Therapy (CBT)**. Both are **evidence-based therapies** grounded in scientific research.
 
-          I have completed multiple **foundational and advanced trainings in ACT**, focusing on its application with **adults, adolescents, children, and parenting contexts**. My training has been delivered by internationally recognised ACT clinicians, including **Dr. Steven C. Hayes**, the originator and co-developer of ACT, and **Russ Harris**, a leading ACT trainer and author.
+          I have completed multiple **foundational and advanced trainings in ACT**, focusing on its application with **adults, adolescents, children, and parenting contexts**. My ACT training includes workshops led by internationally recognised ACT clinicians, including Dr. Steven C. Hayes, and Russ Harris.
 
           I continue to develop my clinical expertise through regular advanced courses exploring the use of ACT in specific situations such as **grief**, **relationship difficulties**, and **sleep disorders**. I am also a member of the **Association for Contextual Behavioural Science (ACBS)**.
 
@@ -680,7 +680,7 @@ const CONTENT = {
         fr: `
           La **Thérapie d'Acceptation et d'Engagement (ACT)** fait partie des approches centrales qui orientent mon travail clinique, aux côtés de la **Thérapie Cognitivo-Comportementale (TCC)**. Ces deux approches sont **fondées sur des données scientifiques** et largement reconnues pour leur efficacité.
 
-          J'ai suivi plusieurs **formations fondamentales et avancées en ACT**, portant sur son utilisation auprès des **adultes, des adolescents et des enfants**, ainsi que dans des contextes de **parentalité**. Ces formations ont été dispensées par des cliniciens de référence au niveau international, notamment le **Dr Steven C. Hayes**, fondateur et co-développeur de l'ACT, ainsi que **Russ Harris**, formateur et auteur reconnu dans ce champ.
+          J'ai suivi plusieurs **formations fondamentales et avancées en ACT**, portant sur son utilisation auprès des **adultes, des adolescents et des enfants**, ainsi que dans des contextes de **parentalité**. Certaines de ces formations ont été dispensées par des cliniciens de référence au niveau international, notamment le Dr Steven C. Hayes, et Russ Harris.
 
           Je poursuis régulièrement le développement de mes compétences à travers des **formations avancées**, centrées sur l'application de l'ACT à des situations cliniques spécifiques telles que le **deuil**, les **difficultés relationnelles**, les **troubles du sommeil**, ou encore d'autres problématiques complexes du quotidien. Je suis également membre de l'**Association for Contextual Behavioural Science (ACBS)**.
 
