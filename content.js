@@ -512,7 +512,7 @@ const CONTENT = {
 
           La thérapie repose sur un **partenariat** entre le patient et le thérapeute. Les **objectifs** sont définis conjointement et les **progrès** sont régulièrement évalués afin d'ajuster le **plan de traitement** si nécessaire. Le patient est un **acteur actif** de sa prise en charge et peut être invité à réaliser des **exercices entre les séances**.
 
-          La TCC est une approche **“empouvoirante”** (responsabilisante) qui aide les personnes à mieux comprendre leur **fonctionnement** et à développer des **stratégies pratiques** qu'elles pourront continuer à utiliser **après la thérapie**.
+          La TCC est une approche **“empouvoirante”** (“empowering”) qui aide les personnes à mieux comprendre leur **fonctionnement** et à développer des **stratégies pratiques** qu'elles pourront continuer à utiliser **après la thérapie**.
 
           La TCC est l'une des approches psychothérapeutiques **les plus étudiées** et est reconnue comme une **thérapie fondée sur des preuves scientifiques**. Elle a démontré son efficacité dans le traitement de nombreuses difficultés, telles que **l'anxiété**, **la dépression**, **les troubles du comportement alimentaire**, **l'insomnie**, **le trouble obsessionnel-compulsif**, **le trouble panique**, **l'état de stress post-traumatique**, **les troubles liés à l'usage de substances**, ainsi que dans la gestion des **situations de vie stressantes**.
 
@@ -885,7 +885,7 @@ const CONTENT = {
           - Prévenir l'épuisement professionnel en bénéficiant d'un soutien clinique
           - Soutenir la certification AFTCC et votre développement professionnel continu
 
-          La supervision favorise votre progression en tant que clinicien·ne en offrant des **feedbacks** constructifs et adaptés à vos besoins.
+          La supervision favorise votre progression en tant que clinicien en offrant des **feedbacks** constructifs et adaptés à vos besoins.
 
           ### Engagement et collaboration
 
