@@ -385,8 +385,8 @@ const CONTENT = {
         place: { en: "Brighton", fr: "Brighton" },
         years: { en: "2023-present", fr: "2023-présent" },
         text: {
-          en: "Brighton & Hove Therapy in Brighton, UK",
-          fr: "Brighton & Hove Therapy à Brighton, UK",
+          en: "Brighton & Hove Psychotherapy in Brighton, UK",
+          fr: "Brighton & Hove Psychothérapie à Brighton, UK",
         },
         top: 18,
         left: 43,
