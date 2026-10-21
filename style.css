@@ -696,6 +696,10 @@ body {
     border-radius: 6px;
     background: var(--cream-bg);
 }
+/* Pin buttons to the bottom so they line up across columns */
+.pricing-col .book-btn {
+    margin-top: auto;
+}
 .price-title {
     font-family: var(--font-serif);
     color: var(--gold-accent);
