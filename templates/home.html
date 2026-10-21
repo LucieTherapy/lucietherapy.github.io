@@ -4,13 +4,16 @@
 <section id="bio" class="section-pad top-section">
     <div class="container-narrow">
         <header class="content-header">
-            <h1>{{ site.person.display_name }}</h1>
-            <p class="hero-role">{{ site.person.role_html[lang] | safe }}</p>
+            <h1>{{ c.person.name }}</h1>
+            <p class="hero-role">{{ c.person.role | safe }}</p>
             <hr class="divider" />
         </header>
         <div class="profile-layout">
             <div class="text-block">
-                <div id="bio-text">{{ doc.blocks.summary | safe }}</div>
+                <div id="bio-text">
+                    <h3 class="section-subtitle">{{ c.intro.title }}</h3>
+                    {{ c.intro.text | safe }}
+                </div>
                 <a href="#about" class="cta-button">{{ s.btn_background }}</a>
                 <div class="credentials-container">
                     <div class="logo-grid">
@@ -44,25 +47,25 @@
             </div>
             <div class="image-block">
                 <img
-                    src="{{ img_src('profile.jpg') }}"
-                    alt="{{ site.person.display_name }}, {{ site.person.job_title[lang] }}"
-                    {{ img_attrs('profile.jpg') }}
+                    src="{{ img_src(c.person.photo) }}"
+                    alt="{{ c.person.name }}, {{ c.person.job_title }}"
+                    {{ img_attrs(c.person.photo) }}
                 />
                 <div class="social-links-container">
-                    <a href="{{ site.person.instagram }}" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+                    <a href="{{ c.person.instagram }}" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
                             <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
                         </svg>
                     </a>
-                    <a href="{{ site.person.linkedin }}" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                    <a href="{{ c.person.linkedin }}" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
                             <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.28c12.4-23.47 42.69-48.28 87.91-48.28 94.03 0 111.37 61.9 111.37 142.3V448z" />
                         </svg>
                     </a>
                     <a
-                        href="mailto:{{ site.person.email }}"
+                        href="mailto:{{ c.person.email }}"
                         class="social-icon"
-                        aria-label="{{ s.contact_label }}: {{ site.person.email }}"
+                        aria-label="{{ s.contact }}: {{ c.person.email }}"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
                             <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
@@ -74,33 +77,37 @@
     </div>
 </section>
 
+{% set in_person = c.practice.in_person %}
+{% set online = c.practice.online %}
 <section id="practice" class="section-pad practice-bg">
     <div class="container-wide">
-        <h2 class="section-heading">{{ practice.title[lang] }}</h2>
+        <h2 class="section-heading">{{ c.practice.title }}</h2>
         <div class="cards-grid">
             <div class="practice-card">
                 <div class="card-content-spacer">
-                    <h3 class="card-title">{{ practice.in_person_title[lang] }}</h3>
-                    <p class="card-desc">{{ practice.in_person_desc[lang] }}</p>
-                    <h4 class="loc-name">{{ practice.location_name }}</h4>
+                    <h3 class="card-title">{{ in_person.title }}</h3>
+                    <p class="card-desc">{{ in_person.text }}</p>
+                    <h4 class="loc-name">{{ in_person.place }}</h4>
                     <address class="address-block">
-                        {{ practice.address.street }}<br />
-                        {{ practice.address.locality }}, {{ practice.address.postcode }}<br />
-                        {{ practice.address.region }}<br />
-                        {{ practice.address.country[lang] }}
+                        {{ in_person.address.street }}<br />
+                        {{ in_person.address.town }}, {{ in_person.address.postcode }}<br />
+                        {{ in_person.address.region }}<br />
+                        {{ in_person.address.country }}
                     </address>
                     <div class="contact-links">
-                        <span class="label">{{ s.contact_label }}: </span>
-                        <a href="mailto:{{ site.person.email }}">{{ site.person.email }}</a>
+                        <span class="label">{{ s.contact }}: </span>
+                        <a href="mailto:{{ c.person.email }}">{{ c.person.email }}</a>
                         |
-                        <a href="{{ practice.contact_web_url }}" target="_blank" rel="noopener">{{ s.web_label }}</a>
+                        <a href="{{ in_person.website }}" target="_blank" rel="noopener">{{ s.web }}</a>
                     </div>
-                    <div class="contact-links">
-                        <a href="{{ practice.map_url }}" target="_blank" rel="noopener">{{ s.map_label }}</a>
+                    <div class="media-wrapper map-embed">
+                        <iframe
+                            src="{{ in_person.map }}"
+                            title="{{ in_person.place }}"
+                            allowfullscreen=""
+                            loading="lazy"
+                        ></iframe>
                     </div>
-                    <p class="card-more">
-                        <a href="{{ page_url('brighton') }}">{{ s.read_more }} →</a>
-                    </p>
                 </div>
                 <div class="card-btn-container">
                     <a href="#pricing-section" class="cta-button card-btn">{{ s.btn_contact }}</a>
@@ -109,25 +116,28 @@
 
             <div class="practice-card">
                 <div class="card-content-spacer">
-                    <h3 class="card-title">{{ practice.online_title[lang] }}</h3>
-                    <p class="card-desc mt-4">{{ practice.online_desc[lang] }}</p>
-                    <p class="text-sm text-gray">{{ practice.online_sub[lang] }}</p>
-
-                    <h4 class="loc-name">{{ practice.singapore_title[lang] }}</h4>
-                    <p class="text-sm text-gray">{{ practice.singapore_desc[lang] }}</p>
-                    <p class="text-sm text-gray">{{ practice.singapore_sub[lang] }}</p>
+                    <h3 class="card-title">{{ online.title }}</h3>
+                    <span class="badge">{{ online.badge }}</span>
+                    <p class="card-desc mt-4">{{ online.text }}</p>
+                    <p class="text-sm text-gray">{{ online.hours }}</p>
                     <div class="contact-links">
                         <span class="label">Singapore: </span>
-                        <a href="mailto:{{ practice.sg_contact }}">{{ practice.sg_contact }}</a>
+                        <a href="mailto:{{ online.email }}">{{ online.email }}</a>
                         |
-                        <a href="{{ practice.sg_web_url }}" target="_blank" rel="noopener">{{ practice.sg_web_label[lang] }}</a>
+                        <a href="{{ online.website }}" target="_blank" rel="noopener">{{ s.web }}</a>
                     </div>
-                    <p class="card-more">
-                        <a href="{{ page_url('online-fr') }}">{{ s.read_more }} →</a>
-                    </p>
+                    <div class="media-wrapper">
+                        <img
+                            src="{{ img_src('img_toc.png') }}"
+                            alt="{{ online.badge }}"
+                            class="fixed-media"
+                            loading="lazy"
+                            {{ img_attrs('img_toc.png') }}
+                        />
+                    </div>
                 </div>
                 <div class="card-btn-container">
-                    <a href="#pricing-section" class="cta-button card-btn">{{ s.btn_contact }}</a>
+                    <a href="{{ online.website }}" target="_blank" rel="noopener" class="cta-button card-btn">{{ s.btn_contact }}</a>
                 </div>
             </div>
         </div>
@@ -136,40 +146,36 @@
 
 <section id="services" class="section-pad">
     <div class="container-wide">
-        <h2 class="section-heading">{{ site.services.title[lang] }}</h2>
+        <h2 class="section-heading">{{ c.services.title }}</h2>
         <div class="services-grid">
-            {% for card in site.services.cards %}
-            {% set target = post_url(card.key) %}
+            {% for card in c.services.cards %}
+            {% set target = post_url(card.article) %}
             <a
                 class="service-card has-bg clickable"
                 {% if target %}href="{{ target }}"{% endif %}
-                style="background-image: url('{{ img_src(card.img) }}')"
+                style="background-image: url('{{ img_src(card.image) }}')"
             >
-                <div class="s-content-default"><h3 class="s-title">{{ card.title[lang] }}</h3></div>
+                <div class="s-content-default"><h3 class="s-title">{{ card.title }}</h3></div>
                 <div class="s-overlay">
-                    <h3 class="s-title s-title-over">{{ card.title[lang] }}</h3>
-                    <p class="s-desc">{{ card.desc[lang] }}</p>
-                    {% if target %}<span class="blog-link">{{ s.read_more }} →</span>{% endif %}
+                    <h3 class="s-title s-title-over">{{ card.title }}</h3>
+                    <p class="s-desc">{{ card.text }}</p>
                 </div>
             </a>
             {% endfor %}
         </div>
 
         <div class="pricing-section" id="pricing-section">
-            <h3 class="price-title">{{ fees.title[lang] }}</h3>
+            <h3 class="price-title">{{ c.fees.title }}</h3>
             <div class="pricing-columns">
                 <div class="pricing-col">
-                    <p class="price-label">{{ fees.therapy.title[lang] }}</p>
-                    <p class="price-amount">{{ fees.therapy.price[lang] }}</p>
-                    {% if fees.insurance[lang] %}
-                    <p class="insurance-info">{{ fees.insurance[lang] }}</p>
-                    {% endif %}
+                    <p class="price-label">{{ c.fees.therapy.title }}</p>
+                    <p class="price-amount">{{ c.fees.therapy.price }}</p>
                     <button type="button" id="book-btn" class="book-btn">{{ s.btn_book }}</button>
                 </div>
                 <div class="pricing-col">
-                    <p class="price-label">{{ fees.supervision.title[lang] }}</p>
-                    <p class="price-amount">{{ fees.supervision.price[lang] }}</p>
-                    <p class="price-note">{{ fees.supervision.note[lang] }}</p>
+                    <p class="price-label">{{ c.fees.supervision.title }}</p>
+                    <p class="price-amount">{{ c.fees.supervision.price }}</p>
+                    <p class="price-note">{{ c.fees.supervision.note }}</p>
                     <button type="button" id="supervision-btn" class="book-btn supervision-btn">
                         {{ s.btn_supervision }}
                     </button>
@@ -197,7 +203,7 @@
                     {% endif %}
                     <div class="blog-content">
                         <h3 class="blog-title">{{ post.title }}</h3>
-                        <p class="blog-excerpt">{{ post.description }}</p>
+                        <p class="blog-excerpt">{{ post.excerpt }}</p>
                         <span class="blog-link">{{ s.read_more }} →</span>
                     </div>
                 </a>
@@ -210,42 +216,49 @@
     </div>
 </section>
 
+{% set about = c.about %}
 <section id="about" class="section-pad">
     <div class="container-wide">
-        <h2 class="section-heading">{{ s.about_title }}</h2>
+        <h2 class="section-heading">{{ about.title }}</h2>
         <div class="about-grid-layout">
-            <div class="about-cell">{{ doc.blocks.education | safe }}</div>
+            <div class="about-cell">
+                <h3 class="about-subtitle">{{ about.education.title }}</h3>
+                {{ about.education.text | safe }}
+            </div>
 
             <div class="about-cell">
-                <h3 class="about-subtitle">{{ site.affiliations.title[lang] }}</h3>
+                <h3 class="about-subtitle">{{ about.affiliations.title }}</h3>
                 <ul class="affiliations-list">
-                    {% for item in site.affiliations.list %}
+                    {% for item in about.affiliations.list %}
                     <li>
                         <div class="aff-left">
                             <img
-                                src="{{ img_src(item.logo | replace('media/', '')) }}"
+                                src="{{ img_src(item.logo) }}"
                                 class="aff-logo"
-                                alt="{{ item.org[lang] }}"
+                                alt="{{ item.org }}"
                                 loading="lazy"
                             />
                             <div>
-                                <strong>{{ item.role[lang] }}</strong><br />
-                                {{ item.org[lang] }}
+                                <strong>{{ item.role }}</strong><br />
+                                {{ item.org }}
                             </div>
                         </div>
-                        <div class="aff-date">{{ item.location[lang] }}<br />{{ item.date[lang] }}</div>
+                        <div class="aff-date">{{ item.location }}<br />{{ item.since }}</div>
                     </li>
                     {% endfor %}
                 </ul>
-                <p class="aff-footer">{{ site.affiliations.footer[lang] }}</p>
+                <p class="aff-footer">{{ about.affiliations.footer }}</p>
             </div>
 
-            <div class="about-cell">{{ doc.blocks.experience | safe }}</div>
+            <div class="about-cell">
+                <h3 class="about-subtitle">{{ about.experience.title }}</h3>
+                {{ about.experience.text | safe }}
+            </div>
 
             <div class="about-cell map-cell" id="about-map-container">
                 <img
                     src="{{ img_src('img_map.png') }}"
-                    alt="{{ 'Parcours : New York, Paris, Singapour, Brighton' if lang == 'fr' else 'Career path: New York, Paris, Singapore, Brighton' }}"
+                    alt="{{ about.map | map(attribute='place') | join(', ') }}"
                     class="map-img"
                     loading="lazy"
                     {{ img_attrs('img_map.png') }}
@@ -260,16 +273,16 @@
                     <path d="{{ d }}" class="arrow-path" marker-end="url(#arrowhead)" />
                     {% endfor %}
                 </svg>
-                {% for item in site.timeline %}
+                {% for pin in about.map %}
                 <div
-                    class="map-pin{% if item.left < 30 %} pin-edge-left{% elif item.left > 70 %} pin-edge-right{% endif %}"
-                    style="top: {{ item.top }}%; left: {{ item.left }}%"
+                    class="map-pin{% if pin.left < 30 %} pin-edge-left{% elif pin.left > 70 %} pin-edge-right{% endif %}"
+                    style="top: {{ pin.top }}%; left: {{ pin.left }}%"
                     tabindex="0"
                 >
-                    <div class="pin-label{% if item.get('label_pos') == 'top' %} top{% endif %}">{{ item.location[lang] }}</div>
+                    <div class="pin-label{% if pin.get('label') == 'top' %} top{% endif %}">{{ pin.place }}</div>
                     <div class="pin-info">
-                        <span class="pin-year">{{ item.year[lang] }}</span>
-                        {{ item.desc[lang] }}
+                        <span class="pin-year">{{ pin.years }}</span>
+                        {{ pin.text }}
                     </div>
                 </div>
                 {% endfor %}

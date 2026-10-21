@@ -1,35 +1,31 @@
 #!/usr/bin/env python3
 """Static site generator for lucietherapy.com.
 
-Reads content/ (YAML + Markdown) and templates/, writes a complete static
-site to _site/ with one real URL per page per language, full metadata,
-hreflang pairing, JSON-LD structured data, a sitemap, and size-optimised
-images.
+Reads content.js (all the text, English and French side by side) and
+templates/, writes a complete static site to _site/ with one real URL per
+page per language, full metadata, hreflang pairing, JSON-LD structured data,
+a sitemap, and size-optimised images.
 
     python build.py            # build into _site/
     python build.py --serve    # build, then serve on http://localhost:8000
-
-Content layout:
-    content/site.yaml              structured data, labels, SEO defaults
-    content/<lang>/home/*.md       homepage prose blocks
-    content/<lang>/pages/*.md      standalone landing pages
-    content/<lang>/blog/*.md       articles
 """
 
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 import shutil
 import sys
+import textwrap
 from dataclasses import dataclass, field
 from datetime import date, datetime, timezone
 from pathlib import Path
+from typing import NoReturn
 
 try:
     import markdown
-    import yaml
     from jinja2 import Environment, FileSystemLoader, StrictUndefined
 except ImportError as exc:  # pragma: no cover
     sys.exit(f"Missing dependency: {exc.name}. Run: pip install -r requirements.txt")
@@ -40,7 +36,7 @@ except ImportError:
     Image = None
 
 ROOT = Path(__file__).resolve().parent
-CONTENT = ROOT / "content"
+CONTENT_FILE = ROOT / "content.js"
 TEMPLATES = ROOT / "templates"
 OUT = ROOT / "_site"
 
@@ -55,16 +51,271 @@ IMG_QUALITY = 82
 
 MD = markdown.Markdown(extensions=["extra", "smarty"], output_format="html5")
 
+# Fields of content.js written in Markdown (articles' `text` is handled separately)
+MARKDOWN_FIELDS = [
+    ("intro", "text"),
+    ("about", "education", "text"),
+    ("about", "experience", "text"),
+]
+
+
+# =========================================================================
+#  Reading content.js
+# =========================================================================
+class ContentError(Exception):
+    """A mistake in content.js, reported with its line number."""
+
+
+class ContentReader:
+    """Reads the object literal in content.js without a JavaScript engine.
+
+    Supports what the file needs: objects, arrays, "double", 'single' and
+    `backtick` strings, numbers, true/false/null, // and /* */ comments,
+    unquoted keys and trailing commas. Backtick text is dedented and trimmed,
+    so it can be indented to line up with the code around it.
+    """
+
+    ESCAPES = {"n": "\n", "t": "\t", "r": "\r", "b": "\b", "f": "\f", "v": "\v", "0": "\0"}
+    DECLARATION = re.compile(r"(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=")
+    NAME = re.compile(r"[A-Za-z_$][\w$]*")
+    NUMBER = re.compile(r"-?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?")
+
+    def __init__(self, text: str, name: str):
+        self.s = text.replace("\r\n", "\n")
+        self.i = 0
+        self.name = name
+
+    def fail(self, message: str, at: int | None = None) -> NoReturn:
+        at = self.i if at is None else at
+        line = self.s.count("\n", 0, at) + 1
+        col = at - (self.s.rfind("\n", 0, at) + 1) + 1
+        raise ContentError(f"{self.name}, line {line}, column {col}: {message}")
+
+    def at_end(self) -> bool:
+        return self.i >= len(self.s)
+
+    def skip(self) -> None:
+        """Move past whitespace and comments."""
+        while not self.at_end():
+            if self.s[self.i] in " \t\n﻿":
+                self.i += 1
+            elif self.s.startswith("//", self.i):
+                end = self.s.find("\n", self.i)
+                self.i = len(self.s) if end == -1 else end + 1
+            elif self.s.startswith("/*", self.i):
+                end = self.s.find("*/", self.i + 2)
+                if end == -1:
+                    self.fail("a note opened with /* is never closed with */")
+                self.i = end + 2
+            else:
+                break
+
+    def document(self):
+        self.skip()
+        m = self.DECLARATION.match(self.s, self.i)
+        if m:
+            self.i = m.end()
+        value = self.value()
+        self.skip()
+        if self.s.startswith(";", self.i):
+            self.i += 1
+            self.skip()
+        if not self.at_end():
+            self.fail("unexpected text after the end of the content (an extra } or ] ?)")
+        return value
+
+    def value(self):
+        self.skip()
+        if self.at_end():
+            self.fail("the file ends too early: a closing } or ] is missing")
+        c = self.s[self.i]
+        if c == "{":
+            return self.obj()
+        if c == "[":
+            return self.arr()
+        if c in "\"'":
+            return self.string(c)
+        if c == "`":
+            return self.template()
+        m = self.NUMBER.match(self.s, self.i)
+        if m:
+            self.i = m.end()
+            t = m.group()
+            return float(t) if any(ch in t for ch in ".eE") else int(t)
+        m = self.NAME.match(self.s, self.i)
+        if m and m.group() in ("true", "false", "null"):
+            self.i = m.end()
+            return {"true": True, "false": False, "null": None}[m.group()]
+        self.fail(f"expected a value (text in quotes, a number, {{ or [) but found {c!r}")
+
+    def obj(self) -> dict:
+        start = self.i
+        self.i += 1
+        out: dict = {}
+        while True:
+            self.skip()
+            if self.at_end():
+                self.fail("this { is never closed with }", start)
+            if self.s[self.i] == "}":
+                self.i += 1
+                return out
+            key_at = self.i
+            if self.s[self.i] in "\"'":
+                key = self.string(self.s[self.i])
+            else:
+                m = self.NAME.match(self.s, self.i)
+                if not m:
+                    self.fail(f"expected a name such as `title:` but found {self.s[self.i]!r}")
+                key = m.group()
+                self.i = m.end()
+            self.skip()
+            if not self.s.startswith(":", self.i):
+                self.fail(f"expected : after {key!r}")
+            self.i += 1
+            if key in out:
+                self.fail(f"{key!r} appears twice in the same block", key_at)
+            out[key] = self.value()
+            self.skip()
+            if self.s.startswith(",", self.i):
+                self.i += 1
+            elif not self.s.startswith("}", self.i):
+                self.fail("expected a comma after the previous item (is a comma or a quote mark missing?)")
+
+    def arr(self) -> list:
+        start = self.i
+        self.i += 1
+        out: list = []
+        while True:
+            self.skip()
+            if self.at_end():
+                self.fail("this [ is never closed with ]", start)
+            if self.s[self.i] == "]":
+                self.i += 1
+                return out
+            out.append(self.value())
+            self.skip()
+            if self.s.startswith(",", self.i):
+                self.i += 1
+            elif not self.s.startswith("]", self.i):
+                self.fail("expected a comma after the previous item (is a comma or a quote mark missing?)")
+
+    def escape(self) -> str:
+        """Decode the backslash escape at self.i."""
+        self.i += 1
+        if self.at_end():
+            self.fail("the file ends after a \\")
+        c = self.s[self.i]
+        self.i += 1
+        if c == "\n":  # line continuation
+            return ""
+        if c in "ux":
+            if c == "u" and self.s.startswith("{", self.i):
+                end = self.s.find("}", self.i)
+                code, self.i = self.s[self.i + 1 : end], end + 1
+            else:
+                size = 4 if c == "u" else 2
+                code, self.i = self.s[self.i : self.i + size], self.i + size
+            try:
+                return chr(int(code, 16))
+            except ValueError:
+                self.fail(f"invalid \\{c} escape")
+        return self.ESCAPES.get(c, c)
+
+    def string(self, quote: str) -> str:
+        start = self.i
+        self.i += 1
+        out = []
+        while True:
+            if self.at_end():
+                self.fail(f"this text is missing its closing {quote}", start)
+            c = self.s[self.i]
+            if c == quote:
+                self.i += 1
+                return "".join(out)
+            if c == "\n":
+                self.fail(
+                    f"text between {quote} quotes cannot go over several lines; "
+                    "use `backticks` for long text",
+                    start,
+                )
+            if c == "\\":
+                out.append(self.escape())
+            else:
+                out.append(c)
+                self.i += 1
+
+    def template(self) -> str:
+        start = self.i
+        self.i += 1
+        out = []
+        while True:
+            if self.at_end():
+                self.fail("this text is missing its closing `", start)
+            c = self.s[self.i]
+            if c == "`":
+                self.i += 1
+                return textwrap.dedent("".join(out)).strip()
+            if c == "\\":
+                out.append(self.escape())
+            elif self.s.startswith("${", self.i):
+                self.fail("${ is not supported here; write \\${ to show it as text")
+            else:
+                out.append(c)
+                self.i += 1
+
+
+def load_content() -> dict:
+    return ContentReader(CONTENT_FILE.read_text(encoding="utf-8"), CONTENT_FILE.name).document()
+
+
+def localize(value, lang: str, langs: list[str]):
+    """Resolve every {en: ..., fr: ...} pair to its text in `lang`.
+
+    A pair without that language falls back to the first one it has.
+    """
+    if isinstance(value, dict):
+        if value and set(value) <= set(langs):
+            return localize(value[lang] if lang in value else next(iter(value.values())), lang, langs)
+        return {k: localize(v, lang, langs) for k, v in value.items()}
+    if isinstance(value, list):
+        return [localize(v, lang, langs) for v in value]
+    return value
+
+
+def render_markdown(text: str) -> str:
+    MD.reset()
+    return MD.convert(text)
+
+
+def excerpt(body_html: str, length: int = 80) -> str:
+    """Opening characters of an article as plain text, for listing cards."""
+    text = html.unescape(re.sub(r"<[^>]+>", " ", body_html))
+    text = re.sub(r"\s+", " ", text).strip()
+    return text[:length] + "..."
+
+
+def for_language(content: dict, lang: str) -> dict:
+    """The whole content in one language, with Markdown fields rendered to HTML."""
+    c = localize(content, lang, content["site"]["languages"])
+    for path in MARKDOWN_FIELDS:
+        parent = c
+        for k in path[:-1]:
+            parent = parent[k]
+        parent[path[-1]] = render_markdown(parent[path[-1]])
+    # Plain-text version of the role, for image descriptions and Google
+    c["person"]["job_title"] = re.sub(r"\s*<br\s*/?>\s*", ", ", c["person"]["role"])
+    return c
+
 
 # =========================================================================
 #  Model
 # =========================================================================
 @dataclass
 class Doc:
-    """A single rendered document (home, landing page, or article)."""
+    """A single rendered document (home, article, or article index)."""
 
     lang: str
-    kind: str  # "home" | "page" | "post" | "blog_index"
+    kind: str  # "home" | "post" | "blog_index"
     key: str  # stable identifier, shared across languages for hreflang
     slug: str
     url: str  # site-absolute, with leading and trailing slash
@@ -75,113 +326,85 @@ class Doc:
     image: str = ""
     date: str = ""
     body: str = ""
-    cta: str = ""
-    nav: bool = False
-    source: Path | None = None
+    excerpt: str = ""
 
 
-def parse_front_matter(path: Path) -> tuple[dict, str]:
-    text = path.read_text(encoding="utf-8")
-    if not text.startswith("---"):
-        return {}, text
-    end = text.find("\n---", 3)
-    if end == -1:
-        return {}, text
-    meta = yaml.safe_load(text[3:end]) or {}
-    body = text[end + 4 :].lstrip("\n")
-    return meta, body
+SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 
 
-def render_markdown(text: str) -> str:
-    MD.reset()
-    return MD.convert(text)
-
-
-# =========================================================================
-#  Loading
-# =========================================================================
-def load_site() -> dict:
-    return yaml.safe_load((CONTENT / "site.yaml").read_text(encoding="utf-8"))
-
-
-def lang_prefix(site: dict, lang: str) -> str:
+def lang_prefix(default_lang: str, lang: str) -> str:
     """'' for the default language, '/fr' otherwise."""
-    return "" if lang == site["site"]["default_lang"] else f"/{lang}"
+    return "" if lang == default_lang else f"/{lang}"
 
 
-def load_docs(site: dict) -> list[Doc]:
+def load_docs(content: dict, by_lang: dict[str, dict]) -> list[Doc]:
+    langs = content["site"]["languages"]
+    articles = content.get("blog", [])
+
+    ids = [a.get("id") for a in articles]
+    for n, aid in enumerate(ids, 1):
+        if not aid:
+            raise ContentError(f"{CONTENT_FILE.name}: article number {n} has no id")
+        if ids.count(aid) > 1:
+            raise ContentError(f"{CONTENT_FILE.name}: two articles have the id {aid!r}")
+
     docs: list[Doc] = []
-    langs = site["site"]["langs"]
-
     for lang in langs:
-        pre = lang_prefix(site, lang)
-        meta = site["home_meta"][lang]
+        c = by_lang[lang]
+        pre = lang_prefix(langs[0], lang)
 
-        # ---- homepage ----
-        home_dir = CONTENT / lang / "home"
-        blocks = {}
-        for block in ("summary", "education", "experience"):
-            f = home_dir / f"{block}.md"
-            blocks[block] = render_markdown(f.read_text(encoding="utf-8")) if f.exists() else ""
-        home = Doc(
-            lang=lang,
-            kind="home",
-            key="home",
-            slug="",
-            url=f"{pre}/",
-            title=site["person"]["name"],
-            meta_title=meta["meta_title"],
-            description=meta["description"],
-            keywords=meta.get("keywords", []),
-            image=site["person"]["image"],
-        )
-        home.blocks = blocks  # type: ignore[attr-defined]
-        docs.append(home)
-
-        # ---- landing pages ----
-        for f in sorted((CONTENT / lang / "pages").glob("*.md")):
-            fm, body = parse_front_matter(f)
-            docs.append(
-                Doc(
-                    lang=lang,
-                    kind="page",
-                    key=fm["key"],
-                    slug=fm["slug"],
-                    url=f"{pre}/{fm['slug']}/",
-                    title=fm["title"],
-                    meta_title=fm.get("meta_title", fm["title"]),
-                    description=fm.get("description", ""),
-                    keywords=fm.get("keywords", []),
-                    image=fm.get("image", ""),
-                    body=render_markdown(body),
-                    cta=fm.get("cta", "therapy"),
-                    nav=bool(fm.get("nav")),
-                    source=f,
-                )
+        docs.append(
+            Doc(
+                lang=lang,
+                kind="home",
+                key="home",
+                slug="",
+                url=f"{pre}/",
+                title=c["person"]["name"],
+                meta_title=c["seo"]["home"]["title"],
+                description=c["seo"]["home"]["description"],
+                keywords=c["seo"]["home"].get("keywords", []),
+                image=c["person"]["photo"],
             )
+        )
 
-        # ---- articles ----
-        for f in sorted((CONTENT / lang / "blog").glob("*.md")):
-            fm, body = parse_front_matter(f)
+        # Articles, in the order they are listed. One without text in this
+        # language is simply not published in it.
+        for raw in articles:
+            if not raw.get("text", {}).get(lang):
+                continue
+            a = localize(raw, lang, langs)
+            for name in ("slug", "title"):
+                if not (raw.get(name) or {}).get(lang):
+                    raise ContentError(
+                        f"{CONTENT_FILE.name}: article {a['id']!r} has `text` in {lang!r} "
+                        f"but no `{name}` in {lang!r}"
+                    )
+            if not SLUG.fullmatch(a["slug"]):
+                raise ContentError(
+                    f"{CONTENT_FILE.name}: article {a['id']!r} has slug {a['slug']!r}; "
+                    "use lowercase letters, digits and hyphens only"
+                )
+            seo = a.get("seo", {})
+            body = render_markdown(a["text"])
             docs.append(
                 Doc(
                     lang=lang,
                     kind="post",
-                    key=fm["key"],
-                    slug=fm["slug"],
-                    url=f"{pre}/blog/{fm['slug']}/",
-                    title=fm["title"],
-                    meta_title=fm.get("meta_title", fm["title"]),
-                    description=fm.get("description", ""),
-                    keywords=fm.get("keywords", []),
-                    image=fm.get("image", ""),
-                    date=str(fm.get("date") or ""),
-                    body=render_markdown(body),
-                    source=f,
+                    key=a["id"],
+                    slug=a["slug"],
+                    url=f"{pre}/blog/{a['slug']}/",
+                    title=a["title"],
+                    meta_title=seo.get("title") or a["title"],
+                    description=seo.get("description", ""),
+                    keywords=seo.get("keywords", []),
+                    image=a.get("image", ""),
+                    date=str(a.get("date") or ""),
+                    body=body,
+                    excerpt=excerpt(body),
                 )
             )
 
-        # ---- article index ----
         docs.append(
             Doc(
                 lang=lang,
@@ -189,19 +412,9 @@ def load_docs(site: dict) -> list[Doc]:
                 key="blog_index",
                 slug="blog",
                 url=f"{pre}/blog/",
-                title={"en": "Articles", "fr": "Articles"}[lang],
-                meta_title={
-                    "en": "Articles on CBT, ACT, Anxiety and Therapy",
-                    "fr": "Articles sur la TCC, l'ACT, l'anxiété et la thérapie",
-                }[lang],
-                description={
-                    "en": "Articles by a chartered psychologist on cognitive behavioural therapy, "
-                    "acceptance and commitment therapy, anxiety, mindfulness, online therapy, "
-                    "life abroad and clinical supervision.",
-                    "fr": "Articles d'une psychologue clinicienne sur la thérapie cognitivo-comportementale, "
-                    "l'ACT, l'anxiété, la pleine conscience, la thérapie en ligne, "
-                    "l'expatriation et la supervision clinique.",
-                }[lang],
+                title=c["labels"]["nav_blog"],
+                meta_title=c["seo"]["blog"]["title"],
+                description=c["seo"]["blog"]["description"],
             )
         )
 
@@ -211,33 +424,23 @@ def load_docs(site: dict) -> list[Doc]:
 # =========================================================================
 #  Structured data
 # =========================================================================
-def practice_schema(site: dict, lang: str) -> dict:
-    p = site["practice"]
+def practice_schema(c: dict, base: str, img_src) -> dict:
+    p = c["practice"]["in_person"]
     a = p["address"]
-    base = site["site"]["url"]
-    hours = [
-        {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [f"https://schema.org/{d}" for d in h["days"]],
-            "opens": h["opens"],
-            "closes": h["closes"],
-        }
-        for h in p.get("opening_hours", [])
-    ]
     return {
         "@type": ["Psychologist", "ProfessionalService"],
         "@id": f"{base}/#practice",
-        "name": f"{site['person']['display_name']} — {p['location_name']}",
-        "description": p["online_desc"][lang],
-        "image": f"{base}/{site['person']['image']}",
+        "name": f"{c['person']['name']} — {p['place']}",
+        "description": c["seo"]["home"]["description"],
+        "image": base + img_src(c["person"]["photo"]),
         "url": base + "/",
-        "email": site["person"]["email"],
+        "email": c["person"]["email"],
         "priceRange": "££",
         "currenciesAccepted": "GBP, EUR",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": a["street"],
-            "addressLocality": a["locality"],
+            "addressLocality": a["town"],
             "postalCode": a["postcode"],
             "addressRegion": a["region"],
             "addressCountry": a["country_code"],
@@ -247,7 +450,6 @@ def practice_schema(site: dict, lang: str) -> dict:
             "latitude": p["geo"]["lat"],
             "longitude": p["geo"]["lng"],
         },
-        "openingHoursSpecification": hours,
         "areaServed": [
             {"@type": "City", "name": "Brighton"},
             {"@type": "City", "name": "Hove"},
@@ -261,37 +463,29 @@ def practice_schema(site: dict, lang: str) -> dict:
     }
 
 
-def person_schema(site: dict, lang: str) -> dict:
-    base = site["site"]["url"]
-    creds = [
-        {
-            "@type": "EducationalOccupationalCredential",
-            "name": f"{a['role'][lang]} — {a['org'][lang]}",
-        }
-        for a in site["affiliations"]["list"]
-    ]
+def person_schema(c: dict, base: str, lang: str, img_src) -> dict:
+    affiliations = c["about"]["affiliations"]["list"]
     return {
         "@type": "Person",
         "@id": f"{base}/#person",
-        "name": site["person"]["display_name"],
-        "jobTitle": site["person"]["job_title"][lang],
-        "image": f"{base}/{site['person']['image']}",
-        "email": site["person"]["email"],
-        "url": base + lang_prefix(site, lang) + "/",
-        "sameAs": site["person"]["social"],
-        "knowsLanguage": ["en", "fr"],
+        "name": c["person"]["name"],
+        "jobTitle": c["person"]["job_title"],
+        "image": base + img_src(c["person"]["photo"]),
+        "email": c["person"]["email"],
+        "url": base + lang_prefix(c["site"]["languages"][0], lang) + "/",
+        "sameAs": [c["person"]["instagram"], c["person"]["linkedin"]],
+        "knowsLanguage": c["site"]["languages"],
         "alumniOf": {"@type": "CollegeOrUniversity", "name": "Université Paris Cité"},
-        "hasCredential": creds,
-        "memberOf": [
-            {"@type": "Organization", "name": a["org"][lang]}
-            for a in site["affiliations"]["list"]
+        "hasCredential": [
+            {"@type": "EducationalOccupationalCredential", "name": f"{a['role']} — {a['org']}"}
+            for a in affiliations
         ],
+        "memberOf": [{"@type": "Organization", "name": a["org"]} for a in affiliations],
         "worksFor": {"@id": f"{base}/#practice"},
     }
 
 
-def build_jsonld(site: dict, doc: Doc) -> str:
-    base = site["site"]["url"]
+def build_jsonld(c: dict, doc: Doc, base: str, img_src) -> str:
     graph: list[dict] = []
 
     if doc.kind == "home":
@@ -300,13 +494,13 @@ def build_jsonld(site: dict, doc: Doc) -> str:
                 "@type": "WebSite",
                 "@id": f"{base}/#website",
                 "url": base + "/",
-                "name": site["person"]["display_name"],
+                "name": c["person"]["name"],
                 "inLanguage": doc.lang,
                 "publisher": {"@id": f"{base}/#person"},
             }
         )
-        graph.append(person_schema(site, doc.lang))
-        graph.append(practice_schema(site, doc.lang))
+        graph.append(person_schema(c, base, doc.lang, img_src))
+        graph.append(practice_schema(c, base, img_src))
 
     elif doc.kind == "post":
         article = {
@@ -321,13 +515,13 @@ def build_jsonld(site: dict, doc: Doc) -> str:
             "isAccessibleForFree": True,
         }
         if doc.image:
-            article["image"] = f"{base}/media/{doc.image}"
+            article["image"] = base + img_src(doc.image)
         if doc.date:
             article["datePublished"] = doc.date
         graph.append(article)
-        graph.append(person_schema(site, doc.lang))
+        graph.append(person_schema(c, base, doc.lang, img_src))
 
-    else:  # page, blog_index
+    else:  # blog_index
         graph.append(
             {
                 "@type": "WebPage",
@@ -339,41 +533,22 @@ def build_jsonld(site: dict, doc: Doc) -> str:
                 "about": {"@id": f"{base}/#person"},
             }
         )
-        if doc.kind == "page" and doc.key in ("brighton", "online-fr"):
-            graph.append(practice_schema(site, doc.lang))
-        if doc.kind == "page" and doc.key == "supervision":
-            graph.append(
-                {
-                    "@type": "Service",
-                    "@id": f"{base}{doc.url}#service",
-                    "name": doc.title,
-                    "description": doc.description,
-                    "serviceType": "Clinical supervision",
-                    "provider": {"@id": f"{base}/#person"},
-                    "availableChannel": {
-                        "@type": "ServiceChannel",
-                        "serviceUrl": f"{base}{doc.url}",
-                    },
-                }
-            )
-        graph.append(person_schema(site, doc.lang))
+        graph.append(person_schema(c, base, doc.lang, img_src))
 
     # Breadcrumbs for everything but the homepage
     if doc.kind != "home":
-        home_url = base + lang_prefix(site, doc.lang) + "/"
-        items = [{"@type": "ListItem", "position": 1, "name": "Home", "item": home_url}]
+        prefix = lang_prefix(c["site"]["languages"][0], doc.lang)
+        items = [{"@type": "ListItem", "position": 1, "name": "Home", "item": f"{base}{prefix}/"}]
         if doc.kind == "post":
             items.append(
                 {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Articles",
-                    "item": f"{base}{lang_prefix(site, doc.lang)}/blog/",
+                    "name": c["labels"]["nav_blog"],
+                    "item": f"{base}{prefix}/blog/",
                 }
             )
-        items.append(
-            {"@type": "ListItem", "position": len(items) + 1, "name": doc.title}
-        )
+        items.append({"@type": "ListItem", "position": len(items) + 1, "name": doc.title})
         graph.append({"@type": "BreadcrumbList", "itemListElement": items})
 
     return json.dumps(
@@ -437,19 +612,14 @@ def pretty_date(iso: str, lang: str) -> str:
     return f"{d} {month} {y}"
 
 
-def home_url_for(site: dict, lang: str) -> str:
-    return lang_prefix(site, lang) + "/"
-
-
-def map_arrows(site: dict) -> list[str]:
-    """Quadratic-bezier `d` attributes joining consecutive timeline pins.
+def map_arrows(pins: list[dict]) -> list[str]:
+    """Quadratic-bezier `d` attributes joining consecutive map pins.
 
     Previously computed in the browser; precomputing keeps the map visible
     without JavaScript.
     """
-    tl = site["timeline"]
     out = []
-    for a, b in zip(tl, tl[1:]):
+    for a, b in zip(pins, pins[1:]):
         x1, y1, x2, y2 = a["left"], a["top"], b["left"], b["top"]
         mx, my = (x1 + x2) / 2, (y1 + y2) / 2
         dist = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
@@ -458,7 +628,7 @@ def map_arrows(site: dict) -> list[str]:
     return out
 
 
-def legacy_json(site: dict, docs: list[Doc]) -> str:
+def legacy_json(docs: list[Doc]) -> str:
     """Map old ?post=<id> identifiers to their new URLs, per language.
 
     The pre-rebuild site addressed articles as `/?post=<id>&lang=<lang>`.
@@ -590,10 +760,16 @@ def copy_static(served: dict[str, str], report: list[str]) -> None:
 #  Build
 # =========================================================================
 def build(serve: bool = False) -> None:
-    site = load_site()
-    docs = load_docs(site)
-    base = site["site"]["url"]
-    default_lang = site["site"]["default_lang"]
+    try:
+        content = load_content()
+        langs = content["site"]["languages"]
+        by_lang = {lang: for_language(content, lang) for lang in langs}
+        docs = load_docs(content, by_lang)
+    except ContentError as exc:
+        sys.exit(f"Problem in content.js — {exc}")
+
+    base = content["site"]["url"].rstrip("/")
+    default_lang = langs[0]
 
     clean_output()
 
@@ -607,10 +783,6 @@ def build(serve: bool = False) -> None:
     for d in docs:
         alt_map.setdefault(d.key, {})[d.lang] = d.url
 
-    by_lang_kind: dict[tuple[str, str], list[Doc]] = {}
-    for d in docs:
-        by_lang_kind.setdefault((d.lang, d.kind), []).append(d)
-
     env = Environment(
         loader=FileSystemLoader(TEMPLATES),
         autoescape=True,
@@ -618,6 +790,7 @@ def build(serve: bool = False) -> None:
         trim_blocks=True,
         lstrip_blocks=True,
     )
+
     def img_src(filename: str) -> str:
         """URL of the best available version of a media file."""
         return "/media/" + served.get(filename, filename)
@@ -631,65 +804,40 @@ def build(serve: bool = False) -> None:
     env.globals["img_src"] = img_src
     env.globals["img_attrs"] = img_attrs
 
+    legacy_map = legacy_json(docs)
+    templates = {"home": "home.html", "post": "post.html", "blog_index": "blog_index.html"}
+
     built = 0
     for doc in docs:
-        alternates = alt_map.get(doc.key, {})
-        posts = sorted(
-            by_lang_kind.get((doc.lang, "post"), []), key=lambda d: d.title
-        )
-        pages = [
-            p for p in by_lang_kind.get((doc.lang, "page"), []) if p.nav
-        ]
-        # Stable nav order regardless of filename
-        nav_order = {"brighton": 0, "online-fr": 1, "supervision": 2}
-        pages.sort(key=lambda p: nav_order.get(p.key, 99))
-
-        if doc.kind in ("post", "page"):
-            related = [p for p in posts if p.key != doc.key][:3]
-        else:
-            related = []
-
-        # key -> URL lookups scoped to this document's language
-        lang_urls = {
-            d.key: d.url for d in docs if d.lang == doc.lang and d.kind in ("page", "post")
-        }
+        c = by_lang[doc.lang]
+        posts = [d for d in docs if d.lang == doc.lang and d.kind == "post"]
+        post_urls = {d.key: d.url for d in posts}
+        prefix = lang_prefix(default_lang, doc.lang)
 
         ctx = {
-            "page_url": lambda k: lang_urls.get(k, home_url_for(site, doc.lang)),
-            "post_url": lambda k: lang_urls.get(k),
-            "map_arrows": map_arrows(site),
-            "legacy_map": legacy_json(site, docs),
-            "site": site,
-            "s": {k: v[doc.lang] for k, v in site["strings"].items()},
+            "c": c,
+            "s": c["labels"],
             "lang": doc.lang,
-            "other_langs": [l for l in site["site"]["langs"] if l != doc.lang],
+            "other_langs": [l for l in langs if l != doc.lang],
             "doc": doc,
             "posts": posts,
-            "nav_pages": pages,
-            "related": related,
-            "alternates": alternates,
+            "post_url": post_urls.get,
+            "map_arrows": map_arrows(c["about"]["map"]),
+            "legacy_map": legacy_map,
+            "alternates": alt_map.get(doc.key, {}),
             "canonical": base + doc.url,
             "base_url": base,
-            "home_url": lang_prefix(site, doc.lang) + "/",
-            "blog_url": lang_prefix(site, doc.lang) + "/blog/",
+            "home_url": prefix + "/",
+            "blog_url": prefix + "/blog/",
             "default_lang": default_lang,
-            "jsonld": build_jsonld(site, doc),
-            "practice": site["practice"],
-            "fees": site["fees"],
+            "jsonld": build_jsonld(c, doc, base, img_src),
             "year": date.today().year,
         }
 
-        template = {
-            "home": "home.html",
-            "page": "page.html",
-            "post": "post.html",
-            "blog_index": "blog_index.html",
-        }[doc.kind]
-
-        html = env.get_template(template).render(**ctx)
+        html_out = env.get_template(templates[doc.kind]).render(**ctx)
         dest = OUT / doc.url.strip("/") / "index.html" if doc.url != "/" else OUT / "index.html"
         dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(html, encoding="utf-8")
+        dest.write_text(html_out, encoding="utf-8")
         built += 1
 
     # ---- sitemap ----
@@ -699,16 +847,11 @@ def build(serve: bool = False) -> None:
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
         '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     ]
-    priority = {"home": "1.0", "page": "0.9", "post": "0.7", "blog_index": "0.6"}
+    priority = {"home": "1.0", "post": "0.7", "blog_index": "0.6"}
     for doc in docs:
-        lastmod = now
-        if doc.source and doc.source.exists():
-            lastmod = datetime.fromtimestamp(
-                doc.source.stat().st_mtime, timezone.utc
-            ).strftime("%Y-%m-%d")
         lines.append("  <url>")
         lines.append(f"    <loc>{base}{doc.url}</loc>")
-        lines.append(f"    <lastmod>{lastmod}</lastmod>")
+        lines.append(f"    <lastmod>{now}</lastmod>")
         lines.append(f"    <priority>{priority[doc.kind]}</priority>")
         for lg, url in sorted(alt_map.get(doc.key, {}).items()):
             lines.append(
@@ -732,12 +875,8 @@ def build(serve: bool = False) -> None:
     # ---- 404 ----
     (OUT / "404.html").write_text(
         env.get_template("404.html").render(
-            site=site,
+            c=by_lang[default_lang],
             lang=default_lang,
-            s={k: v[default_lang] for k, v in site["strings"].items()},
-            base_url=base,
-            home_url="/",
-            blog_url="/blog/",
             year=date.today().year,
         ),
         encoding="utf-8",

@@ -4,15 +4,14 @@
 <section class="section-pad top-section">
     <div class="container-wide">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="{{ home_url }}">{{ site.person.display_name }}</a>
+            <a href="{{ home_url }}">{{ c.person.name }}</a>
             <span aria-hidden="true">/</span>
             <span>{{ s.nav_blog }}</span>
         </nav>
 
         <header class="content-header">
-            <h1>{{ doc.meta_title }}</h1>
+            <h1>{{ doc.title }}</h1>
             <hr class="divider" />
-            <p class="lede">{{ doc.description }}</p>
         </header>
 
         <div class="post-grid">
@@ -30,17 +29,11 @@
                     {% endif %}
                     <div class="blog-content">
                         <h2 class="blog-title">{{ post.title }}</h2>
-                        <p class="blog-excerpt">{{ post.description }}</p>
+                        <p class="blog-excerpt">{{ post.excerpt }}</p>
                         <span class="blog-link">{{ s.read_more }} →</span>
                     </div>
                 </a>
             </article>
-            {% endfor %}
-        </div>
-
-        <div class="index-links">
-            {% for p in nav_pages %}
-            <a href="{{ p.url }}" class="cta-button">{{ p.title }}</a>
             {% endfor %}
         </div>
     </div>

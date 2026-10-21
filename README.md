@@ -2,173 +2,123 @@
 
 The website for Lucie Ramet's practice.
 
-The text of the site lives in the `content/` folder as ordinary text files.
-When you change one and save it to GitHub, the website rebuilds and updates
-itself within a couple of minutes. You never edit HTML.
+All the text of the site, in English and French, lives in one file:
+[`content.js`](content.js). When you change it and save it to GitHub, the
+website rebuilds and updates itself within a couple of minutes. You never edit
+HTML.
 
 ---
 
 # Part 1 — Writing and editing
 
-*No technical knowledge needed for this part.*
+## How `content.js` is organised
 
-## Where the text lives
+The file follows the order of the homepage: settings, the intro next to the
+photo, "Where to find me", services and fees, "About Me", then the button and
+form labels, and finally the articles. Every piece of text has its English and
+French version next to each other:
 
-```
-content/
-  site.yaml          fees, address, opening days, professional memberships
-  en/                everything in English
-    home/            the three blocks of text on the homepage
-    pages/           the main pages (Brighton, online therapy, supervision)
-    blog/            the articles
-  fr/                everything in French — same structure
+```js
+title: { en: "Where to find me", fr: "Où me trouver" },
 ```
 
-Each article is one file. The file
-`content/en/blog/understanding-anxiety.md` becomes the page
-`lucietherapy.com/blog/understanding-anxiety/`.
+Longer text goes between backticks and can span several lines:
 
-## Adding a new article
+```js
+text: {
+  en: `
+    First paragraph, with a word in **bold**.
 
-**Yes — you just add one new file.** Nothing else needs changing. The article
-then appears automatically on the homepage, in the article list, in the
-"related articles" boxes, and in the sitemap that Google reads.
+    ### A heading
 
-The easiest way, with no software to install:
-
-1. Go to the repository on **github.com**.
-2. Open the folder `content`, then `en`, then `blog`.
-3. Click **Add file → Create new file** (button near the top right).
-4. In the filename box, type a name ending in `.md` — for example
-   `therapy-for-teenagers.md`.
-   *Lowercase letters, no accents, hyphens instead of spaces.*
-5. Paste the template below into the big box and fill it in.
-6. Scroll down and click **Commit changes**.
-
-Wait two or three minutes, then reload the site. Your article is live.
-
-### The template to paste
-
-```markdown
----
-key: "therapy-for-teenagers"
-slug: "therapy-for-teenagers"
-title: "Therapy for Teenagers"
-meta_title: "Therapy for Teenagers in Brighton and Online"
-description: "How therapy helps adolescents from 16 with anxiety, school pressure and low mood, in person in Hove or online."
-keywords:
-  - "therapy for teenagers"
-  - "adolescent therapy Brighton"
-image: "blog_anxiety.jpg"
-date: "2026-09-15"
----
-
-Write your article here, in normal sentences.
-
-Leave a blank line between paragraphs, like this.
-
-### This is a heading inside the article
-
-Put two stars around words to make them **bold**.
-
-- This is a bullet point
-- And another one
+    - A bullet point
+    - Another one
+  `,
+  fr: `
+    Premier paragraphe...
+  `,
+},
 ```
 
-Everything between the two `---` lines is information *about* the article.
-Everything below the second `---` is the article itself.
-
-### What each line means
-
-| Line | What to put |
-|---|---|
-| `key` | A short nickname for the article. Only matters if you also write a French version — see below. |
-| `slug` | The web address. `therapy-for-teenagers` gives `lucietherapy.com/blog/therapy-for-teenagers/`. Lowercase, no accents, hyphens for spaces. |
-| `title` | The title shown at the top of the page. Normal punctuation is fine here. |
-| `meta_title` | **The blue headline people see in Google.** Aim for about 60 characters. |
-| `description` | **The grey summary underneath it in Google.** Aim for about 155 characters. |
-| `keywords` | A few phrases someone might type into Google to find this. |
-| `image` | The picture at the top. Must name a file in the `media` folder — see below. |
-| `date` | The date, written year-month-day. Use `""` if you would rather not show one. |
-
-`meta_title` and `description` never appear on the page itself. They are only
-what Google shows in its search results — so write them as an invitation to
-click, not as a summary for someone already reading.
-
-### Writing the text
-
-You only need four things:
+Inside backticks you can use:
 
 | To get this | Type this |
 |---|---|
 | **bold text** | `**bold text**` |
 | A heading | `### My heading` |
 | A bullet list | `- one`, then `- two` on the next line |
-| A link | `[the words to show](/cbt-supervision/)` |
+| A link | `[the words to show](/blog/understanding-anxiety/)` |
 
-Leave a blank line between paragraphs. That is the whole system.
+Leave an empty line between paragraphs.
 
-### Writing the French version too
+Three rules keep the file readable by the website:
 
-This is optional. An English-only or French-only article works perfectly well.
+- Short text goes between `"double quotes"`. To put a quote mark inside, write `\"`.
+- Every item ends with a comma.
+- Lines starting with `//` are notes for you; the website ignores them.
 
-If you do want both, create the French file in `content/fr/blog/` and give it
-**exactly the same `key`** as the English one. That is what tells Google the
-two are translations of each other rather than duplicate pages, and it is what
-makes the FR/EN buttons switch between them.
+If you break one of these, the website keeps showing the previous version, and
+the build log on GitHub (the **Actions** tab) says which line to fix.
 
-The `slug` should be different and in French — for example
-`therapie-pour-adolescents`.
+## Editing on GitHub
+
+1. Open [`content.js`](content.js) on github.com.
+2. Click the pencil icon.
+3. Make your change.
+4. Click **Commit changes**.
+
+Wait two or three minutes, then reload the site.
+
+## Adding an article
+
+Articles are at the end of the file, in the order they appear on the site.
+Copy a whole article block, from its `{` to its `},`, paste it where the new
+article should appear, and change it:
+
+| Field | What to put |
+|---|---|
+| `id` | A unique name for the article. Don't change it once the article is online. |
+| `image` | The picture at the top: a file in the `media` folder. |
+| `date` | `"2026-09-15"` (year-month-day), or `""` to show no date. |
+| `slug` | The web address: `therapy-for-teenagers` gives `lucietherapy.com/blog/therapy-for-teenagers/`. Lowercase, no accents, hyphens for spaces. Different for each language. Don't change it once the article is online. |
+| `title` | The title shown on the page. |
+| `seo.title` | **The blue headline people see in Google.** About 60 characters. |
+| `seo.description` | **The grey summary under it in Google.** About 155 characters. |
+| `seo.keywords` | A few phrases someone might type into Google to find it. |
+| `text` | The article itself. |
+
+To publish an article in one language only, leave the other language out of
+its `text`.
+
+A new article automatically appears on the homepage, on the blog page, and in
+the sitemap Google reads. To link a service card to it, put its `id` in the
+card's `article` field.
 
 ## Adding a picture
 
 Put the image file in the `media` folder (**Add file → Upload files** on
-GitHub), then write its filename on the `image:` line.
+GitHub), then write its filename where it is used, e.g. `image: "my-photo.jpg"`.
 
-Don't worry about the file size. If it is a big photo straight from a phone or
-camera, the site shrinks it automatically when publishing. Your original stays
-untouched.
-
-## Changing a fee, the address, or the opening days
-
-Open `content/site.yaml`. It is a list of settings with explanations next to
-each one. Change the value between the quote marks and save.
-
-Changing the fee in that one file updates it on the page **and** in the
-information Google reads about the practice, so the two cannot drift apart.
-
-## Editing an existing article
-
-Open the file, click the pencil icon, change the text, click **Commit
-changes**.
-
-One caution: **avoid changing the `slug` of an article that has been online for
-a while.** The slug is its web address, and changing it means Google has to
-start over with that page, losing whatever position it had built up. Changing
-the `title` or the text itself is completely safe.
-
-## If something looks wrong
-
-Nothing you type in these files can break the website permanently — the
-previous version stays online until the problem is fixed. The usual slips are:
-
-- A missing `"` quote mark on one of the lines at the top
-- A missing `---` line
-- An `image:` naming a file that is not in the `media` folder
+Don't worry about the file size: big photos are shrunk automatically when the
+site is published. Your original stays untouched.
 
 ---
 
 # Part 2 — Technical reference
 
-*For whoever maintains the code.*
-
 ## How it works
 
-`build.py` reads `content/` (YAML + Markdown) and `templates/` (Jinja2) and
-writes a complete static site to `_site/`. GitHub Actions runs it on every push
-to `main` and publishes the result to GitHub Pages.
+`build.py` reads `content.js` and `templates/` (Jinja2) and writes a complete
+static site to `_site/`. GitHub Actions runs it on every push to `main` and
+publishes the result to GitHub Pages. `_site/` is never committed.
 
-`_site/` is never committed — it is regenerated from source each time.
+`content.js` is read by a small parser in `build.py`, so no JavaScript engine
+is needed. It accepts objects, arrays, `"…"`, `'…'` and `` `…` `` strings,
+numbers, booleans, comments and trailing commas. Backtick text is dedented and
+trimmed, then rendered as Markdown where the templates expect it (the intro,
+education, experience and article texts). Any object whose keys are only
+`en`/`fr` is resolved to the page's language, falling back to the other
+language if one is missing.
 
 ## Building locally
 
@@ -180,15 +130,8 @@ pip install -r requirements.txt
 python build.py --serve
 ```
 
-Builds the site and serves it at http://localhost:8000. Re-run after each edit.
-
-Build without serving:
-
-```bash
-python build.py
-```
-
-Verify every internal link, anchor and image resolves:
+That builds the site and serves it at http://localhost:8000. Re-run it after
+each edit. To check that every internal link, anchor and image resolves:
 
 ```bash
 python check_links.py
@@ -198,50 +141,38 @@ python check_links.py
 
 Pushing to `main` triggers `.github/workflows/deploy.yml`: install
 dependencies, run `build.py`, run `check_links.py`, publish `_site/` to Pages.
-A broken internal link fails the build and blocks the deploy.
+A mistake in `content.js` or a broken internal link fails the build and blocks
+the deploy, so the live site stays as it was.
 
 > **One-time setting:** the repository's Pages source must be set to
 > **GitHub Actions** (Settings → Pages → Build and deployment → Source).
-> With the older "Deploy from a branch" setting the workflow runs but nothing
-> is published, because the generated site is never committed to the branch.
 
 ## What the generator produces
 
 | | |
 |---|---|
-| Pages | 26 — English at `/`, French under `/fr/` |
+| Pages | homepage, blog page and one page per article, in English at `/` and French under `/fr/` |
 | Per page | unique `<title>`, meta description, canonical URL, Open Graph and Twitter cards |
-| Structured data | JSON-LD: `Person`, `Psychologist` (address, geo, opening hours), `Article`, `Service`, `BreadcrumbList` |
+| Structured data | JSON-LD: `Person`, `Psychologist` (address, geo), `Article`, `BreadcrumbList` |
 | Multilingual | reciprocal `hreflang` pairs plus `x-default`, in both the `<head>` and the sitemap |
-| Images | anything over 250KB is downscaled to WebP; sources in `media/` are never modified, and oversized originals are not shipped |
+| Images | anything over 250KB is downscaled to WebP; sources in `media/` are never modified |
 | Also generated | `sitemap.xml`, `robots.txt`, `404.html` |
 
-All text is present in the HTML source. The site is fully readable and
-navigable with JavaScript disabled; `script.js` only handles the scroll-spy
-highlight and the two inquiry dialogs.
-
-Legacy `/?post=<id>&lang=<xx>` links from the previous version of the site are
-redirected to their new addresses by a small inline script on the homepage.
+All text is in the HTML source, so the site is readable without JavaScript;
+`script.js` only handles the mobile menu, the scroll-spy highlight and the two
+inquiry dialogs. Legacy `/?post=<id>&lang=<xx>` links from the previous version
+of the site are redirected to their new addresses by a small inline script on
+the homepage.
 
 ## Files
 
 | Path | Purpose |
 |---|---|
+| `content.js` | all the text, English and French |
 | `build.py` | the generator |
 | `check_links.py` | internal link and asset checker |
-| `content/` | all editable content |
 | `templates/` | Jinja2 page templates |
-| `style.css` | hand-written stylesheet; image URLs rewritten at build time |
+| `style.css` | stylesheet; image URLs rewritten at build time |
 | `script.js` | progressive enhancement only |
-| `media/` | image sources |
+| `media/` | images |
 | `_site/` | build output (git-ignored) |
-
-## Adding a new landing page
-
-Landing pages live in `content/<lang>/pages/` and take the same front matter as
-articles, plus two extra fields:
-
-- `nav: true` — include it in the sidebar and footer navigation
-- `cta: "therapy"` or `cta: "supervision"` — which inquiry form its button opens
-
-Navigation order is set by `nav_order` in `build.py`.

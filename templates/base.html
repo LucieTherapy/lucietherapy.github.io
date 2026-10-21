@@ -9,7 +9,7 @@
         {% if doc.keywords %}
         <meta name="keywords" content="{{ doc.keywords | join(', ') }}" />
         {% endif %}
-        <meta name="author" content="{{ site.person.display_name }}" />
+        <meta name="author" content="{{ c.person.name }}" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 
         <link rel="canonical" href="{{ canonical }}" />
@@ -21,7 +21,7 @@
         {% endif %}
 
         <meta property="og:type" content="{% if doc.kind == 'post' %}article{% else %}website{% endif %}" />
-        <meta property="og:site_name" content="{{ site.person.display_name }}" />
+        <meta property="og:site_name" content="{{ c.person.name }}" />
         <meta property="og:title" content="{{ doc.meta_title }}" />
         <meta property="og:description" content="{{ doc.description }}" />
         <meta property="og:url" content="{{ canonical }}" />
@@ -29,7 +29,7 @@
         {% for lg in other_langs %}
         <meta property="og:locale:alternate" content="{{ 'fr_FR' if lg == 'fr' else 'en_GB' }}" />
         {% endfor %}
-        {% set og_image = base_url ~ img_src(doc.image or site.person.image | replace('media/', '')) %}
+        {% set og_image = base_url ~ img_src(doc.image or c.person.photo) %}
         <meta property="og:image" content="{{ og_image }}" />
         <meta property="og:image:alt" content="{{ doc.title }}" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -77,7 +77,7 @@
         <div class="main-layout">
             <aside class="sidebar-nav">
                 <div class="sidebar-content">
-                    <a href="{{ home_url }}" class="brand-name">{{ site.person.display_name }}</a>
+                    <a href="{{ home_url }}" class="brand-name">{{ c.person.name }}</a>
 
                     <button type="button" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
                         <span class="nav-toggle-bar" aria-hidden="true"></span>
@@ -100,13 +100,6 @@
                         {% endif %}
                     </ul>
 
-                    <ul class="nav-links nav-secondary">
-                        {% for p in nav_pages %}
-                        <li>
-                            <a href="{{ p.url }}" class="nav-item nav-sub{% if p.key == doc.key %} active{% endif %}">{{ p.title }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
                     </nav>
 
                     <div class="lang-switch-inline">
@@ -143,20 +136,7 @@
                 </main>
 
                 <footer>
-                    <p>
-                        © {{ year }} {{ site.person.display_name }} —
-                        {{ site.person.job_title[lang] }}<br />
-                        {{ practice.location_name }}, {{ practice.address.street }},
-                        {{ practice.address.locality }} {{ practice.address.postcode }},
-                        {{ practice.address.region }}, {{ practice.address.country[lang] }}
-                    </p>
-                    <p class="footer-links">
-                        <a href="{{ home_url }}">{{ s.nav_bio }}</a>
-                        {% for p in nav_pages %}
-                        · <a href="{{ p.url }}">{{ p.title }}</a>
-                        {% endfor %}
-                        · <a href="{{ blog_url }}">{{ s.nav_blog }}</a>
-                    </p>
+                    <p>© {{ year }} {{ c.person.name }} Therapy</p>
                 </footer>
             </div>
         </div>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Page not found — {{ site.person.display_name }}</title>
+        <title>Page not found — {{ c.person.name }}</title>
         <meta name="robots" content="noindex, follow" />
         <link rel="icon" href="/media/favicon.jpg" type="image/jpeg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +18,7 @@
         <div class="main-layout">
             <aside class="sidebar-nav">
                 <div class="sidebar-content">
-                    <a href="/" class="brand-name">{{ site.person.display_name }}</a>
+                    <a href="/" class="brand-name">{{ c.person.name }}</a>
                 </div>
             </aside>
             <div class="content-area">
@@ -36,20 +36,13 @@
                             <p><em>Désolée — cette page n'existe pas ou a été déplacée.</em></p>
                             <ul>
                                 <li><a href="/">Home</a> — <a href="/fr/">Accueil (français)</a></li>
-                                <li><a href="/blog/">Articles</a> — <a href="/fr/blog/">Articles (français)</a></li>
-                                <li>
-                                    <a href="/therapist-brighton-hove/">Therapy in Brighton &amp; Hove</a>
-                                </li>
-                                <li>
-                                    <a href="/fr/psychologue-francaise-en-ligne/">Psychologue française en ligne</a>
-                                </li>
-                                <li><a href="/cbt-supervision/">CBT supervision</a> — <a href="/fr/supervision-tcc/">Supervision TCC</a></li>
+                                <li><a href="/blog/">Blog</a> — <a href="/fr/blog/">Blog (français)</a></li>
                             </ul>
                         </div>
                     </div>
                 </main>
                 <footer>
-                    <p>© {{ year }} {{ site.person.display_name }}</p>
+                    <p>© {{ year }} {{ c.person.name }}</p>
                 </footer>
             </div>
         </div>
