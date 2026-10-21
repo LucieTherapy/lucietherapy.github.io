@@ -209,7 +209,7 @@ const CONTENT = {
         image: "img_mindfulness1.jpg",
         title: { en: "Mindfulness", fr: "Mindfulness" },
         text: {
-          en: "Practicing mindfulness to respond more intentionally rather than reacting automatically.",
+          en: "Practising mindfulness to respond more intentionally rather than reacting automatically.",
           fr: "Pratiquer la pleine conscience pour répondre de manière plus intentionnelle plutôt que de réagir automatiquement.",
         },
       },
