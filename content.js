@@ -373,7 +373,7 @@ const CONTENT = {
       },
       {
         place: { en: "Singapore", fr: "Singapour" },
-        years: { en: "2018-2022", fr: "2018-2022" },
+        years: { en: "2018-2023", fr: "2018-2023" },
         text: {
           en: "Worked at Thrive Family, The Other Clinic in Singapore",
           fr: "Thrive Family, The Other Clinic à Singapour",
@@ -383,7 +383,7 @@ const CONTENT = {
       },
       {
         place: { en: "Brighton", fr: "Brighton" },
-        years: { en: "2022-present", fr: "2022-présent" },
+        years: { en: "2023-present", fr: "2023-présent" },
         text: {
           en: "Brighton & Hove Therapy in Brighton, UK",
           fr: "Brighton & Hove Therapy à Brighton, UK",
