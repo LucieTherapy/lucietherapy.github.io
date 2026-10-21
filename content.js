@@ -244,9 +244,9 @@ const CONTENT = {
         en: `
           I am a **French Clinical Psychologist** with a Bachelor's and a Master's of Science degree in Clinical Psychology and Psychopathology from the University of Paris Cité.
 
-          I completed three years of specialized training in **Cognitive and Behavioral Therapy (CBT)** at the French Association for Cognitive-Behavioral Therapy (AFTCC), where I also undertook a two-year advanced training program to become a **CBT supervisor**.
+          I completed three years of specialised training in **Cognitive and Behavioural Therapy (CBT)** at the French Association for Cognitive-Behavioural Therapy (AFTCC), where I also undertook a two-year advanced training program to become a **CBT supervisor**.
 
-          In addition, I have pursued extensive training in **Acceptance and Commitment Therapy (ACT)** and have acquired clinical skills in **Dialectical Behavior Therapy (DBT)**.
+          In addition, I have pursued extensive training in **Acceptance and Commitment Therapy (ACT)** and have acquired clinical skills in **Dialectical Behaviour Therapy (DBT)**.
         `,
         fr: `
           Je suis diplômée d'une licence et d'un **master de Psychologie Clinique et Psychopathologie** de l'Université Paris Cité.
@@ -328,7 +328,7 @@ const CONTENT = {
             fr: "Membre Professionnel ‑ Praticien ACT",
           },
           org: {
-            en: "Association for Contextual Behavioral Science (ACBS)",
+            en: "Association for Contextual Behavioural Science (ACBS)",
             fr: "Association pour les Sciences Comportementales et Contextuelles (ACBS)",
           },
           location: {
@@ -665,7 +665,7 @@ const CONTENT = {
 
           I have completed multiple **foundational and advanced trainings in ACT**, focusing on its application with **adults, adolescents, children, and parenting contexts**. My training has been delivered by internationally recognised ACT clinicians, including **Dr. Steven C. Hayes**, the originator and co-developer of ACT, and **Russ Harris**, a leading ACT trainer and author.
 
-          I continue to develop my clinical expertise through regular advanced courses exploring the use of ACT in specific situations such as **grief**, **relationship difficulties**, and **sleep disorders**. I am also a member of the **Association for Contextual Behavioral Science (ACBS)**.
+          I continue to develop my clinical expertise through regular advanced courses exploring the use of ACT in specific situations such as **grief**, **relationship difficulties**, and **sleep disorders**. I am also a member of the **Association for Contextual Behavioural Science (ACBS)**.
 
           ACT is part of the **third wave of cognitive-behavioural therapies**. Rather than focusing solely on symptom reduction, ACT helps people develop **psychological flexibility** - the ability to stay present, open up to internal experiences, and take action guided by personal values, even when life feels challenging.
 
@@ -682,7 +682,7 @@ const CONTENT = {
 
           J'ai suivi plusieurs **formations fondamentales et avancées en ACT**, portant sur son utilisation auprès des **adultes, des adolescents et des enfants**, ainsi que dans des contextes de **parentalité**. Ces formations ont été dispensées par des cliniciens de référence au niveau international, notamment le **Dr Steven C. Hayes**, fondateur et co-développeur de l'ACT, ainsi que **Russ Harris**, formateur et auteur reconnu dans ce champ.
 
-          Je poursuis régulièrement le développement de mes compétences à travers des **formations avancées**, centrées sur l'application de l'ACT à des situations cliniques spécifiques telles que le **deuil**, les **difficultés relationnelles**, les **troubles du sommeil**, ou encore d'autres problématiques complexes du quotidien. Je suis également membre de l'**Association for Contextual Behavioral Science (ACBS)**.
+          Je poursuis régulièrement le développement de mes compétences à travers des **formations avancées**, centrées sur l'application de l'ACT à des situations cliniques spécifiques telles que le **deuil**, les **difficultés relationnelles**, les **troubles du sommeil**, ou encore d'autres problématiques complexes du quotidien. Je suis également membre de l'**Association for Contextual Behavioural Science (ACBS)**.
 
           L'ACT s'inscrit dans la **troisième vague des thérapies cognitivo-comportementales**. Plutôt que de viser uniquement la disparition des symptômes, elle cherche à développer la **flexibilité psychologique** : la capacité à rester en contact avec l'instant présent, à s'ouvrir à son expérience intérieure et à agir en cohérence avec ce qui compte réellement pour soi, même lorsque cela implique de l'inconfort.
 
