@@ -1103,7 +1103,7 @@ const CONTENT = {
 
           - Excessive worry
           - Intrusive thoughts
-          - Catastrophizing
+          - Catastrophising
           - Overthinking
           - Hypervigilance
           - Difficulty tolerating uncertainty
@@ -1127,7 +1127,7 @@ const CONTENT = {
 
           A wide range of anxiety-related difficulties and disorders exist, varying in intensity and impact on daily life. These may include:
 
-          - Generalized Anxiety Disorder (GAD)
+          - Generalised Anxiety Disorder (GAD)
           - Social Anxiety
           - Panic Attacks
           - Health Anxiety
