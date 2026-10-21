@@ -83,7 +83,10 @@ const CONTENT = {
 
   // The text next to the photo
   intro: {
-    title: { en: "CBT and ACT Therapy in French and English", fr: "Formation et parcours" },
+    title: {
+      en: "CBT and ACT Therapy in French and English",
+      fr: "Formation et parcours",
+    },
     text: {
       en: `
         I provide short and long-term support for adolescents (16+) and adults, both in-person in Brighton (United Kingdom) and online for Expats and French speakers.
@@ -108,8 +111,8 @@ const CONTENT = {
     in_person: {
       title: { en: "In-person & Online", fr: "En personne et en ligne" },
       text: {
-        en: "I receive clients in person on Mondays, Wednesdays and Fridays at:",
-        fr: "Je reçois les patients en personne les lundis et vendredis à :",
+        en: "I receive clients in person on Tuesdays, Wednesdays, Thursdays and Fridays at:",
+        fr: "Je reçois les patients en personne les mardis, mercredis, jeudis et vendredis à :",
       },
       place: "Brighton and Hove Psychotherapy",
       address: {
@@ -120,7 +123,8 @@ const CONTENT = {
         country: { en: "United Kingdom", fr: "Royaume-Uni" },
         country_code: "GB",
       },
-      website: "https://www.brightonandhovepsychotherapy.com/practitioners/lucie-ramet/",
+      website:
+        "https://www.brightonandhovepsychotherapy.com/practitioners/lucie-ramet/",
       // Google Maps embed link (Share -> Embed a map -> copy the src)
       map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2520.5786738914614!2d-0.17646192323758376!3d50.829398860647895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4875854344555555%3A0x123456789!2zNDkgQ2h1cmNoIFJkLCBIb3ZlIEJOMyAyQkUsIFVL!5e0!3m2!1sen!2suk!4v1610000000000!5m2!1sen!2suk",
       // Map pin given to Google
@@ -215,7 +219,10 @@ const CONTENT = {
   fees: {
     title: { en: "Fees & Appointments", fr: "Tarifs & Rendez-vous" },
     therapy: {
-      title: { en: "Individual therapy session", fr: "Séance individuelle de thérapie" },
+      title: {
+        en: "Individual therapy session",
+        fr: "Séance individuelle de thérapie",
+      },
       price: { en: "50min - £90", fr: "50min - 100€" },
     },
     supervision: {
@@ -270,7 +277,10 @@ const CONTENT = {
       },
     },
     affiliations: {
-      title: { en: "Professional Affiliation", fr: "Affiliation professionnelle" },
+      title: {
+        en: "Professional Affiliation",
+        fr: "Affiliation professionnelle",
+      },
       list: [
         {
           logo: "logo_bps.png",
@@ -287,7 +297,10 @@ const CONTENT = {
         },
         {
           logo: "logo_sps.png",
-          role: { en: "Full Member (FM022016A)", fr: "Full Member (FM022016A)" },
+          role: {
+            en: "Full Member (FM022016A)",
+            fr: "Full Member (FM022016A)",
+          },
           org: {
             en: "Singapore Psychological Society (SPS)",
             fr: "Société de Psychologie de Singapour (SPS)",
@@ -318,7 +331,10 @@ const CONTENT = {
             en: "Association for Contextual Behavioral Science (ACBS)",
             fr: "Association pour les Sciences Comportementales et Contextuelles (ACBS)",
           },
-          location: { en: "Intl, UK Chapter", fr: "International, section du Royaume-Uni" },
+          location: {
+            en: "Intl, UK Chapter",
+            fr: "International, section du Royaume-Uni",
+          },
           since: { en: "Since 2023", fr: "Depuis 2023" },
         },
         {
@@ -389,7 +405,10 @@ const CONTENT = {
     btn_background: { en: "About me", fr: "Mon parcours" },
     btn_contact: { en: "Contact", fr: "Me Contacter" },
     btn_book: { en: "Book an Appointment", fr: "Prendre Rendez-vous" },
-    btn_supervision: { en: "Supervision Inquiry", fr: "Demande de supervision" },
+    btn_supervision: {
+      en: "Supervision Inquiry",
+      fr: "Demande de supervision",
+    },
     read_more: { en: "Read Article", fr: "Lire l'article" },
     all_articles: { en: "All articles", fr: "Tous les articles" },
     skip_to_content: { en: "Skip to content", fr: "Aller au contenu" },
@@ -440,7 +459,10 @@ const CONTENT = {
       id: "post-what-is-cbt",
       image: "blog_cbt.jpg",
       date: "",
-      slug: { en: "what-is-cbt-cognitive-behavioural-therapy", fr: "qu-est-ce-que-la-tcc" },
+      slug: {
+        en: "what-is-cbt-cognitive-behavioural-therapy",
+        fr: "qu-est-ce-que-la-tcc",
+      },
       title: {
         en: "What is Cognitive Behavioural Therapy (CBT)?",
         fr: "Qu'est-ce que la Thérapie Cognitivo-Comportementale (TCC) ?",
@@ -455,8 +477,18 @@ const CONTENT = {
           fr: "Comment fonctionne la Thérapie Cognitivo-Comportementale : une thérapie structurée et validée scientifiquement pour l'anxiété, la dépression, les TOC.",
         },
         keywords: {
-          en: ["CBT", "cognitive behavioural therapy", "evidence-based therapy", "AFTCC"],
-          fr: ["TCC", "thérapie cognitivo-comportementale", "AFTCC", "psychologue"],
+          en: [
+            "CBT",
+            "cognitive behavioural therapy",
+            "evidence-based therapy",
+            "AFTCC",
+          ],
+          fr: [
+            "TCC",
+            "thérapie cognitivo-comportementale",
+            "AFTCC",
+            "psychologue",
+          ],
         },
       },
       text: {
@@ -493,8 +525,14 @@ const CONTENT = {
       id: "post-why-consult-therapist",
       image: "blog_whyconsult.jpg",
       date: "",
-      slug: { en: "why-consult-a-therapist", fr: "pourquoi-consulter-un-psychologue" },
-      title: { en: "Why Consult a Therapist?", fr: "Pourquoi consulter un psychologue ?" },
+      slug: {
+        en: "why-consult-a-therapist",
+        fr: "pourquoi-consulter-un-psychologue",
+      },
+      title: {
+        en: "Why Consult a Therapist?",
+        fr: "Pourquoi consulter un psychologue ?",
+      },
       seo: {
         title: {
           en: "Why Consult a Therapist? Reasons to Start Therapy",
@@ -506,7 +544,11 @@ const CONTENT = {
         },
         keywords: {
           en: ["why see a therapist", "starting therapy", "when to seek help"],
-          fr: ["pourquoi consulter un psychologue", "motifs de consultation", "première séance"],
+          fr: [
+            "pourquoi consulter un psychologue",
+            "motifs de consultation",
+            "première séance",
+          ],
         },
       },
       text: {
@@ -603,8 +645,18 @@ const CONTENT = {
           fr: "L'ACT expliquée par une praticienne formée par Steven Hayes et Russ Harris : flexibilité psychologique, valeurs, et déroulement des séances.",
         },
         keywords: {
-          en: ["ACT", "acceptance and commitment therapy", "psychological flexibility", "ACBS"],
-          fr: ["ACT", "thérapie acceptation engagement", "flexibilité psychologique", "ACBS"],
+          en: [
+            "ACT",
+            "acceptance and commitment therapy",
+            "psychological flexibility",
+            "ACBS",
+          ],
+          fr: [
+            "ACT",
+            "thérapie acceptation engagement",
+            "flexibilité psychologique",
+            "ACBS",
+          ],
         },
       },
       text: {
@@ -667,8 +719,17 @@ const CONTENT = {
           fr: "Les difficultés moins visibles de l'expatriation - isolement, adaptation culturelle, tensions familiales - et comment un suivi psychologique peut aider.",
         },
         keywords: {
-          en: ["expat therapy", "therapy for expatriates", "moving abroad", "cultural adjustment"],
-          fr: ["psychologue expatriés", "expatriation", "thérapie en français à l'étranger"],
+          en: [
+            "expat therapy",
+            "therapy for expatriates",
+            "moving abroad",
+            "cultural adjustment",
+          ],
+          fr: [
+            "psychologue expatriés",
+            "expatriation",
+            "thérapie en français à l'étranger",
+          ],
         },
       },
       text: {
@@ -739,7 +800,10 @@ const CONTENT = {
       id: "post-cbt-supervision",
       image: "blog_supervision.jpg",
       date: "",
-      slug: { en: "cbt-supervision-for-therapists", fr: "supervision-tcc-pour-therapeutes" },
+      slug: {
+        en: "cbt-supervision-for-therapists",
+        fr: "supervision-tcc-pour-therapeutes",
+      },
       title: {
         en: "CBT Supervision: A Dedicated Space for Your Professional Growth",
         fr: "Supervision TCC : Un espace dédié à votre développement professionnel",
@@ -754,8 +818,18 @@ const CONTENT = {
           fr: "Supervision TCC avec une superviseure certifiée TPS reconnue par l'AFTCC : formulation de cas, compétences techniques, dilemmes éthiques, certification.",
         },
         keywords: {
-          en: ["CBT supervision", "clinical supervision", "AFTCC supervisor", "TPS"],
-          fr: ["supervision TCC", "superviseur AFTCC", "TPS", "supervision clinique"],
+          en: [
+            "CBT supervision",
+            "clinical supervision",
+            "AFTCC supervisor",
+            "TPS",
+          ],
+          fr: [
+            "supervision TCC",
+            "superviseur AFTCC",
+            "TPS",
+            "supervision clinique",
+          ],
         },
       },
       text: {
@@ -824,7 +898,10 @@ const CONTENT = {
       id: "post-online-therapy",
       image: "blog_online_therapy.webp",
       date: "",
-      slug: { en: "benefits-of-online-therapy", fr: "bienfaits-de-la-therapie-en-ligne" },
+      slug: {
+        en: "benefits-of-online-therapy",
+        fr: "bienfaits-de-la-therapie-en-ligne",
+      },
       title: {
         en: "Online Therapy: Accessible Support from Anywhere",
         fr: "Thérapie en Ligne : un soutien accessible où que vous soyez",
@@ -839,8 +916,17 @@ const CONTENT = {
           fr: "Ce qu'apporte la thérapie en ligne - accessibilité, continuité des soins, choix du praticien - et les points pratiques à considérer avant de commencer.",
         },
         keywords: {
-          en: ["online therapy", "teletherapy", "remote counselling", "video sessions"],
-          fr: ["thérapie en ligne", "téléconsultation psychologue", "psychologue à distance"],
+          en: [
+            "online therapy",
+            "teletherapy",
+            "remote counselling",
+            "video sessions",
+          ],
+          fr: [
+            "thérapie en ligne",
+            "téléconsultation psychologue",
+            "psychologue à distance",
+          ],
         },
       },
       text: {
@@ -903,7 +989,10 @@ const CONTENT = {
       id: "Mindfulness",
       image: "img_mindfulness.png",
       date: "",
-      slug: { en: "mindfulness-in-therapy", fr: "pleine-conscience-en-therapie" },
+      slug: {
+        en: "mindfulness-in-therapy",
+        fr: "pleine-conscience-en-therapie",
+      },
       title: {
         en: "Mindfulness in Therapy: Responding Rather Than Reacting",
         fr: "Pleine conscience en thérapie : répondre plutôt que réagir",
@@ -918,7 +1007,11 @@ const CONTENT = {
           fr: "La pleine conscience comme entraînement de l'attention plutôt que relaxation : son usage en TCC et en ACT, la pratique concrète, et ses malentendus.",
         },
         keywords: {
-          en: ["mindfulness", "mindfulness therapy", "present-moment awareness"],
+          en: [
+            "mindfulness",
+            "mindfulness therapy",
+            "present-moment awareness",
+          ],
           fr: ["pleine conscience", "mindfulness", "méditation thérapie"],
         },
       },
@@ -972,7 +1065,12 @@ const CONTENT = {
           fr: "Les manifestations physiques, cognitives et comportementales de l'anxiété, pourquoi l'évitement l'entretient, et comment la TCC et l'ACT aident.",
         },
         keywords: {
-          en: ["anxiety", "anxiety symptoms", "panic attacks", "generalised anxiety disorder"],
+          en: [
+            "anxiety",
+            "anxiety symptoms",
+            "panic attacks",
+            "generalised anxiety disorder",
+          ],
           fr: ["anxiété", "trouble anxieux", "attaque de panique", "TAG"],
         },
       },
